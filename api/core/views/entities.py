@@ -8,7 +8,7 @@ from core.models import Source
 
 class ListEntities(views.APIView):
     """
-    Documentation string ...
+    TODO: Documentation string ...
     """
 
     def get(self, request, *args, **kwargs):

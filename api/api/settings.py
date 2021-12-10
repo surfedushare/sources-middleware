@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
 
+    'api',
     'core',
 ]
 
@@ -61,6 +62,14 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'api.urls'
 
 TEMPLATES = [
+    {
+        "BACKEND": "django.template.backends.jinja2.Jinja2",
+        "APP_DIRS": True,
+        "OPTIONS": {
+            "environment": "api.jinja2.environment",
+            "extensions": []
+        }
+    },
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [],
