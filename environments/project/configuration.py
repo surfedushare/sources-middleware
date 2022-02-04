@@ -57,8 +57,8 @@ def create_configuration(mode, context="container"):
     config.load_system()
     config.load_user()
     config.load_project()
-    config.load_shell_env()
     config.load_runtime()
+    config.load_shell_env()
 
     # See: https://docs.aws.amazon.com/AmazonECS/latest/userguide/task-metadata-endpoint-v3-fargate.html
     container_metadata = {}

@@ -40,7 +40,7 @@ IS_AWS = environment.aws.is_aws
 SECRET_KEY = environment.secrets.django.secret_key
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = environment.django.debug
 
 ALLOWED_HOSTS = ["*"]
 
@@ -120,7 +120,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': environment.postgres.database,
         'USER':  environment.postgres.user,
-        'PASSWORD': environment.secrets.postgres.application_password,
+        'PASSWORD': environment.secrets.postgres.password,
         'HOST': environment.postgres.host,
         'PORT':  environment.postgres.port
     }

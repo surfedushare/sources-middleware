@@ -1,8 +1,6 @@
-project:
-  prefix: "nppo"
-
 postgres:
   user: "postgres"
+  application_user: "nppo_middleware"
 
 aws:
   bastion: null
@@ -12,5 +10,4 @@ aws:
   rds_security_group_id: null
   cluster_arn: null
   task_role_arn: null
-  harvester_task_role_arn: null
   postgres_password_arn: null

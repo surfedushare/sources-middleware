@@ -8,16 +8,12 @@ env: "localhost"
 
 django:
   debug: true
-  protocol: "http"
-  domain: "localhost"
-  logging:
-    level: "DEBUG"
 
 postgres:
   host: "postgres"
   port: 5432
   database: "nppo_middleware"
-  user: "postgres"
+  user: "nppo_middleware"
 
 aws:
   is_aws: false
