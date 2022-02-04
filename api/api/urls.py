@@ -3,6 +3,7 @@ from django.urls import path, include
 from django.views.generic import TemplateView
 from rest_framework.schemas import get_schema_view
 
+from api.views import health_check
 from core.views import ListSources, ListEntities
 
 
@@ -35,6 +36,7 @@ api_urlpatterns += [
 
 
 urlpatterns = [
+    path('', health_check),
     path('admin/', admin.site.urls),
     path('api/v1/', include((api_urlpatterns, "v1",))),
 ]
