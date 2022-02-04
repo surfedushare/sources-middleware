@@ -1,0 +1,51 @@
+{
+    "middleware-nginx": {
+        "name": "middleware-nginx",
+        "image": "${REPOSITORY}/middleware-nginx:${version}",
+        "essential": true,
+        "portMappings": [
+            {
+                "hostPort": 80,
+                "protocol": "tcp",
+                "containerPort": 80
+            }
+        ],
+        "logConfiguration": {
+            "logDriver": "awslogs",
+            "options": {
+                "awslogs-group": "/ecs/middleware",
+                "awslogs-region": "eu-central-1",
+                "awslogs-stream-prefix": "${version}",
+                "awslogs-multiline-pattern": "^\\[?\\d\\d\\d\\d\\-\\d\\d\\-\\d\\d \\d\\d:\\d\\d:\\d\\d,\\d\\d\\d"
+            }
+        }
+    },
+    "middleware-container": {
+        "name": "middleware-container",
+        "image": "${REPOSITORY}/middleware:${version}",
+        "cpu": 0,
+        "essential": true,
+        "portMappings": [
+            {
+                "hostPort": 8080,
+                "protocol": "tcp",
+                "containerPort": 8080
+            }
+        ],
+        "environment": [
+            {
+                "name": "APPLICATION_MODE",
+                "value": "${mode}"
+            }
+        ],
+        "logConfiguration": {
+            "logDriver": "awslogs",
+            "options": {
+                "awslogs-group": "/ecs/middleware",
+                "awslogs-region": "eu-central-1",
+                "awslogs-stream-prefix": "${version}",
+                "awslogs-multiline-pattern": "^\\[?\\d\\d\\d\\d\\-\\d\\d\\-\\d\\d \\d\\d:\\d\\d:\\d\\d,\\d\\d\\d"
+            }
+        }
+    }
+}
