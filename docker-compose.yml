@@ -15,6 +15,7 @@ services:
       - COLUMNS=80
       - PYTHONUNBUFFERED=1
       - DJANGO_SETTINGS_MODULE=api.settings
+      - APPLICATION_MODE=${APPLICATION_MODE}
     ports:
       - "127.0.0.1:8080:8080"
     volumes:

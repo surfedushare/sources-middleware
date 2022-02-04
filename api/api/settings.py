@@ -11,17 +11,32 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 import os
+import sys
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+# We're adding the environments directory outside of the project directory to the path
+# That way we can load the environments and re-use them in different contexts
+# Like maintenance tasks and harvesting tasks
+sys.path.append(os.path.join(BASE_DIR, "..", "environments"))
+from project import create_configuration_and_session, MODE, CONTEXT
+from utils.packaging import get_package_info
+# Then we read some variables from the (build) environment
+PACKAGE_INFO = get_package_info()
+GIT_COMMIT = PACKAGE_INFO.get("commit", "unknown-git-commit")
+VERSION = PACKAGE_INFO.get("versions").get("middleware", "0.0.0")
+environment, session = create_configuration_and_session()
+credentials = session.get_credentials()
+IS_AWS = environment.aws.is_aws
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-v%-#%go$mg4w*kghydzns3u%&n&u6(ekva_=lj7kdi#)i4%95n'
+SECRET_KEY = environment.secrets.django.secret_key
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -94,10 +109,11 @@ WSGI_APPLICATION = 'api.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'nppo_middleware',
-        'USER': 'postgres',
-        'PASSWORD': 'qwerty',
-        'HOST': 'postgres',
+        'NAME': environment.postgres.database,
+        'USER':  environment.postgres.user,
+        'PASSWORD': environment.secrets.postgres.application_password,
+        'HOST': environment.postgres.host,
+        'PORT':  environment.postgres.port
     }
 }
 

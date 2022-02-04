@@ -17,3 +17,11 @@ pandas==1.1.5
 git+https://github.com/fako/django-json-field.git
 lxml==4.6.1
 datagrowth==0.17.5
+
+# Tools
+invoke==1.4.1
+
+# AWS
+awscli==1.19.85
+boto3==1.17.85
+requests-aws4auth==1.0

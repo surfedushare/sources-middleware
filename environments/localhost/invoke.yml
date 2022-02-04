@@ -1,0 +1,31 @@
+# NB: This file is committed in a public repo. DO NOT COMMIT REAL SECRETS!
+# It uses low security passwords and secrets for a local setup
+# Make sure your local setup is shielded from the internet
+
+# NB: When making changes restart your container or development server to load the update
+
+env: "localhost"
+
+django:
+  debug: true
+  protocol: "http"
+  domain: "localhost"
+  logging:
+    level: "DEBUG"
+
+postgres:
+  host: "postgres"
+  port: 5432
+  database: "nppo_middleware"
+  user: "postgres"
+
+aws:
+  is_aws: false
+
+secrets:
+  postgres:
+    password: "qwerty"
+    application_password: "qwerty"
+  django:
+    secret_key: "development-secret-key--do-not-use"
+    admin_password: "qwerty"
