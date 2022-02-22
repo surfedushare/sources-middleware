@@ -1,0 +1,3002 @@
+[
+    {
+        "id": 14949,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Aafke Victoor",
+        "translation": {
+            "en": "Aafke Victoor",
+            "nl": "Aafke Victoor"
+        },
+        "frequency": 3
+    },
+    {
+        "id": 14774,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "A. (Aminata) Cairo",
+        "translation": {
+            "en": "A. (Aminata) Cairo",
+            "nl": "A. (Aminata) Cairo"
+        },
+        "frequency": 4
+    },
+    {
+        "id": 14944,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "A.A.M. Tangenbergh",
+        "translation": {
+            "en": "A.A.M. Tangenbergh",
+            "nl": "A.A.M. Tangenbergh"
+        },
+        "frequency": 3
+    },
+    {
+        "id": 14546,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Aarnout Brombacher",
+        "translation": {
+            "en": "Aarnout Brombacher",
+            "nl": "Aarnout Brombacher"
+        },
+        "frequency": 8
+    },
+    {
+        "id": 15244,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Aart Schoonderbeek",
+        "translation": {
+            "en": "Aart Schoonderbeek",
+            "nl": "Aart Schoonderbeek"
+        },
+        "frequency": 2
+    },
+    {
+        "id": 14701,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Aart van der Maas",
+        "translation": {
+            "en": "Aart van der Maas",
+            "nl": "Aart van der Maas"
+        },
+        "frequency": 5
+    },
+    {
+        "id": 14943,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "A.A. Venekamp",
+        "translation": {
+            "en": "A.A. Venekamp",
+            "nl": "A.A. Venekamp"
+        },
+        "frequency": 3
+    },
+    {
+        "id": 15245,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Abbas Ebadi",
+        "translation": {
+            "en": "Abbas Ebadi",
+            "nl": "Abbas Ebadi"
+        },
+        "frequency": 2
+    },
+    {
+        "id": 15226,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "A.B. Rietman",
+        "translation": {
+            "en": "A.B. Rietman",
+            "nl": "A.B. Rietman"
+        },
+        "frequency": 2
+    },
+    {
+        "id": 14950,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Ad A. van Dooren",
+        "translation": {
+            "en": "Ad A. van Dooren",
+            "nl": "Ad A. van Dooren"
+        },
+        "frequency": 3
+    },
+    {
+        "id": 15247,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Addy Pruijssers",
+        "translation": {
+            "en": "Addy Pruijssers",
+            "nl": "Addy Pruijssers"
+        },
+        "frequency": 2
+    },
+    {
+        "id": 14939,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "A de Koster",
+        "translation": {
+            "en": "A de Koster",
+            "nl": "A de Koster"
+        },
+        "frequency": 3
+    },
+    {
+        "id": 15223,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "A. de Veer",
+        "translation": {
+            "en": "A. de Veer",
+            "nl": "A. de Veer"
+        },
+        "frequency": 2
+    },
+    {
+        "id": 15216,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "A. Diender",
+        "translation": {
+            "en": "A. Diender",
+            "nl": "A. Diender"
+        },
+        "frequency": 2
+    },
+    {
+        "id": 15246,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Ad J. Kil",
+        "translation": {
+            "en": "Ad J. Kil",
+            "nl": "Ad J. Kil"
+        },
+        "frequency": 2
+    },
+    {
+        "id": 14951,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Adriaan van den Brule",
+        "translation": {
+            "en": "Adriaan van den Brule",
+            "nl": "Adriaan van den Brule"
+        },
+        "frequency": 3
+    },
+    {
+        "id": 15248,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Adri Schreuder",
+        "translation": {
+            "en": "Adri Schreuder",
+            "nl": "Adri Schreuder"
+        },
+        "frequency": 2
+    },
+    {
+        "id": 15217,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "A. Eijkelenboom",
+        "translation": {
+            "en": "A. Eijkelenboom",
+            "nl": "A. Eijkelenboom"
+        },
+        "frequency": 2
+    },
+    {
+        "id": 14945,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "A.E. Prick",
+        "translation": {
+            "en": "A.E. Prick",
+            "nl": "A.E. Prick"
+        },
+        "frequency": 3
+    },
+    {
+        "id": 14402,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "A.F. de Wild",
+        "translation": {
+            "en": "A.F. de Wild",
+            "nl": "A.F. de Wild"
+        },
+        "frequency": 26
+    },
+    {
+        "id": 14582,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "A. Feleus",
+        "translation": {
+            "en": "A. Feleus",
+            "nl": "A. Feleus"
+        },
+        "frequency": 7
+    },
+    {
+        "id": 14583,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "A.F. Spruijt",
+        "translation": {
+            "en": "A.F. Spruijt",
+            "nl": "A.F. Spruijt"
+        },
+        "frequency": 8
+    },
+    {
+        "id": 14946,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "A.F. van Lier",
+        "translation": {
+            "en": "A.F. van Lier",
+            "nl": "A.F. van Lier"
+        },
+        "frequency": 3
+    },
+    {
+        "id": 15228,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "A.H.E. van Beeck",
+        "translation": {
+            "en": "A.H.E. van Beeck",
+            "nl": "A.H.E. van Beeck"
+        },
+        "frequency": 2
+    },
+    {
+        "id": 15227,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "A.H Pakpour",
+        "translation": {
+            "en": "A.H Pakpour",
+            "nl": "A.H Pakpour"
+        },
+        "frequency": 2
+    },
+    {
+        "id": 14952,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Aimee Hoeve",
+        "translation": {
+            "en": "Aimee Hoeve",
+            "nl": "Aimee Hoeve"
+        },
+        "frequency": 3
+    },
+    {
+        "id": 15232,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "A.J.B.M de Vos",
+        "translation": {
+            "en": "A.J.B.M de Vos",
+            "nl": "A.J.B.M de Vos"
+        },
+        "frequency": 2
+    },
+    {
+        "id": 15233,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "A.J.C. Prick",
+        "translation": {
+            "en": "A.J.C. Prick",
+            "nl": "A.J.C. Prick"
+        },
+        "frequency": 2
+    },
+    {
+        "id": 14525,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "A.J.E.M. Bakker",
+        "translation": {
+            "en": "A.J.E.M. Bakker",
+            "nl": "A.J.E.M. Bakker"
+        },
+        "frequency": 9
+    },
+    {
+        "id": 15234,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "A.J.E. Wagemaker",
+        "translation": {
+            "en": "A.J.E. Wagemaker",
+            "nl": "A.J.E. Wagemaker"
+        },
+        "frequency": 2
+    },
+    {
+        "id": 14947,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "A.J.F.M. (Ad) Kerkhof",
+        "translation": {
+            "en": "A.J.F.M. (Ad) Kerkhof",
+            "nl": "A.J.F.M. (Ad) Kerkhof"
+        },
+        "frequency": 3
+    },
+    {
+        "id": 14503,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "A.J.H. Bouwmeester",
+        "translation": {
+            "en": "A.J.H. Bouwmeester",
+            "nl": "A.J.H. Bouwmeester"
+        },
+        "frequency": 10
+    },
+    {
+        "id": 15235,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "A.J.J.M. Ruijssenaars",
+        "translation": {
+            "en": "A.J.J.M. Ruijssenaars",
+            "nl": "A.J.J.M. Ruijssenaars"
+        },
+        "frequency": 2
+    },
+    {
+        "id": 14481,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "A.J.J. Voorham",
+        "translation": {
+            "en": "A.J.J. Voorham",
+            "nl": "A.J.J. Voorham"
+        },
+        "frequency": 11
+    },
+    {
+        "id": 15236,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "A.J.M. Vermunt",
+        "translation": {
+            "en": "A.J.M. Vermunt",
+            "nl": "A.J.M. Vermunt"
+        },
+        "frequency": 2
+    },
+    {
+        "id": 15229,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "A.J. Reijenga",
+        "translation": {
+            "en": "A.J. Reijenga",
+            "nl": "A.J. Reijenga"
+        },
+        "frequency": 2
+    },
+    {
+        "id": 14434,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "A.J.S. van Gelderen",
+        "translation": {
+            "en": "A.J.S. van Gelderen",
+            "nl": "A.J.S. van Gelderen"
+        },
+        "frequency": 17
+    },
+    {
+        "id": 14524,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "A.J. ter Maten - Speksnijder",
+        "translation": {
+            "en": "A.J. ter Maten - Speksnijder",
+            "nl": "A.J. ter Maten - Speksnijder"
+        },
+        "frequency": 9
+    },
+    {
+        "id": 15230,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "A.J. van der Beek",
+        "translation": {
+            "en": "A.J. van der Beek",
+            "nl": "A.J. van der Beek"
+        },
+        "frequency": 2
+    },
+    {
+        "id": 15231,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "A.J. van der Wal",
+        "translation": {
+            "en": "A.J. van der Wal",
+            "nl": "A.J. van der Wal"
+        },
+        "frequency": 2
+    },
+    {
+        "id": 14775,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "A. Kassenberg",
+        "translation": {
+            "en": "A. Kassenberg",
+            "nl": "A. Kassenberg"
+        },
+        "frequency": 4
+    },
+    {
+        "id": 15218,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "A. Klaassen",
+        "translation": {
+            "en": "A. Klaassen",
+            "nl": "A. Klaassen"
+        },
+        "frequency": 2
+    },
+    {
+        "id": 15219,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "A. Knoope",
+        "translation": {
+            "en": "A. Knoope",
+            "nl": "A. Knoope"
+        },
+        "frequency": 2
+    },
+    {
+        "id": 14776,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "A. Kooiman",
+        "translation": {
+            "en": "A. Kooiman",
+            "nl": "A. Kooiman"
+        },
+        "frequency": 4
+    },
+    {
+        "id": 15249,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Albere Köke",
+        "translation": {
+            "en": "Albere Köke",
+            "nl": "Albere Köke"
+        },
+        "frequency": 2
+    },
+    {
+        "id": 15250,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Albère Köke",
+        "translation": {
+            "en": "Albère Köke",
+            "nl": "Albère Köke"
+        },
+        "frequency": 2
+    },
+    {
+        "id": 14953,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Albert ten Busschen",
+        "translation": {
+            "en": "Albert ten Busschen",
+            "nl": "Albert ten Busschen"
+        },
+        "frequency": 3
+    },
+    {
+        "id": 14396,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Albine Moser",
+        "translation": {
+            "en": "Albine Moser",
+            "nl": "Albine Moser"
+        },
+        "frequency": 27
+    },
+    {
+        "id": 14632,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "A.L. Cordia",
+        "translation": {
+            "en": "A.L. Cordia",
+            "nl": "A.L. Cordia"
+        },
+        "frequency": 6
+    },
+    {
+        "id": 15251,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Aletta Smits",
+        "translation": {
+            "en": "Aletta Smits",
+            "nl": "Aletta Smits"
+        },
+        "frequency": 2
+    },
+    {
+        "id": 15252,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Alexander Rosemann",
+        "translation": {
+            "en": "Alexander Rosemann",
+            "nl": "Alexander Rosemann"
+        },
+        "frequency": 2
+    },
+    {
+        "id": 14954,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Alexis Versele",
+        "translation": {
+            "en": "Alexis Versele",
+            "nl": "Alexis Versele"
+        },
+        "frequency": 3
+    },
+    {
+        "id": 14584,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "A.L. Francke",
+        "translation": {
+            "en": "A.L. Francke",
+            "nl": "A.L. Francke"
+        },
+        "frequency": 7
+    },
+    {
+        "id": 14781,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Alicia Dibbets",
+        "translation": {
+            "en": "Alicia Dibbets",
+            "nl": "Alicia Dibbets"
+        },
+        "frequency": 4
+    },
+    {
+        "id": 14955,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Alie Velvis",
+        "translation": {
+            "en": "Alie Velvis",
+            "nl": "Alie Velvis"
+        },
+        "frequency": 3
+    },
+    {
+        "id": 14702,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Alie Weerman",
+        "translation": {
+            "en": "Alie Weerman",
+            "nl": "Alie Weerman"
+        },
+        "frequency": 5
+    },
+    {
+        "id": 14635,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Aljona Wertheim- Davygora",
+        "translation": {
+            "en": "Aljona Wertheim- Davygora",
+            "nl": "Aljona Wertheim- Davygora"
+        },
+        "frequency": 6
+    },
+    {
+        "id": 15237,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "A.L. Pool-Goudzwaard",
+        "translation": {
+            "en": "A.L. Pool-Goudzwaard",
+            "nl": "A.L. Pool-Goudzwaard"
+        },
+        "frequency": 2
+    },
+    {
+        "id": 14380,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "A.L. van Staa",
+        "translation": {
+            "en": "A.L. van Staa",
+            "nl": "A.L. van Staa"
+        },
+        "frequency": 98
+    },
+    {
+        "id": 15253,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Alwin Rijpstra",
+        "translation": {
+            "en": "Alwin Rijpstra",
+            "nl": "Alwin Rijpstra"
+        },
+        "frequency": 2
+    },
+    {
+        "id": 14473,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "A.L.W. Vogelaar",
+        "translation": {
+            "en": "A.L.W. Vogelaar",
+            "nl": "A.L.W. Vogelaar"
+        },
+        "frequency": 12
+    },
+    {
+        "id": 14433,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "A. Maas",
+        "translation": {
+            "en": "A. Maas",
+            "nl": "A. Maas"
+        },
+        "frequency": 17
+    },
+    {
+        "id": 14940,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "A. Machielse",
+        "translation": {
+            "en": "A. Machielse",
+            "nl": "A. Machielse"
+        },
+        "frequency": 3
+    },
+    {
+        "id": 14941,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "A. Mansoux",
+        "translation": {
+            "en": "A. Mansoux",
+            "nl": "A. Mansoux"
+        },
+        "frequency": 3
+    },
+    {
+        "id": 15220,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "A. Maras",
+        "translation": {
+            "en": "A. Maras",
+            "nl": "A. Maras"
+        },
+        "frequency": 2
+    },
+    {
+        "id": 14703,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Amber Ronteltap",
+        "translation": {
+            "en": "Amber Ronteltap",
+            "nl": "Amber Ronteltap"
+        },
+        "frequency": 5
+    },
+    {
+        "id": 14948,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "A.M.C. Dooremalen",
+        "translation": {
+            "en": "A.M.C. Dooremalen",
+            "nl": "A.M.C. Dooremalen"
+        },
+        "frequency": 3
+    },
+    {
+        "id": 15238,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "A.M.C. van Rossum",
+        "translation": {
+            "en": "A.M.C. van Rossum",
+            "nl": "A.M.C. van Rossum"
+        },
+        "frequency": 2
+    },
+    {
+        "id": 14956,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Amir Heathcote",
+        "translation": {
+            "en": "Amir Heathcote",
+            "nl": "Amir Heathcote"
+        },
+        "frequency": 3
+    },
+    {
+        "id": 15239,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "A.M.M. Nigten",
+        "translation": {
+            "en": "A.M.M. Nigten",
+            "nl": "A.M.M. Nigten"
+        },
+        "frequency": 2
+    },
+    {
+        "id": 14435,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "A.M. Pot",
+        "translation": {
+            "en": "A.M. Pot",
+            "nl": "A.M. Pot"
+        },
+        "frequency": 17
+    },
+    {
+        "id": 15254,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Amy Potappel",
+        "translation": {
+            "en": "Amy Potappel",
+            "nl": "Amy Potappel"
+        },
+        "frequency": 2
+    },
+    {
+        "id": 14782,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Ana M. Sobočan",
+        "translation": {
+            "en": "Ana M. Sobočan",
+            "nl": "Ana M. Sobočan"
+        },
+        "frequency": 4
+    },
+    {
+        "id": 14957,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Andrea Donker",
+        "translation": {
+            "en": "Andrea Donker",
+            "nl": "Andrea Donker"
+        },
+        "frequency": 3
+    },
+    {
+        "id": 14958,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Andreas I. Koutrouvelis",
+        "translation": {
+            "en": "Andreas I. Koutrouvelis",
+            "nl": "Andreas I. Koutrouvelis"
+        },
+        "frequency": 3
+    },
+    {
+        "id": 15256,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Andreas Rothgangel",
+        "translation": {
+            "en": "Andreas Rothgangel",
+            "nl": "Andreas Rothgangel"
+        },
+        "frequency": 2
+    },
+    {
+        "id": 15255,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Andrea van Dijk",
+        "translation": {
+            "en": "Andrea van Dijk",
+            "nl": "Andrea van Dijk"
+        },
+        "frequency": 2
+    },
+    {
+        "id": 14959,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Andree Sekreve",
+        "translation": {
+            "en": "Andree Sekreve",
+            "nl": "Andree Sekreve"
+        },
+        "frequency": 3
+    },
+    {
+        "id": 15257,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "André Mulder",
+        "translation": {
+            "en": "André Mulder",
+            "nl": "André Mulder"
+        },
+        "frequency": 2
+    },
+    {
+        "id": 15258,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Anita Cremers",
+        "translation": {
+            "en": "Anita Cremers",
+            "nl": "Anita Cremers"
+        },
+        "frequency": 2
+    },
+    {
+        "id": 15259,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Anita Stevens",
+        "translation": {
+            "en": "Anita Stevens",
+            "nl": "Anita Stevens"
+        },
+        "frequency": 2
+    },
+    {
+        "id": 14960,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Anita van Essen",
+        "translation": {
+            "en": "Anita van Essen",
+            "nl": "Anita van Essen"
+        },
+        "frequency": 3
+    },
+    {
+        "id": 15260,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Anita Van Gils",
+        "translation": {
+            "en": "Anita Van Gils",
+            "nl": "Anita Van Gils"
+        },
+        "frequency": 2
+    },
+    {
+        "id": 15261,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Anja Köppchen",
+        "translation": {
+            "en": "Anja Köppchen",
+            "nl": "Anja Köppchen"
+        },
+        "frequency": 2
+    },
+    {
+        "id": 15262,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Anja Rieckert",
+        "translation": {
+            "en": "Anja Rieckert",
+            "nl": "Anja Rieckert"
+        },
+        "frequency": 2
+    },
+    {
+        "id": 15263,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Anja Thronicke",
+        "translation": {
+            "en": "Anja Thronicke",
+            "nl": "Anja Thronicke"
+        },
+        "frequency": 2
+    },
+    {
+        "id": 14961,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Anje Ros",
+        "translation": {
+            "en": "Anje Ros",
+            "nl": "Anje Ros"
+        },
+        "frequency": 3
+    },
+    {
+        "id": 15264,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Ank de Jonge",
+        "translation": {
+            "en": "Ank de Jonge",
+            "nl": "Ank de Jonge"
+        },
+        "frequency": 2
+    },
+    {
+        "id": 15265,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Anke Blume",
+        "translation": {
+            "en": "Anke Blume",
+            "nl": "Anke Blume"
+        },
+        "frequency": 2
+    },
+    {
+        "id": 15266,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Anke Eyck",
+        "translation": {
+            "en": "Anke Eyck",
+            "nl": "Anke Eyck"
+        },
+        "frequency": 2
+    },
+    {
+        "id": 14783,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Anke Hamers",
+        "translation": {
+            "en": "Anke Hamers",
+            "nl": "Anke Hamers"
+        },
+        "frequency": 4
+    },
+    {
+        "id": 14636,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Anke J E de Veer",
+        "translation": {
+            "en": "Anke J E de Veer",
+            "nl": "Anke J E de Veer"
+        },
+        "frequency": 7
+    },
+    {
+        "id": 15267,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Anke Verhees",
+        "translation": {
+            "en": "Anke Verhees",
+            "nl": "Anke Verhees"
+        },
+        "frequency": 2
+    },
+    {
+        "id": 14962,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Anke Versluis",
+        "translation": {
+            "en": "Anke Versluis",
+            "nl": "Anke Versluis"
+        },
+        "frequency": 3
+    },
+    {
+        "id": 14547,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Anna Beurskens",
+        "translation": {
+            "en": "Anna Beurskens",
+            "nl": "Anna Beurskens"
+        },
+        "frequency": 8
+    },
+    {
+        "id": 15269,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Anna D. T. Muntingh",
+        "translation": {
+            "en": "Anna D. T. Muntingh",
+            "nl": "Anna D. T. Muntingh"
+        },
+        "frequency": 2
+    },
+    {
+        "id": 15270,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Anna J. Beurskens",
+        "translation": {
+            "en": "Anna J. Beurskens",
+            "nl": "Anna J. Beurskens"
+        },
+        "frequency": 2
+    },
+    {
+        "id": 15271,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Anna J.H.M. Beurskens",
+        "translation": {
+            "en": "Anna J.H.M. Beurskens",
+            "nl": "Anna J.H.M. Beurskens"
+        },
+        "frequency": 2
+    },
+    {
+        "id": 14704,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Anna van Spanje-Hennes",
+        "translation": {
+            "en": "Anna van Spanje-Hennes",
+            "nl": "Anna van Spanje-Hennes"
+        },
+        "frequency": 5
+    },
+    {
+        "id": 15272,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Anne Goossensen",
+        "translation": {
+            "en": "Anne Goossensen",
+            "nl": "Anne Goossensen"
+        },
+        "frequency": 2
+    },
+    {
+        "id": 14963,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Anne J.M. Loonen",
+        "translation": {
+            "en": "Anne J.M. Loonen",
+            "nl": "Anne J.M. Loonen"
+        },
+        "frequency": 3
+    },
+    {
+        "id": 15275,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Anneke Francke",
+        "translation": {
+            "en": "Anneke Francke",
+            "nl": "Anneke Francke"
+        },
+        "frequency": 2
+    },
+    {
+        "id": 14526,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Anneke Goudswaard",
+        "translation": {
+            "en": "Anneke Goudswaard",
+            "nl": "Anneke Goudswaard"
+        },
+        "frequency": 10
+    },
+    {
+        "id": 14548,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Anneke L. Francke",
+        "translation": {
+            "en": "Anneke L. Francke",
+            "nl": "Anneke L. Francke"
+        },
+        "frequency": 8
+    },
+    {
+        "id": 14705,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Anneke Menger",
+        "translation": {
+            "en": "Anneke Menger",
+            "nl": "Anneke Menger"
+        },
+        "frequency": 6
+    },
+    {
+        "id": 14964,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Anneke von Heijden-Brinkman",
+        "translation": {
+            "en": "Anneke von Heijden-Brinkman",
+            "nl": "Anneke von Heijden-Brinkman"
+        },
+        "frequency": 3
+    },
+    {
+        "id": 15276,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Annelies Sturm",
+        "translation": {
+            "en": "Annelies Sturm",
+            "nl": "Annelies Sturm"
+        },
+        "frequency": 2
+    },
+    {
+        "id": 15273,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Anne-Lise Kamphuis",
+        "translation": {
+            "en": "Anne-Lise Kamphuis",
+            "nl": "Anne-Lise Kamphuis"
+        },
+        "frequency": 2
+    },
+    {
+        "id": 14784,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Annemarie C. Abbing",
+        "translation": {
+            "en": "Annemarie C. Abbing",
+            "nl": "Annemarie C. Abbing"
+        },
+        "frequency": 4
+    },
+    {
+        "id": 15279,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Annemarieke Blankestein",
+        "translation": {
+            "en": "Annemarieke Blankestein",
+            "nl": "Annemarieke Blankestein"
+        },
+        "frequency": 2
+    },
+    {
+        "id": 15280,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Annemarieke van der Veer",
+        "translation": {
+            "en": "Annemarieke van der Veer",
+            "nl": "Annemarieke van der Veer"
+        },
+        "frequency": 2
+    },
+    {
+        "id": 15277,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Annemarie Koster",
+        "translation": {
+            "en": "Annemarie Koster",
+            "nl": "Annemarie Koster"
+        },
+        "frequency": 2
+    },
+    {
+        "id": 14638,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Annemarie van de Weert",
+        "translation": {
+            "en": "Annemarie van de Weert",
+            "nl": "Annemarie van de Weert"
+        },
+        "frequency": 6
+    },
+    {
+        "id": 15278,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Annemarie van Elburg",
+        "translation": {
+            "en": "Annemarie van Elburg",
+            "nl": "Annemarie van Elburg"
+        },
+        "frequency": 2
+    },
+    {
+        "id": 14585,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Annemarie van Hout",
+        "translation": {
+            "en": "Annemarie van Hout",
+            "nl": "Annemarie van Hout"
+        },
+        "frequency": 7
+    },
+    {
+        "id": 15282,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Annemieke van den Berg",
+        "translation": {
+            "en": "Annemieke van den Berg",
+            "nl": "Annemieke van den Berg"
+        },
+        "frequency": 2
+    },
+    {
+        "id": 14965,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Annemieke van Straten",
+        "translation": {
+            "en": "Annemieke van Straten",
+            "nl": "Annemieke van Straten"
+        },
+        "frequency": 3
+    },
+    {
+        "id": 15281,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Annemiek van der Meijden",
+        "translation": {
+            "en": "Annemiek van der Meijden",
+            "nl": "Annemiek van der Meijden"
+        },
+        "frequency": 2
+    },
+    {
+        "id": 15274,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Anne-Ruth van Leeuwen",
+        "translation": {
+            "en": "Anne-Ruth van Leeuwen",
+            "nl": "Anne-Ruth van Leeuwen"
+        },
+        "frequency": 2
+    },
+    {
+        "id": 14706,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Annette Klarenbeek",
+        "translation": {
+            "en": "Annette Klarenbeek",
+            "nl": "Annette Klarenbeek"
+        },
+        "frequency": 5
+    },
+    {
+        "id": 14637,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Anne Visser‑Meily",
+        "translation": {
+            "en": "Anne Visser‑Meily",
+            "nl": "Anne Visser‑Meily"
+        },
+        "frequency": 6
+    },
+    {
+        "id": 15268,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Ann MacPhail",
+        "translation": {
+            "en": "Ann MacPhail",
+            "nl": "Ann MacPhail"
+        },
+        "frequency": 2
+    },
+    {
+        "id": 15283,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Anoek Adank",
+        "translation": {
+            "en": "Anoek Adank",
+            "nl": "Anoek Adank"
+        },
+        "frequency": 2
+    },
+    {
+        "id": 14482,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "A.N. Rosman",
+        "translation": {
+            "en": "A.N. Rosman",
+            "nl": "A.N. Rosman"
+        },
+        "frequency": 11
+    },
+    {
+        "id": 15284,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Anthony J. Brookes",
+        "translation": {
+            "en": "Anthony J. Brookes",
+            "nl": "Anthony J. Brookes"
+        },
+        "frequency": 2
+    },
+    {
+        "id": 15285,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Antoine Lagro-Janssen",
+        "translation": {
+            "en": "Antoine Lagro-Janssen",
+            "nl": "Antoine Lagro-Janssen"
+        },
+        "frequency": 2
+    },
+    {
+        "id": 15286,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Antonio Teixeira",
+        "translation": {
+            "en": "Antonio Teixeira",
+            "nl": "Antonio Teixeira"
+        },
+        "frequency": 2
+    },
+    {
+        "id": 15240,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "A.P. de Man",
+        "translation": {
+            "en": "A.P. de Man",
+            "nl": "A.P. de Man"
+        },
+        "frequency": 2
+    },
+    {
+        "id": 14942,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "A. Pilot",
+        "translation": {
+            "en": "A. Pilot",
+            "nl": "A. Pilot"
+        },
+        "frequency": 3
+    },
+    {
+        "id": 14633,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "A.P. Nieboer",
+        "translation": {
+            "en": "A.P. Nieboer",
+            "nl": "A.P. Nieboer"
+        },
+        "frequency": 6
+    },
+    {
+        "id": 15221,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "A. Pool",
+        "translation": {
+            "en": "A. Pool",
+            "nl": "A. Pool"
+        },
+        "frequency": 2
+    },
+    {
+        "id": 14777,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "A. Pool - Goudzwaard",
+        "translation": {
+            "en": "A. Pool - Goudzwaard",
+            "nl": "A. Pool - Goudzwaard"
+        },
+        "frequency": 4
+    },
+    {
+        "id": 14634,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "A.P. Visser",
+        "translation": {
+            "en": "A.P. Visser",
+            "nl": "A.P. Visser"
+        },
+        "frequency": 7
+    },
+    {
+        "id": 15287,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Ard Sprinkhuizen",
+        "translation": {
+            "en": "Ard Sprinkhuizen",
+            "nl": "Ard Sprinkhuizen"
+        },
+        "frequency": 2
+    },
+    {
+        "id": 14966,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Ariëlla Krijger",
+        "translation": {
+            "en": "Ariëlla Krijger",
+            "nl": "Ariëlla Krijger"
+        },
+        "frequency": 3
+    },
+    {
+        "id": 14967,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Arjan R. Jansz",
+        "translation": {
+            "en": "Arjan R. Jansz",
+            "nl": "Arjan R. Jansz"
+        },
+        "frequency": 3
+    },
+    {
+        "id": 15288,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Arjen Slooter",
+        "translation": {
+            "en": "Arjen Slooter",
+            "nl": "Arjen Slooter"
+        },
+        "frequency": 2
+    },
+    {
+        "id": 14504,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Arjen Speksnijder",
+        "translation": {
+            "en": "Arjen Speksnijder",
+            "nl": "Arjen Speksnijder"
+        },
+        "frequency": 11
+    },
+    {
+        "id": 15241,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "A.R. Mollema",
+        "translation": {
+            "en": "A.R. Mollema",
+            "nl": "A.R. Mollema"
+        },
+        "frequency": 2
+    },
+    {
+        "id": 14707,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Arthur Bakker",
+        "translation": {
+            "en": "Arthur Bakker",
+            "nl": "Arthur Bakker"
+        },
+        "frequency": 6
+    },
+    {
+        "id": 14968,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Asiong Jie",
+        "translation": {
+            "en": "Asiong Jie",
+            "nl": "Asiong Jie"
+        },
+        "frequency": 3
+    },
+    {
+        "id": 15289,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Asit Kumar Mishra",
+        "translation": {
+            "en": "Asit Kumar Mishra",
+            "nl": "Asit Kumar Mishra"
+        },
+        "frequency": 2
+    },
+    {
+        "id": 15242,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "A.S. Kazi",
+        "translation": {
+            "en": "A.S. Kazi",
+            "nl": "A.S. Kazi"
+        },
+        "frequency": 2
+    },
+    {
+        "id": 14779,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "A. ten Busschen",
+        "translation": {
+            "en": "A. ten Busschen",
+            "nl": "A. ten Busschen"
+        },
+        "frequency": 5
+    },
+    {
+        "id": 14700,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "A.T.F. (Aartjan) Beekman",
+        "translation": {
+            "en": "A.T.F. (Aartjan) Beekman",
+            "nl": "A.T.F. (Aartjan) Beekman"
+        },
+        "frequency": 5
+    },
+    {
+        "id": 15290,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Aukje Smit",
+        "translation": {
+            "en": "Aukje Smit",
+            "nl": "Aukje Smit"
+        },
+        "frequency": 2
+    },
+    {
+        "id": 15291,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Aurelie Lange",
+        "translation": {
+            "en": "Aurelie Lange",
+            "nl": "Aurelie Lange"
+        },
+        "frequency": 2
+    },
+    {
+        "id": 14780,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "A. van den Brom",
+        "translation": {
+            "en": "A. van den Brom",
+            "nl": "A. van den Brom"
+        },
+        "frequency": 5
+    },
+    {
+        "id": 14631,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "A. van der Heide",
+        "translation": {
+            "en": "A. van der Heide",
+            "nl": "A. van der Heide"
+        },
+        "frequency": 6
+    },
+    {
+        "id": 15224,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "A. van der Meulen",
+        "translation": {
+            "en": "A. van der Meulen",
+            "nl": "A. van der Meulen"
+        },
+        "frequency": 2
+    },
+    {
+        "id": 15225,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "A. van der Poel",
+        "translation": {
+            "en": "A. van der Poel",
+            "nl": "A. van der Poel"
+        },
+        "frequency": 2
+    },
+    {
+        "id": 15222,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "A. Verma",
+        "translation": {
+            "en": "A. Verma",
+            "nl": "A. Verma"
+        },
+        "frequency": 2
+    },
+    {
+        "id": 14778,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "A. Visser",
+        "translation": {
+            "en": "A. Visser",
+            "nl": "A. Visser"
+        },
+        "frequency": 4
+    },
+    {
+        "id": 15243,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "A.V. Velu",
+        "translation": {
+            "en": "A.V. Velu",
+            "nl": "A.V. Velu"
+        },
+        "frequency": 2
+    },
+    {
+        "id": 14785,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Aziza Mayo",
+        "translation": {
+            "en": "Aziza Mayo",
+            "nl": "Aziza Mayo"
+        },
+        "frequency": 4
+    },
+    {
+        "id": 15297,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Babette Everaars",
+        "translation": {
+            "en": "Babette Everaars",
+            "nl": "Babette Everaars"
+        },
+        "frequency": 2
+    },
+    {
+        "id": 14971,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "B.A. de Jong",
+        "translation": {
+            "en": "B.A. de Jong",
+            "nl": "B.A. de Jong"
+        },
+        "frequency": 3
+    },
+    {
+        "id": 14787,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Barbara Gravendeel",
+        "translation": {
+            "en": "Barbara Gravendeel",
+            "nl": "Barbara Gravendeel"
+        },
+        "frequency": 4
+    },
+    {
+        "id": 14708,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Barbara Piskur",
+        "translation": {
+            "en": "Barbara Piskur",
+            "nl": "Barbara Piskur"
+        },
+        "frequency": 5
+    },
+    {
+        "id": 14788,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Barbara Stringer",
+        "translation": {
+            "en": "Barbara Stringer",
+            "nl": "Barbara Stringer"
+        },
+        "frequency": 4
+    },
+    {
+        "id": 14972,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Barrie Dams",
+        "translation": {
+            "en": "Barrie Dams",
+            "nl": "Barrie Dams"
+        },
+        "frequency": 3
+    },
+    {
+        "id": 14974,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Bart de Zwart",
+        "translation": {
+            "en": "Bart de Zwart",
+            "nl": "Bart de Zwart"
+        },
+        "frequency": 3
+    },
+    {
+        "id": 15300,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Bartholomeus Schaub",
+        "translation": {
+            "en": "Bartholomeus Schaub",
+            "nl": "Bartholomeus Schaub"
+        },
+        "frequency": 2
+    },
+    {
+        "id": 14973,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Bart Hoogeboom",
+        "translation": {
+            "en": "Bart Hoogeboom",
+            "nl": "Bart Hoogeboom"
+        },
+        "frequency": 3
+    },
+    {
+        "id": 15301,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Bartosz Paszkowski",
+        "translation": {
+            "en": "Bartosz Paszkowski",
+            "nl": "Bartosz Paszkowski"
+        },
+        "frequency": 2
+    },
+    {
+        "id": 15298,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Bart Staal",
+        "translation": {
+            "en": "Bart Staal",
+            "nl": "Bart Staal"
+        },
+        "frequency": 2
+    },
+    {
+        "id": 15299,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Bart van Bezooijen",
+        "translation": {
+            "en": "Bart van Bezooijen",
+            "nl": "Bart van Bezooijen"
+        },
+        "frequency": 2
+    },
+    {
+        "id": 14789,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Bart Visser",
+        "translation": {
+            "en": "Bart Visser",
+            "nl": "Bart Visser"
+        },
+        "frequency": 4
+    },
+    {
+        "id": 14483,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Bas Jongenelen",
+        "translation": {
+            "en": "Bas Jongenelen",
+            "nl": "Bas Jongenelen"
+        },
+        "frequency": 11
+    },
+    {
+        "id": 15302,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Bas van Hoek",
+        "translation": {
+            "en": "Bas van Hoek",
+            "nl": "Bas van Hoek"
+        },
+        "frequency": 2
+    },
+    {
+        "id": 14975,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Bas van Nierop",
+        "translation": {
+            "en": "Bas van Nierop",
+            "nl": "Bas van Nierop"
+        },
+        "frequency": 3
+    },
+    {
+        "id": 15303,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Bas van Zaane",
+        "translation": {
+            "en": "Bas van Zaane",
+            "nl": "Bas van Zaane"
+        },
+        "frequency": 2
+    },
+    {
+        "id": 14882,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Bauke Koekkoek",
+        "translation": {
+            "en": "Bauke Koekkoek",
+            "nl": "Bauke Koekkoek"
+        },
+        "frequency": 4
+    },
+    {
+        "id": 15304,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Baukje Stinesen",
+        "translation": {
+            "en": "Baukje Stinesen",
+            "nl": "Baukje Stinesen"
+        },
+        "frequency": 2
+    },
+    {
+        "id": 15305,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Bea Ros",
+        "translation": {
+            "en": "Bea Ros",
+            "nl": "Bea Ros"
+        },
+        "frequency": 2
+    },
+    {
+        "id": 15306,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Beate Krieger",
+        "translation": {
+            "en": "Beate Krieger",
+            "nl": "Beate Krieger"
+        },
+        "frequency": 2
+    },
+    {
+        "id": 14976,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Beatrice van der Heijden",
+        "translation": {
+            "en": "Beatrice van der Heijden",
+            "nl": "Beatrice van der Heijden"
+        },
+        "frequency": 3
+    },
+    {
+        "id": 14977,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Ben Bouwhuis",
+        "translation": {
+            "en": "Ben Bouwhuis",
+            "nl": "Ben Bouwhuis"
+        },
+        "frequency": 3
+    },
+    {
+        "id": 14978,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Ben Fruytier",
+        "translation": {
+            "en": "Ben Fruytier",
+            "nl": "Ben Fruytier"
+        },
+        "frequency": 3
+    },
+    {
+        "id": 15292,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "B. Engeltjes",
+        "translation": {
+            "en": "B. Engeltjes",
+            "nl": "B. Engeltjes"
+        },
+        "frequency": 2
+    },
+    {
+        "id": 14549,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Ben Janssen",
+        "translation": {
+            "en": "Ben Janssen",
+            "nl": "Ben Janssen"
+        },
+        "frequency": 8
+    },
+    {
+        "id": 14980,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Benny de Waal",
+        "translation": {
+            "en": "Benny de Waal",
+            "nl": "Benny de Waal"
+        },
+        "frequency": 3
+    },
+    {
+        "id": 14979,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Ben van Steenkiste",
+        "translation": {
+            "en": "Ben van Steenkiste",
+            "nl": "Ben van Steenkiste"
+        },
+        "frequency": 3
+    },
+    {
+        "id": 15307,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Beppie van den Bogaerde",
+        "translation": {
+            "en": "Beppie van den Bogaerde",
+            "nl": "Beppie van den Bogaerde"
+        },
+        "frequency": 2
+    },
+    {
+        "id": 15308,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Berit Godfroij",
+        "translation": {
+            "en": "Berit Godfroij",
+            "nl": "Berit Godfroij"
+        },
+        "frequency": 2
+    },
+    {
+        "id": 15309,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Bernadette Wijnker-Holmes",
+        "translation": {
+            "en": "Bernadette Wijnker-Holmes",
+            "nl": "Bernadette Wijnker-Holmes"
+        },
+        "frequency": 2
+    },
+    {
+        "id": 15310,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Bernard Leroy",
+        "translation": {
+            "en": "Bernard Leroy",
+            "nl": "Bernard Leroy"
+        },
+        "frequency": 2
+    },
+    {
+        "id": 14981,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Berno van Meijel",
+        "translation": {
+            "en": "Berno van Meijel",
+            "nl": "Berno van Meijel"
+        },
+        "frequency": 3
+    },
+    {
+        "id": 14639,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Berry van der Hoorn",
+        "translation": {
+            "en": "Berry van der Hoorn",
+            "nl": "Berry van der Hoorn"
+        },
+        "frequency": 6
+    },
+    {
+        "id": 14790,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Bert Molewijk",
+        "translation": {
+            "en": "Bert Molewijk",
+            "nl": "Bert Molewijk"
+        },
+        "frequency": 5
+    },
+    {
+        "id": 15311,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Beth Kelly",
+        "translation": {
+            "en": "Beth Kelly",
+            "nl": "Beth Kelly"
+        },
+        "frequency": 2
+    },
+    {
+        "id": 14640,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Bienke Janssen",
+        "translation": {
+            "en": "Bienke Janssen",
+            "nl": "Bienke Janssen"
+        },
+        "frequency": 6
+    },
+    {
+        "id": 15312,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Birgit I. Witte",
+        "translation": {
+            "en": "Birgit I. Witte",
+            "nl": "Birgit I. Witte"
+        },
+        "frequency": 2
+    },
+    {
+        "id": 14982,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Birgit Pepin",
+        "translation": {
+            "en": "Birgit Pepin",
+            "nl": "Birgit Pepin"
+        },
+        "frequency": 3
+    },
+    {
+        "id": 14786,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "B. Janse",
+        "translation": {
+            "en": "B. Janse",
+            "nl": "B. Janse"
+        },
+        "frequency": 4
+    },
+    {
+        "id": 15296,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "B.J. Muth",
+        "translation": {
+            "en": "B.J. Muth",
+            "nl": "B.J. Muth"
+        },
+        "frequency": 2
+    },
+    {
+        "id": 14983,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Bjorn Beijnon",
+        "translation": {
+            "en": "Bjorn Beijnon",
+            "nl": "Bjorn Beijnon"
+        },
+        "frequency": 3
+    },
+    {
+        "id": 14385,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "B.K.G. (Berno) van Meijel",
+        "translation": {
+            "en": "B.K.G. (Berno) van Meijel",
+            "nl": "B.K.G. (Berno) van Meijel"
+        },
+        "frequency": 46
+    },
+    {
+        "id": 14709,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Bob Götte",
+        "translation": {
+            "en": "Bob Götte",
+            "nl": "Bob Götte"
+        },
+        "frequency": 6
+    },
+    {
+        "id": 15313,
+        "parent": null,
+        "field": "authors.name.keyword",
+        "is_hidden": false,
+        "is_manual": false,
+        "children": [],
+        "children_count": 0,
+        "value": "Bob Koster",
+        "translation": {
+            "en": "Bob Koster",
+            "nl": "Bob Koster"
+        },
+        "frequency": 2
+    }
+]
