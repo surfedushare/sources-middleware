@@ -196,6 +196,6 @@ REST_FRAMEWORK = {
 }
 
 
-# People, projects, parties specific settings
+# Entities specific settings
 
-ENTITIES = ["people", "parties", "projects"]
+ENTITIES = ["persons", "projects"]

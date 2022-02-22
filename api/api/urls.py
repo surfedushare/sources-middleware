@@ -8,8 +8,8 @@ from core.views import ListSources, ListEntities
 
 
 api_urlpatterns = [
-    path("sources", ListSources.as_view()),
-    path("entities/<str:entity>/<str:source>", ListEntities.as_view())
+    path("sources/", ListSources.as_view()),
+    path("entities/<str:entity>/<str:source>/", ListEntities.as_view())
 ]
 
 
