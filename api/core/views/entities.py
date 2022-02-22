@@ -12,10 +12,12 @@ from rest_framework.pagination import PageNumberPagination
 from api.schema import MiddlewareAPISchema
 from core.models import Source
 from core.mock.persons import PersonsMock
+from core.mock.projects import ProjectsMock
 
 
 MOCKS = {
-    "persons": PersonsMock()
+    "persons": PersonsMock(),
+    "projects": ProjectsMock()
 }
 
 
