@@ -21,11 +21,13 @@ class ProjectsMock(object):
             "ended_at": None,
             "coordinates": [0, 0],
             "goal": None,
+            "contact": None,
             "persons": [],
             "owner": None,
             "description": None,
             "parties": [],
             "keywords": [],
             "products": [],
-            "projects": []
+            "projects": [],
+            "photo_url": None
         }
