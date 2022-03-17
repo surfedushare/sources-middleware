@@ -8,6 +8,8 @@ env: "localhost"
 
 django:
   debug: true
+  sentry:
+    dsn: null
 
 postgres:
   host: "postgres"

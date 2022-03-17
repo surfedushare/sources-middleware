@@ -14,6 +14,10 @@ import os
 import sys
 from pathlib import Path
 import requests
+import sentry_sdk
+from sentry_sdk.integrations.django import DjangoIntegration
+from sentry_sdk.integrations.celery import CeleryIntegration
+from sentry_sdk.integrations.logging import ignore_logger
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -163,6 +167,32 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+
+# Logging
+# https://docs.djangoproject.com/en/2.2/topics/logging/
+# https://docs.sentry.io/
+
+if not DEBUG:
+
+    def strip_sensitive_data(event, hint):
+        user_agent = event.get('request', {}).get('headers', {}).get('User-Agent', None)
+
+        if user_agent:
+            del event['request']['headers']['User-Agent']
+
+        return event
+
+    sentry_sdk.init(
+        before_send=strip_sensitive_data,
+        dsn=environment.django.sentry.dsn,
+        environment=environment.env,
+        integrations=[DjangoIntegration(), CeleryIntegration()],
+        send_default_pii=False  # GDPR requirement
+    )
+    # We kill all DisallowedHost logging on the servers,
+    # because it happens so frequently that we can't do much about it
+    ignore_logger('django.security.DisallowedHost')
 
 
 # Static files (CSS, JavaScript, Images)
