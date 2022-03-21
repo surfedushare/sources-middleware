@@ -6,7 +6,6 @@ flake8==3.8.3
 ipython==7.16.1
 fabric==2.5.0
 ipdb==0.13.3
-sentry-sdk==1.0.0
 wheel==0.36.2
 
 -r api/requirements.txt
