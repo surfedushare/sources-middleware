@@ -1,8 +1,7 @@
 from urllib.parse import urlparse, parse_qs, urlunparse
 
-from django.shortcuts import get_object_or_404
-from django.core.validators import RegexValidator
-from django.core.exceptions import ValidationError
+from django.conf import settings
+from django.shortcuts import get_object_or_404, Http404
 from rest_framework import views
 from rest_framework.status import HTTP_422_UNPROCESSABLE_ENTITY
 from rest_framework.response import Response
@@ -11,6 +10,7 @@ from rest_framework.pagination import PageNumberPagination
 
 from api.schema import MiddlewareAPISchema
 from core.models import Source
+from core.proxy import SourceProxy
 from core.mock.persons import PersonsMock
 from core.mock.projects import ProjectsMock
 
@@ -40,14 +40,6 @@ class ListEntities(views.APIView):
     """
 
     schema = MiddlewareAPISchema()
-
-    @staticmethod
-    def _validate_cursor(cursor):
-        cursor_validator = RegexValidator("page\|\d\|\d")
-        try:
-            cursor_validator(cursor)
-        except ValidationError:
-            raise APIValidationError(detail="Invalid cursor")
 
     @staticmethod
     def _convert_to_cursor_response(response, page_size):
@@ -80,15 +72,21 @@ class ListEntities(views.APIView):
         # Modify the next and previous URL's to use our own cursor format
         return self._convert_to_cursor_response(response, page_size)
 
-    def get(self, request, *args, **kwargs):
+    def validate_request(self, request, view_kwargs):
+        # Load the source and its proxy
+        source = get_object_or_404(Source, slug=view_kwargs.get("source", None))
+        if source.slug not in settings.SOURCES:
+            raise Http404(f"Source implementation '{source.slug}' not found in settings")
+        source_proxy = SourceProxy(**settings.SOURCES[source.slug])
         # Read and validate input params
-        # Pagination cursor
-        cursor = request.GET.get("cursor", "page|1|100")
-        self._validate_cursor(cursor)
-        # Path variables
-        source = get_object_or_404(Source, slug=kwargs.get("source", None))
-        entity = kwargs.get("entity", None)
-        if not source.is_allowed(entity):
+        entity = view_kwargs.get("entity", None)
+        cursor = source_proxy.validate_cursor(request.GET.get("cursor", None))
+        return source, source_proxy, entity, cursor
+
+    def get(self, request, *args, **kwargs):
+        source, source_proxy, entity, cursor = self.validate_request(request, kwargs)
+        # See if requested entity can be processed
+        if not source.is_allowed(entity) or not source_proxy.is_implemented(entity):
             return Response(status=HTTP_422_UNPROCESSABLE_ENTITY)
         # Return paginated results by parsing the cursor
         return self._get_paginated_response(request, cursor, MOCKS[entity].data)

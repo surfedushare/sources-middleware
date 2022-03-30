@@ -14,10 +14,13 @@ import os
 import sys
 from pathlib import Path
 import requests
+from collections import OrderedDict
 import sentry_sdk
 from sentry_sdk.integrations.django import DjangoIntegration
 from sentry_sdk.integrations.celery import CeleryIntegration
 from sentry_sdk.integrations.logging import ignore_logger
+
+from core.constants import PaginationTypes, AuthenticationTypes
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -226,6 +229,30 @@ REST_FRAMEWORK = {
 }
 
 
-# Entities specific settings
+# Project specific settings
 
 ENTITIES = ["persons", "projects"]
+
+SOURCES = {
+    "hva": {
+        "base": {
+            "url": environment.sources.hva.base_url,
+            "parameters": {}
+        },
+        "endpoints": {
+            "persons": "/ws/api/persons",
+            "projects": None
+        },
+        "auth": {
+            "type": AuthenticationTypes.API_KEY_HEADER,
+            "token": environment.secrets.hva.api_key
+        },
+        "pagination": {
+            "type": PaginationTypes.OFFSET,
+            "parameters": OrderedDict({
+                "offset": 0,
+                "size": 100
+            })
+        }
+    }
+}

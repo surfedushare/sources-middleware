@@ -11,6 +11,10 @@ django:
   sentry:
     dsn: null
 
+sources:
+  hva:
+    base_url: "https://accpure.hva.nl"
+
 postgres:
   host: "postgres"
   port: 5432
@@ -27,3 +31,5 @@ secrets:
   django:
     secret_key: "development-secret-key--do-not-use"
     admin_password: "qwerty"
+  hva:
+    api_key: null
