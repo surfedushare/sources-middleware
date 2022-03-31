@@ -17,7 +17,7 @@ urlobject==2.4.3
 pandas==1.1.5
 git+https://github.com/fako/django-json-field.git
 lxml==4.6.1
-datagrowth==0.17.5
+datagrowth==0.17.6
 
 # Tools
 invoke==1.4.1

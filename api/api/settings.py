@@ -74,9 +74,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'rest_framework.authtoken',
+    'datagrowth',
 
     'api',
     'core',
+    'sources',
 ]
 
 MIDDLEWARE = [
@@ -240,7 +242,10 @@ SOURCES = {
             "parameters": {}
         },
         "endpoints": {
-            "persons": "/ws/api/persons",
+            "persons": {
+                "url": "/ws/api/persons",
+                "extractor": "HvaPersonExtractProcessor"
+            },
             "projects": None
         },
         "auth": {

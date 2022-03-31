@@ -4,6 +4,7 @@ from copy import copy
 from django.core.validators import RegexValidator
 from django.core.exceptions import ValidationError
 from rest_framework.serializers import ValidationError as APIValidationError
+from datagrowth.processors import Processor
 
 from core.constants import PaginationTypes, AuthenticationTypes
 
@@ -63,7 +64,7 @@ class SourceProxy(object):
             }
 
     def build_request(self, entity, cursor=None):
-        url = f"{self.base['url']}{self.endpoints[entity]}"
+        url = f"{self.base['url']}{self.endpoints[entity]['url']}"
         request = Request(
             "GET", url,
             params=copy(self.base['parameters'])
@@ -79,3 +80,12 @@ class SourceProxy(object):
         prepared_request = request.prepare()  # NB: cookies or other state is not supported
         session = Session()
         return session.send(prepared_request)
+
+    def build_extractor(self, entity, response):
+        Extractor = Processor.get_processor_class(self.endpoints[entity]["extractor"])
+        objective = copy(Extractor.OBJECTIVE)
+        objective["@"] = Extractor.get_api_results_path()
+        config = {
+            "objective": objective
+        }
+        return Extractor(config, response)

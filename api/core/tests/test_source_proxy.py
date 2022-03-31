@@ -16,8 +16,14 @@ class TestSourceProxy(TestCase):
         }
     }
     endpoints = {
-        "persons": "/api/v1/persons",
-        "projects": "/api/v1/projects"
+        "persons": {
+            "url": "/api/v1/persons",
+            "extractor": None
+        },
+        "projects": {
+            "url": "/api/v1/projects",
+            "extractor": None
+        }
     }
     auth = {
         "type": AuthenticationTypes.API_KEY_HEADER,

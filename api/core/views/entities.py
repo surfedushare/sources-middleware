@@ -89,4 +89,12 @@ class ListEntities(views.APIView):
         if not source.is_allowed(entity) or not source_proxy.is_implemented(entity):
             return Response(status=HTTP_422_UNPROCESSABLE_ENTITY)
         # Return paginated results by parsing the cursor
-        return self._get_paginated_response(request, cursor, MOCKS[entity].data)
+        source_response = source_proxy.fetch(entity, cursor)
+        source_extractor = source_proxy.build_extractor(entity, source_response)
+        source_data = source_extractor.data
+        return Response(data={
+            "count": source_extractor.get_api_count(source_data),
+            "next": source_extractor.get_api_next_cursor(source_data),
+            "previous": source_extractor.get_api_previous_cursor(source_data),
+            "results": source_extractor.extract(source_extractor.CONTENT_TYPE, source_data)
+        })
