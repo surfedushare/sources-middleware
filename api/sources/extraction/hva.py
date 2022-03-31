@@ -1,8 +1,8 @@
-from sources.extraction.base import SingleResponseExtraction
+from sources.extraction.base import SingleResponseExtractProcessor
 from sources.extraction.pure import PureAPIMixin
 
 
-class HvaPersonExtractProcessor(SingleResponseExtraction, PureAPIMixin):
+class HvaPersonExtractProcessor(SingleResponseExtractProcessor, PureAPIMixin):
 
     @classmethod
     def get_name(cls, node):

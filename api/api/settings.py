@@ -259,5 +259,26 @@ SOURCES = {
                 "size": 100
             })
         }
+    },
+    "hku": {
+        "base": {
+            "url": "https://octo.hku.nl",
+            "parameters": {
+                "format": "json",
+                "project": "pubplatv4"
+            }
+        },
+        "endpoints": {
+            "persons": {
+                "url": "/octo/repository/api2/getPersons",
+                "extractor": "HkuPersonExtractProcessor"
+            },
+            "projects": {
+                "url": "/octo/repository/api2/getProjects",
+                "extractor": "HkuProjectExtractProcessor"
+            }
+        },
+        "auth": {},
+        "pagination": {}
     }
 }
