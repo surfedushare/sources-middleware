@@ -10,18 +10,18 @@ from core.proxy import SourceProxy
 class TestSourceProxy(TestCase):
 
     base = {
-        "url": "http://localhost:9000",
+        "url": "http://localhost:8080",
         "parameters": {
             "test": "param"
         }
     }
     endpoints = {
         "persons": {
-            "url": "/api/v1/persons",
+            "url": "/mocks/entity/persons/",
             "extractor": None
         },
         "projects": {
-            "url": "/api/v1/projects",
+            "url": "/mocks/entity/projects/",
             "extractor": None
         }
     }
@@ -112,14 +112,14 @@ class TestSourceProxy(TestCase):
     def test_build_request_default(self):
         persons_request = self.proxy.build_request("persons")
         self.assertEqual(persons_request.method, "GET")
-        self.assertEqual(persons_request.url, "http://localhost:9000/api/v1/persons")
+        self.assertEqual(persons_request.url, "http://localhost:8080/mocks/entity/persons/")
         self.assertEqual(persons_request.params, {
             "test": "param"
         })
         self.assertEqual(persons_request.headers["api-key"], "access")
         projects_request = self.proxy.build_request("projects")
         self.assertEqual(projects_request.method, "GET")
-        self.assertEqual(projects_request.url, "http://localhost:9000/api/v1/projects")
+        self.assertEqual(projects_request.url, "http://localhost:8080/mocks/entity/projects/")
         self.assertEqual(projects_request.params, {
             "test": "param"
         })
@@ -128,7 +128,7 @@ class TestSourceProxy(TestCase):
     def test_build_request_cursor(self):
         persons_request = self.proxy.build_request("persons", "page|2|100")
         self.assertEqual(persons_request.method, "GET")
-        self.assertEqual(persons_request.url, "http://localhost:9000/api/v1/persons")
+        self.assertEqual(persons_request.url, "http://localhost:8080/mocks/entity/persons/")
         self.assertEqual(persons_request.params, {
             "test": "param",
             "page": 2,
@@ -137,7 +137,7 @@ class TestSourceProxy(TestCase):
         self.assertEqual(persons_request.headers["api-key"], "access")
         projects_request = self.proxy.build_request("projects", "page|2|100")
         self.assertEqual(projects_request.method, "GET")
-        self.assertEqual(projects_request.url, "http://localhost:9000/api/v1/projects")
+        self.assertEqual(projects_request.url, "http://localhost:8080/mocks/entity/projects/")
         self.assertEqual(projects_request.params, {
             "test": "param",
             "page": 2,

@@ -236,6 +236,30 @@ REST_FRAMEWORK = {
 ENTITIES = ["persons", "projects"]
 
 SOURCES = {
+    "mock": {
+        "base": {
+            "url": "http://localhost:8080",
+            "parameters": {}
+        },
+        "endpoints": {
+            "persons": {
+                "url": "/mocks/entity/persons/",
+                "extractor": "MockPersonExtractProcessor"
+            },
+            "projects": {
+                "url": "/mocks/entity/persons/",
+                "extractor": "MockProjectExtractProcessor"
+            }
+        },
+        "auth": {},
+        "pagination": {
+            "type": PaginationTypes.PAGE,
+            "parameters": OrderedDict({
+                "page": 1,
+                "page_size": 100
+            })
+        }
+    },
     "hva": {
         "base": {
             "url": environment.sources.hva.base_url,

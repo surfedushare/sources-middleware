@@ -1,2 +1,3 @@
+from sources.extraction.mock import MockPersonExtractProcessor, MockProjectExtractProcessor
 from sources.extraction.hva import HvaPersonExtractProcessor
 from sources.extraction.hku import HkuPersonExtractProcessor, HkuProjectExtractProcessor
