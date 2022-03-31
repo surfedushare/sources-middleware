@@ -22,6 +22,8 @@ class SourceProxy(object):
         self.pagination = pagination
 
     def validate_cursor(self, cursor):
+        if not self.pagination:
+            return
         pagination_type = self.pagination["type"]
         if pagination_type == PaginationTypes.CURSOR:
             return cursor

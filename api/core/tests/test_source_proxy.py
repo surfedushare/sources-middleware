@@ -102,6 +102,13 @@ class TestSourceProxy(TestCase):
                     except ValidationError:
                         pass
 
+    def test_validate_cursor_no_pagination(self):
+        self.proxy.pagination = {}
+        self.assertIsNone(self.proxy.validate_cursor(None))
+        self.assertIsNone(self.proxy.validate_cursor("page|0|10"))
+        self.assertIsNone(self.proxy.validate_cursor("offset|100|100"))
+        self.assertIsNone(self.proxy.validate_cursor("standard_cursor"))
+
     def test_build_request_default(self):
         persons_request = self.proxy.build_request("persons")
         self.assertEqual(persons_request.method, "GET")
