@@ -28,6 +28,5 @@ class ProjectsMock(object):
             "parties": [],
             "keywords": [],
             "products": [],
-            "projects": [],
             "photo_url": None
         }
