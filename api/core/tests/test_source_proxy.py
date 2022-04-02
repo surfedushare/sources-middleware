@@ -18,11 +18,11 @@ class TestSourceProxy(TestCase):
     endpoints = {
         "persons": {
             "url": "/mocks/entity/persons/",
-            "extractor": None
+            "extractor": "MockPersonExtractProcessor"
         },
         "projects": {
             "url": "/mocks/entity/projects/",
-            "extractor": None
+            "extractor": "MockProjectExtractProcessor"
         }
     }
     auth = {
@@ -144,3 +144,17 @@ class TestSourceProxy(TestCase):
             "size": 100
         })
         self.assertEqual(projects_request.headers["api-key"], "access")
+
+    def test_build_persons_extractor(self):
+        persons_response = self.client.get("/mocks/entity/persons/")
+        persons_extractor = self.proxy.build_extractor("persons", persons_response)
+        self.assertIn("objective", persons_extractor.config)
+        persons_objective = persons_extractor.config.objective
+        self.assertEqual(persons_objective["@"], "$.results")
+        self.assertEqual(persons_extractor.response, persons_response)
+        projects_response = self.client.get("/mocks/entity/projects/")
+        projects_extractor = self.proxy.build_extractor("projects", projects_response)
+        self.assertIn("objective", projects_extractor.config)
+        projects_objective = projects_extractor.config.objective
+        self.assertEqual(projects_objective["@"], "$.results")
+        self.assertEqual(projects_extractor.response, projects_response)
