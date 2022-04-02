@@ -51,7 +51,7 @@ class ListEntities(views.APIView):
         source_data = source_extractor.data
         return Response(data={
             "count": source_extractor.get_api_count(source_data),
-            "next": source_extractor.get_api_next_cursor(source_data),
-            "previous": source_extractor.get_api_previous_cursor(source_data),
+            "next": source_extractor.get_api_next_cursor_link(source_data),
+            "previous": source_extractor.get_api_previous_cursor_link(source_data),
             "results": source_extractor.extract(source_extractor.CONTENT_TYPE, source_data)
         })

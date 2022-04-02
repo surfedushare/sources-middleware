@@ -21,12 +21,10 @@ class SinglePageAPIMixin(object):
     def get_api_count(cls, data):
         return len(data)
 
-    @classmethod
-    def get_api_next_cursor(cls, data):
+    def get_api_next_cursor_link(self, data):
         return None
 
-    @classmethod
-    def get_api_previous_cursor(cls, data):
+    def get_api_previous_cursor_link(self, data):
         return None
 
     @classmethod

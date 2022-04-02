@@ -1,7 +1,11 @@
+from urllib.parse import urlparse, parse_qsl
+
 from sources.extraction.base import SingleResponseExtractProcessor
 
 
 class MockAPIMixin(object):
+
+    response = None
 
     @classmethod
     def get_api_count(cls, data):
@@ -11,13 +15,20 @@ class MockAPIMixin(object):
     def get_api_results_path(cls):
         return "$.results"
 
-    @classmethod
-    def get_api_next_cursor(cls, data):
-        return data["next"]
+    def _convert_to_cursor_link(self, input_link):
+        if not input_link:
+            return
+        link = urlparse(input_link)
+        parameters = dict(parse_qsl(link.query))
+        cursor = f"page|{parameters['page']}|{parameters['page_size']}"
+        base_url = self.response.url[:self.response.url.find("?")]
+        return f"{base_url}?cursor={cursor}"
 
-    @classmethod
-    def get_api_previous_cursor(cls, data):
-        return data["previous"]
+    def get_api_next_cursor_link(self, data):
+        return self._convert_to_cursor_link(data["next"])
+
+    def get_api_previous_cursor_link(self, data):
+        return self._convert_to_cursor_link(data["previous"])
 
 
 class MockPersonExtractProcessor(SingleResponseExtractProcessor, MockAPIMixin):
