@@ -1,5 +1,6 @@
 from django.conf import settings
 from django.shortcuts import get_object_or_404, Http404
+from django.urls import reverse
 from rest_framework import views
 from rest_framework.status import HTTP_422_UNPROCESSABLE_ENTITY
 from rest_framework.response import Response
@@ -40,6 +41,12 @@ class ListEntities(views.APIView):
         cursor = source_proxy.validate_cursor(request.GET.get("cursor", None))
         return source, source_proxy, entity, cursor
 
+    def build_cursor_link(self, request, source, entity, cursor):
+        if not cursor:
+            return
+        base_url = reverse("v1:entities", args=(entity, source.slug))
+        return f"{request.build_absolute_uri(base_url)}?cursor={cursor}"
+
     def get(self, request, *args, **kwargs):
         source, source_proxy, entity, cursor = self.validate_request(request, kwargs)
         # See if requested entity can be processed
@@ -51,7 +58,13 @@ class ListEntities(views.APIView):
         source_data = source_extractor.data
         return Response(data={
             "count": source_extractor.get_api_count(source_data),
-            "next": source_extractor.get_api_next_cursor_link(request, source_data),
-            "previous": source_extractor.get_api_previous_cursor_link(request, source_data),
+            "next": self.build_cursor_link(
+                request, source, entity,
+                source_extractor.get_api_next_cursor(source_data)
+            ),
+            "previous": self.build_cursor_link(
+                request, source, entity,
+                source_extractor.get_api_previous_cursor(source_data)
+            ),
             "results": source_extractor.extract(source_extractor.CONTENT_TYPE, source_data)
         })
