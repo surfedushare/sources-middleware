@@ -88,6 +88,7 @@ class SourceProxy(object):
         objective = copy(Extractor.OBJECTIVE)
         objective["@"] = Extractor.get_api_results_path()
         config = {
+            "entity": entity,
             "objective": objective
         }
         return Extractor(config, response)

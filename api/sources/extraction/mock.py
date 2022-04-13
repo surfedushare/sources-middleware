@@ -1,11 +1,14 @@
 from urllib.parse import urlparse, parse_qsl
 
+from django.urls import reverse
+
 from sources.extraction.base import SingleResponseExtractProcessor
 
 
 class MockAPIMixin(object):
 
     response = None
+    config = None
 
     @classmethod
     def get_api_count(cls, data):
@@ -15,20 +18,20 @@ class MockAPIMixin(object):
     def get_api_results_path(cls):
         return "$.results"
 
-    def _convert_to_cursor_link(self, input_link):
+    def _convert_to_cursor_link(self, request, input_link):
         if not input_link:
             return
         link = urlparse(input_link)
         parameters = dict(parse_qsl(link.query))
-        cursor = f"page|{parameters['page']}|{parameters['page_size']}"
-        base_url = self.response.url[:self.response.url.find("?")]
-        return f"{base_url}?cursor={cursor}"
+        cursor = f"page|{parameters.get('page', 1)}|{parameters['page_size']}"
+        base_url = reverse("v1:entities", args=(self.config.entity, request.resolver_match.kwargs["source"]))
+        return f"{request.build_absolute_uri(base_url)}?cursor={cursor}"
 
-    def get_api_next_cursor_link(self, data):
-        return self._convert_to_cursor_link(data["next"])
+    def get_api_next_cursor_link(self, request, data):
+        return self._convert_to_cursor_link(request, data["next"])
 
-    def get_api_previous_cursor_link(self, data):
-        return self._convert_to_cursor_link(data["previous"])
+    def get_api_previous_cursor_link(self, request, data):
+        return self._convert_to_cursor_link(request, data["previous"])
 
 
 class MockPersonExtractProcessor(SingleResponseExtractProcessor, MockAPIMixin):
