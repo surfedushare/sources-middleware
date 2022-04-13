@@ -21,7 +21,7 @@ class HkuPersonExtractProcessor(SingleResponseExtractProcessor, SinglePageAPIMix
         return node.get("skills").get("value", [])
 
     @classmethod
-    def get_theme(cls, node):
+    def get_themes(cls, node):
         return node.get("theme").get("value", [])
 
 
@@ -36,7 +36,7 @@ HkuPersonExtractProcessor.OBJECTIVE = {
     "email": "$.email",
     "phone": lambda node: None,
     "skills": HkuPersonExtractProcessor.get_skills,
-    "theme": HkuPersonExtractProcessor.get_theme,
+    "themes": HkuPersonExtractProcessor.get_themes,
     "description": "$.description",
     "parties": lambda node: [],
     "photo_url": "$.photo_url.transcoded",

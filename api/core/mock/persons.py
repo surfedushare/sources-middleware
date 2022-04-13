@@ -35,7 +35,7 @@ class PersonsMock(object):
             "title": None,
             "phone": None,
             "skills": [],
-            "theme": None,
+            "themes": [],
             "description": None,
             "parties": [],
             "photo_url": None

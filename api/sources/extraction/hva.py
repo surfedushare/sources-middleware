@@ -43,7 +43,7 @@ HvaPersonExtractProcessor.OBJECTIVE = {
     "email": lambda node: None,
     "phone": lambda node: None,
     "skills": lambda node: [],
-    "theme": lambda node: None,
+    "themes": lambda node: [],
     "description": lambda node: None,
     "parties": lambda node: [],
     "photo_url": lambda node: None,
