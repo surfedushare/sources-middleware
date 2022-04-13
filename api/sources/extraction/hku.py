@@ -43,6 +43,7 @@ HkuPersonExtractProcessor.OBJECTIVE = {
     "isni": lambda node: None,
     "dai": lambda node: None,
     "orcid": lambda node: None,
+    "is_employed": lambda node: True
 }
 
 
@@ -66,10 +67,6 @@ class HkuProjectExtractProcessor(SingleResponseExtractProcessor, SinglePageAPIMi
         parties = node["organisations"].get("party", [])
         return [{"name": party["name"]} for party in parties]
 
-    @classmethod
-    def get_products(cls, node):
-        pass
-
 
 HkuProjectExtractProcessor.OBJECTIVE = {
     "external_id": "$.projectid",
@@ -85,6 +82,5 @@ HkuProjectExtractProcessor.OBJECTIVE = {
     "persons": lambda node: [],
     "keywords": "$.tags.value",
     "parties": HkuProjectExtractProcessor.get_parties,
-    "products": "$.resultids.ID",
-    "is_employed": lambda node: True
+    "products": "$.resultids.ID"
 }
