@@ -148,12 +148,16 @@ class TestSourceProxy(TestCase):
     def test_build_persons_extractor(self):
         persons_response = self.client.get("/mocks/entity/persons/")
         persons_extractor = self.proxy.build_extractor("persons", persons_response)
+        self.assertEqual(persons_extractor.config.entity, "persons")
         self.assertIn("objective", persons_extractor.config)
         persons_objective = persons_extractor.config.objective
         self.assertEqual(persons_objective["@"], "$.results")
         self.assertEqual(persons_extractor.response, persons_response)
+
+    def test_build_projects_extractor(self):
         projects_response = self.client.get("/mocks/entity/projects/")
         projects_extractor = self.proxy.build_extractor("projects", projects_response)
+        self.assertEqual(projects_extractor.config.entity, "projects")
         self.assertIn("objective", projects_extractor.config)
         projects_objective = projects_extractor.config.objective
         self.assertEqual(projects_objective["@"], "$.results")
