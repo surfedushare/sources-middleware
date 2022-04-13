@@ -85,5 +85,6 @@ HkuProjectExtractProcessor.OBJECTIVE = {
     "persons": lambda node: [],
     "keywords": "$.tags.value",
     "parties": HkuProjectExtractProcessor.get_parties,
-    "products": "$.resultids.ID"
+    "products": "$.resultids.ID",
+    "is_employed": lambda node: True
 }

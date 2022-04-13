@@ -1,3 +1,6 @@
+from datetime import datetime
+from dateutil.parser import parse as date_parser
+
 from sources.extraction.base import SingleResponseExtractProcessor
 from sources.extraction.pure import PureAPIMixin
 
@@ -17,6 +20,17 @@ class HvaPersonExtractProcessor(SingleResponseExtractProcessor, PureAPIMixin):
         )
         return isni_identifier["id"] if isni_identifier else None
 
+    @classmethod
+    def get_is_employed(cls, node):
+        today = datetime.today()
+        for association in node["staffOrganizationAssociations"]:
+            end_date = association["period"].get("endDate", None)
+            if not end_date or date_parser(end_date) > today:
+                break
+        else:
+            return False
+        return True
+
 
 HvaPersonExtractProcessor.OBJECTIVE = {
     "external_id": "$.uuid",
@@ -35,5 +49,6 @@ HvaPersonExtractProcessor.OBJECTIVE = {
     "photo_url": lambda node: None,
     "isni": HvaPersonExtractProcessor.get_isni,
     "dai": lambda node: None,
-    "orcid": "$.orcid"
+    "orcid": "$.orcid",
+    "is_employed": HvaPersonExtractProcessor.get_is_employed
 }
