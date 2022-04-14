@@ -24,3 +24,5 @@ secrets:
   django:
     secret_key: "arn:aws:secretsmanager:eu-central-1:870512711545:secret:middleware/django"
     admin_password: "arn:aws:secretsmanager:eu-central-1:870512711545:secret:middleware/django"
+  hva:
+    api_key: "arn:aws:secretsmanager:eu-central-1:870512711545:secret:harvester/pure-hva"
