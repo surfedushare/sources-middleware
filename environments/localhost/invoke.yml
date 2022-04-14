@@ -14,6 +14,8 @@ django:
 sources:
   hva:
     base_url: "https://accpure.hva.nl"
+  buas:
+    base_url: "https://pure.buas.nl"
 
 postgres:
   host: "postgres"
@@ -32,4 +34,6 @@ secrets:
     secret_key: "development-secret-key--do-not-use"
     admin_password: "qwerty"
   hva:
+    api_key: null
+  buas:
     api_key: null

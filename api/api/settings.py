@@ -239,6 +239,7 @@ SOURCES = {
     "mock": {
         "base": {
             "url": "http://localhost:8080",
+            "headers": {},
             "parameters": {}
         },
         "endpoints": {
@@ -263,6 +264,7 @@ SOURCES = {
     "hva": {
         "base": {
             "url": environment.sources.hva.base_url,
+            "headers": {},
             "parameters": {}
         },
         "endpoints": {
@@ -287,6 +289,7 @@ SOURCES = {
     "hku": {
         "base": {
             "url": "https://octo.hku.nl",
+            "headers": {},
             "parameters": {
                 "format": "json",
                 "project": "pubplatv4"
@@ -304,5 +307,32 @@ SOURCES = {
         },
         "auth": {},
         "pagination": {}
-    }
+    },
+    "buas": {
+        "base": {
+            "url": environment.sources.buas.base_url,
+            "headers": {
+                "accept": "application/json"
+            },
+            "parameters": {}
+        },
+        "endpoints": {
+            "persons": {
+                "url": "/ws/api/523/persons",
+                "extractor": "BuasPersonExtractProcessor"
+            },
+            "projects": None
+        },
+        "auth": {
+            "type": AuthenticationTypes.API_KEY_HEADER,
+            "token": environment.secrets.buas.api_key
+        },
+        "pagination": {
+            "type": PaginationTypes.OFFSET,
+            "parameters": OrderedDict({
+                "offset": 0,
+                "size": 100
+            })
+        }
+    },
 }

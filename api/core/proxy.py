@@ -69,7 +69,8 @@ class SourceProxy(object):
         url = f"{self.base['url']}{self.endpoints[entity]['url']}"
         request = Request(
             "GET", url,
-            params=copy(self.base['parameters'])
+            params=copy(self.base['parameters']),
+            headers=copy(self.base['headers'])
         )
         if cursor:
             request.params.update(self.parse_pagination_parameters(cursor))
