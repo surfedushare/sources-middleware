@@ -1,0 +1,32 @@
+# NB: This file is committed in a public repo. DO NOT COMMIT REAL SECRETS!
+# It uses AWS Secret Manager to lookup any secrets at application bootstrap
+
+env: "acceptance"
+
+django:
+  debug: false
+  sentry:
+    dsn: "https://27bd031e891a48dbbbefb9e4f48a3cd6@o1143393.ingest.sentry.io/6263722"
+
+sources:
+  hva:
+    base_url: "https://accpure.hva.nl"
+
+postgres:
+  host: "nppo.c5t2ydmvgkgv.eu-central-1.rds.amazonaws.com"
+  port: 5432
+  database: "nppo_middleware"
+  user: "nppo_middleware"
+
+aws:
+  is_aws: true
+
+secrets:
+  postgres:
+    password: "arn:aws:secretsmanager:eu-central-1:825135206789:secret:middleware/postgres-application"
+    application_password: "arn:aws:secretsmanager:eu-central-1:825135206789:secret:middleware/postgres-application"
+  django:
+    secret_key: "arn:aws:secretsmanager:eu-central-1:825135206789:secret:middleware/django"
+    admin_password: "arn:aws:secretsmanager:eu-central-1:825135206789:secret:middleware/django"
+  hva:
+    api_key: "arn:aws:secretsmanager:eu-central-1:825135206789:secret:harvester/pure-hva"
