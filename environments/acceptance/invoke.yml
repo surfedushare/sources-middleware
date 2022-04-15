@@ -11,6 +11,8 @@ django:
 sources:
   hva:
     base_url: "https://accpure.hva.nl"
+  buas:
+    base_url: "https://pure.buas.nl"
 
 postgres:
   host: "nppo.c5t2ydmvgkgv.eu-central-1.rds.amazonaws.com"
@@ -30,3 +32,5 @@ secrets:
     admin_password: "arn:aws:secretsmanager:eu-central-1:825135206789:secret:middleware/django"
   hva:
     api_key: "arn:aws:secretsmanager:eu-central-1:825135206789:secret:harvester/pure-hva"
+  buas:
+    api_key: null
