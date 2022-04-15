@@ -321,7 +321,10 @@ SOURCES = {
                 "url": "/ws/api/523/persons",
                 "extractor": "BuasPersonExtractProcessor"
             },
-            "projects": None
+            "projects": {
+                "url": "/ws/api/523/projects",
+                "extractor": "BuasProjectExtractProcessor"
+            }
         },
         "auth": {
             "type": AuthenticationTypes.API_KEY_HEADER,

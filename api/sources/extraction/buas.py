@@ -43,3 +43,32 @@ BuasPersonExtractProcessor.OBJECTIVE = {
     "orcid": "$.orcid",
     "is_employed": BuasPersonExtractProcessor.get_is_employed
 }
+
+
+class BuasProjectExtractProcessor(SingleResponseExtractProcessor, PureAPIMixin):
+
+    @classmethod
+    def get_parties(cls, node):
+        return [{"name": party["name"]["text"][0]["value"]} for party in node["organisationalUnits"]]
+
+    @classmethod
+    def get_products(cls, node):
+        return [product["uuid"] for product in node.get("relatedResearchOutputs", [])]
+
+
+BuasProjectExtractProcessor.OBJECTIVE = {
+    "external_id": "$.uuid",
+    "title": "$.title.text.0.value",
+    "status": "$.status.key",
+    "started_at": "$.period.startDate",
+    "ended_at": "$.period.endDate",
+    "coordinates": lambda node: [],
+    "goal": lambda node: None,
+    "description": "$.descriptions.0.value.text.0.value",
+    "contact": lambda node: None,
+    "owner": lambda node: None,
+    "persons": lambda node: [],
+    "keywords": "$.keywordGroups.0.keywordContainers.0.freeKeywords.0.freeKeywords",
+    "parties": BuasProjectExtractProcessor.get_parties,
+    "products": BuasProjectExtractProcessor.get_products
+}
