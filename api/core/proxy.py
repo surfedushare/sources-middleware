@@ -48,6 +48,10 @@ class SourceProxy(object):
             request.headers.update({
                 "api-key": self.auth["token"]
             })
+        elif self.auth["type"] == AuthenticationTypes.BEARER_TOKEN_HEADER:
+            request.headers.update({
+                "Authorization": f"Bearer {self.auth['token']}"
+            })
         return request
 
     def parse_pagination_parameters(self, cursor):

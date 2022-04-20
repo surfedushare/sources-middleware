@@ -16,6 +16,8 @@ sources:
     base_url: "https://accpure.hva.nl"
   buas:
     base_url: "https://pure.buas.nl"
+  sharekit:
+    base_url: "https://api.acc.surfsharekit.nl"
 
 postgres:
   host: "postgres"
@@ -36,4 +38,6 @@ secrets:
   hva:
     api_key: null
   buas:
+    api_key: null
+  sharekit:
     api_key: null

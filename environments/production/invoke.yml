@@ -13,6 +13,8 @@ sources:
     base_url: "https://accpure.hva.nl"
   buas:
     base_url: "https://pure.buas.nl"
+  sharekit:
+    base_url: "https://api.acc.surfsharekit.nl"
 
 postgres:
   host: "nppo.cewgqm9ngaxe.eu-central-1.rds.amazonaws.com"
@@ -33,4 +35,6 @@ secrets:
   hva:
     api_key: "arn:aws:secretsmanager:eu-central-1:870512711545:secret:harvester/pure-hva"
   buas:
+    api_key: null
+  sharekit:
     api_key: null

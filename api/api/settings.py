@@ -338,4 +338,30 @@ SOURCES = {
             })
         }
     },
+    "sharekit": {
+        "base": {
+            "url": environment.sources.sharekit.base_url,
+            "headers": {},
+            "parameters": {}
+        },
+        "endpoints": {
+            "persons": {
+                "url": "/api/jsonapi/channel/v1/nppo/persons",
+                "extractor": "SharekitPersonExtractProcessor"
+            },
+            "projects": None
+        },
+        "auth": {
+            "type": AuthenticationTypes.BEARER_TOKEN_HEADER,
+            "token": environment.secrets.sharekit.api_key
+        },
+        "pagination": {
+            "type": PaginationTypes.PAGE,
+            "parameters": OrderedDict({
+                "page[number]": 1,
+                "page[size]": 10,
+
+            })
+        }
+    },
 }

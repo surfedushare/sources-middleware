@@ -1,7 +1,5 @@
 from urllib.parse import urlparse, parse_qsl
 
-from django.urls import reverse
-
 from sources.extraction.base import SingleResponseExtractProcessor
 
 

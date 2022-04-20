@@ -2,3 +2,4 @@ from sources.extraction.mock import MockPersonExtractProcessor, MockProjectExtra
 from sources.extraction.hva import HvaPersonExtractProcessor
 from sources.extraction.hku import HkuPersonExtractProcessor, HkuProjectExtractProcessor
 from sources.extraction.buas import BuasPersonExtractProcessor, BuasProjectExtractProcessor
+from sources.extraction.sharekit import SharekitPersonExtractProcessor
