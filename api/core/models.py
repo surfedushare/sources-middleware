@@ -18,6 +18,10 @@ class Source(models.Model):
     name = models.CharField(max_length=50)
     slug = models.SlugField()
     entities = models.JSONField(default=get_entities_default)
+    is_repository = models.BooleanField(
+        default=False,
+        help_text="Enable when source is a repository for multiple organizations"
+    )
 
     created_at = models.DateTimeField(auto_now_add=True)
     modified_at = models.DateTimeField(auto_now=True)
@@ -35,4 +39,4 @@ class SourceSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Source
-        fields = ("name", "slug", "entities", "created_at", "modified_at",)
+        fields = ("name", "slug", "entities", "is_repository", "created_at", "modified_at",)
