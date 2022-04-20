@@ -38,5 +38,6 @@ class PersonsMock(object):
             "themes": [],
             "description": None,
             "parties": [],
-            "photo_url": None
+            "photo_url": None,
+            "is_employed": True
         }
