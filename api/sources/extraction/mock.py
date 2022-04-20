@@ -52,6 +52,7 @@ MockPersonExtractProcessor.OBJECTIVE = {
     "isni": "$.isni",
     "dai": "$.dai",
     "orcid": "$.orcid",
+    "is_employed": "$.is_employed",
 }
 
 

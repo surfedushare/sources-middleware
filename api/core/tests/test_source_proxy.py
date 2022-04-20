@@ -13,7 +13,8 @@ class TestSourceProxy(TestCase):
         "url": "http://localhost:8080",
         "parameters": {
             "test": "param"
-        }
+        },
+        "headers": {}
     }
     endpoints = {
         "persons": {
