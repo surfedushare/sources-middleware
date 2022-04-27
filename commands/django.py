@@ -15,8 +15,8 @@ def connect_with_shell(conn):
         conn.local(
             f"cd api && "
             f"AWS_PROFILE={conn.config.aws.profile_name} "
-            f"POL_POSTGRES_HOST=localhost "
-            f"POL_POSTGRES_PORT=5433 "
+            f"INVOKE_POSTGRES_HOST=localhost "
+            f"INVOKE_POSTGRES_PORT=5433 "
             f"python manage.py shell",
             echo=True, pty=True
         )
