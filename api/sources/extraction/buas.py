@@ -58,6 +58,19 @@ class BuasProjectExtractProcessor(SingleResponseExtractProcessor, PureAPIMixin):
     def get_products(cls, node):
         return [product["uuid"] for product in node.get("relatedResearchOutputs", [])]
 
+    @classmethod
+    def get_persons(cls, node):
+        person_ids = []
+        for participant in node.get("participants", []):
+            if "person" in participant:
+                person = participant["person"]
+            elif "externalPerson" in participant:
+                person = participant["externalPerson"]
+            else:
+                continue
+            person_ids.append(person["uuid"])
+        return person_ids
+
 
 BuasProjectExtractProcessor.OBJECTIVE = {
     "external_id": "$.uuid",
@@ -70,7 +83,7 @@ BuasProjectExtractProcessor.OBJECTIVE = {
     "description": "$.descriptions.0.value.text.0.value",
     "contact": lambda node: None,
     "owner": lambda node: None,
-    "persons": lambda node: [],
+    "persons": BuasProjectExtractProcessor.get_persons,
     "keywords": "$.keywordGroups.0.keywordContainers.0.freeKeywords.0.freeKeywords",
     "parties": BuasProjectExtractProcessor.get_parties,
     "products": BuasProjectExtractProcessor.get_products
