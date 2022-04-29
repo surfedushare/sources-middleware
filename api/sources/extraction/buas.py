@@ -49,7 +49,10 @@ class BuasProjectExtractProcessor(SingleResponseExtractProcessor, PureAPIMixin):
 
     @classmethod
     def get_parties(cls, node):
-        return [{"name": party["name"]["text"][0]["value"]} for party in node["organisationalUnits"]]
+        return [
+            {"name": party["externalOrganisation"]["name"]["text"][0]["value"]}
+            for party in node.get("collaborators", [])
+        ]
 
     @classmethod
     def get_products(cls, node):
