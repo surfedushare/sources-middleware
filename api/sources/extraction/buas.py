@@ -71,6 +71,12 @@ class BuasProjectExtractProcessor(SingleResponseExtractProcessor, PureAPIMixin):
             person_ids.append(person["uuid"])
         return person_ids
 
+    @classmethod
+    def get_owner(cls, node):
+        persons = cls.get_persons(node)
+        if persons:
+            return persons[0]
+
 
 BuasProjectExtractProcessor.OBJECTIVE = {
     "external_id": "$.uuid",
@@ -81,8 +87,8 @@ BuasProjectExtractProcessor.OBJECTIVE = {
     "coordinates": lambda node: [],
     "goal": lambda node: None,
     "description": "$.descriptions.0.value.text.0.value",
-    "contact": lambda node: None,
-    "owner": lambda node: None,
+    "contact": BuasProjectExtractProcessor.get_owner,
+    "owner": BuasProjectExtractProcessor.get_owner,
     "persons": BuasProjectExtractProcessor.get_persons,
     "keywords": "$.keywordGroups.0.keywordContainers.0.freeKeywords.0.freeKeywords",
     "parties": BuasProjectExtractProcessor.get_parties,
