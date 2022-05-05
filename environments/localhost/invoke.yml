@@ -41,3 +41,5 @@ secrets:
     api_key: null
   sharekit:
     api_key: null
+  sia:
+    api_key: null

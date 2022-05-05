@@ -364,4 +364,32 @@ SOURCES = {
             })
         }
     },
+    "sia": {
+        "base": {
+            "url": "https://api.nwosia.nl",
+            "headers": {},
+            "parameters": {},
+            "identifier_list": {
+                "identifier_path": "$.id"
+            }
+        },
+        "endpoints": {
+            "persons": None,
+            "projects": {
+                "url": "/v1/projecten",
+                "extractor": "SiaProjectExtractProcessor"
+            }
+        },
+        "auth": {
+            "type": AuthenticationTypes.BEARER_TOKEN_HEADER,
+            "token": environment.secrets.sia.api_key
+        },
+        "pagination": {
+            "type": PaginationTypes.OFFSET,
+            "parameters": OrderedDict({
+                "offset": 0,
+                "size": 100
+            })
+        }
+    },
 }

@@ -7,7 +7,7 @@ from rest_framework.response import Response
 
 from api.schema import MiddlewareAPISchema
 from core.models import Source
-from core.proxy import SourceProxy
+from core.proxy import SourceProxy, SourceIdentifierListProxy
 
 
 class ListEntities(views.APIView):
@@ -35,7 +35,9 @@ class ListEntities(views.APIView):
         source = get_object_or_404(Source, slug=view_kwargs.get("source", None))
         if source.slug not in settings.SOURCES:
             raise Http404(f"Source implementation '{source.slug}' not found in settings")
-        source_proxy = SourceProxy(**settings.SOURCES[source.slug])
+        is_identifier_list_source = bool(settings.SOURCES[source.slug]["base"].get("identifier_list", None))
+        ProxyClass = SourceProxy if not is_identifier_list_source else SourceIdentifierListProxy
+        source_proxy = ProxyClass(**settings.SOURCES[source.slug])
         # Read and validate input params
         entity = view_kwargs.get("entity", None)
         cursor = source_proxy.validate_cursor(request.GET.get("cursor", None))

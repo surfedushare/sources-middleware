@@ -1,10 +1,13 @@
-from requests import Session, Request
+from requests import Session, Request, Response
 from copy import copy
+import json
+from io import BytesIO
 
 from django.core.validators import RegexValidator
 from django.core.exceptions import ValidationError
 from rest_framework.serializers import ValidationError as APIValidationError
 from datagrowth.processors import Processor
+from datagrowth.utils import reach
 
 from core.constants import PaginationTypes, AuthenticationTypes
 
@@ -97,3 +100,52 @@ class SourceProxy(object):
             "objective": objective
         }
         return Extractor(config, response)
+
+
+class SourceIdentifierListProxy(SourceProxy):
+
+    def __init__(self, base, endpoints, auth=None, pagination=None):
+        super().__init__(base, endpoints, auth=auth, pagination=pagination)
+        assert base["identifier_list"], \
+            "Expected base source configuration to contain an identifier_list key for SourceIdentifierListProxy"
+        assert pagination["type"] == PaginationTypes.OFFSET, "Expected offset pagination for SourceIdentifierListProxy"
+
+    def extract_identifiers(self, response, cursor):
+        data = response.json()
+        pagination_parameters = self.parse_pagination_parameters(cursor)
+        start = pagination_parameters["offset"]
+        end = pagination_parameters["offset"] + pagination_parameters["size"]
+        return [
+            reach(self.base["identifier_list"]["identifier_path"], obj)
+            for obj in data[start:end]
+        ]
+
+    def build_detail_request(self, entity, identifier):
+        url = f"{self.base['url']}{self.endpoints[entity]['url']}/{identifier}"
+        request = Request(
+            "GET", url,
+            params=copy(self.base['parameters']),
+            headers=copy(self.base['headers'])
+        )
+        if self.auth:
+            request = self._apply_request_authentication(request)
+        return request
+
+    def fetch(self, entity, cursor=None):
+        assert cursor, "Expected a cursor to be able to fetch using a SourceIdentifierListProxy"
+        list_response = super().fetch(entity, cursor=None)
+        identifiers_page = self.extract_identifiers(list_response, cursor)
+        session = Session()
+        results = []
+        for identifier in identifiers_page:
+            request = self.build_detail_request(entity, identifier)
+            prepared_request = request.prepare()  # NB: cookies or other state is not supported
+            response = session.send(prepared_request)
+            results.append(response.json())
+        data = {
+            "results": results,
+            "pagination": self.parse_pagination_parameters(cursor)
+        }
+        io_response = Response()
+        io_response.raw = BytesIO(json.dumps(data).encode("utf-8"))
+        return io_response

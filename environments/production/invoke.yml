@@ -38,3 +38,5 @@ secrets:
     api_key: "arn:aws:secretsmanager:eu-central-1:870512711545:secret:credentials/buas"
   sharekit:
     api_key: "arn:aws:secretsmanager:eu-central-1:870512711545:secret:credentials/sharekit"
+  sia:
+    api_key: "arn:aws:secretsmanager:eu-central-1:870512711545:secret:credentials/sia"
