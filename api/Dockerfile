@@ -1,4 +1,4 @@
-FROM python:3.8-buster
+FROM python:3.10
 SHELL ["/bin/bash", "-c"]
 
 RUN apt-get update && apt-get install -y less vim build-essential
@@ -28,7 +28,9 @@ USER app:app
 # Python dependencies
 COPY api/requirements.txt /usr/src/app/
 RUN pip install -U --no-cache-dir --user pip
-RUN pip install --no-cache-dir --user uwsgi==2.0.18
+RUN pip install setuptools==58
+RUN pip install wheel
+RUN pip install --no-cache-dir --user uwsgi==2.0.20
 RUN pip install --no-cache-dir --user -r requirements.txt
 
 # Copy application

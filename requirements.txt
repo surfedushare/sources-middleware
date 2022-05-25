@@ -4,9 +4,9 @@ flake8==3.8.3
 
 # Tools
 ipython==8.2.0
-fabric==2.5.0
+fabric==2.7.0
 ipdb==0.13.3
-wheel==0.36.2
+wheel==0.37.1
 
 -r api/requirements.txt
 
