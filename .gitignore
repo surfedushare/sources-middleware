@@ -104,3 +104,7 @@ node_modules/
 .idea/
 .DS_Store
 *.iml
+
+# Repository configuration
+nginx/ip-whitelist.conf
+api/sources/fixtures/**
