@@ -10,11 +10,11 @@ django:
 
 sources:
   hva:
-    base_url: "https://accpure.hva.nl"
+    base_url: "https://pure.hva.nl"
   buas:
     base_url: "https://pure.buas.nl"
   sharekit:
-    base_url: "https://api.acc.surfsharekit.nl"
+    base_url: "https://api.surfsharekit.nl"
 
 postgres:
   host: "nppo.cewgqm9ngaxe.eu-central-1.rds.amazonaws.com"

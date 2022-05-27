@@ -14,7 +14,7 @@ sources:
   buas:
     base_url: "https://pure.buas.nl"
   sharekit:
-    base_url: "https://api.acc.surfsharekit.nl"
+    base_url: "https://api.surfsharekit.nl"
 
 postgres:
   host: "nppo.c5t2ydmvgkgv.eu-central-1.rds.amazonaws.com"
