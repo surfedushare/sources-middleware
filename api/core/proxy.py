@@ -115,10 +115,14 @@ class SourceIdentifierListProxy(SourceProxy):
         pagination_parameters = self.parse_pagination_parameters(cursor)
         start = pagination_parameters["offset"]
         end = pagination_parameters["offset"] + pagination_parameters["size"]
-        return [
-            reach(self.base["identifier_list"]["identifier_path"], obj)
-            for obj in data[start:end]
-        ]
+        return {
+            "count": len(data),
+            "pagination": pagination_parameters,
+            "identifiers": [
+                reach(self.base["identifier_list"]["identifier_path"], obj)
+                for obj in data[start:end]
+            ]
+        }
 
     def build_detail_request(self, entity, identifier):
         url = f"{self.base['url']}{self.endpoints[entity]['url']}/{identifier}"
@@ -134,18 +138,15 @@ class SourceIdentifierListProxy(SourceProxy):
     def fetch(self, entity, cursor=None):
         assert cursor, "Expected a cursor to be able to fetch using a SourceIdentifierListProxy"
         list_response = super().fetch(entity, cursor=None)
-        identifiers_page = self.extract_identifiers(list_response, cursor)
+        data = self.extract_identifiers(list_response, cursor)
         session = Session()
         results = []
-        for identifier in identifiers_page:
+        for identifier in data.pop("identifiers"):
             request = self.build_detail_request(entity, identifier)
             prepared_request = request.prepare()  # NB: cookies or other state is not supported
             response = session.send(prepared_request)
             results.append(response.json())
-        data = {
-            "results": results,
-            "pagination": self.parse_pagination_parameters(cursor)
-        }
+        data["results"] = results
         io_response = Response()
         io_response.raw = BytesIO(json.dumps(data).encode("utf-8"))
         return io_response

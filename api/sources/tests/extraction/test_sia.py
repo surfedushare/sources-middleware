@@ -12,7 +12,7 @@ class TestProjectsExtraction(ExtractorTestCase):
     entity = "projects"
 
     def test_get_api_count(self):
-        self.assertEqual(self.extractor.get_api_count(self.extractor.data), 100)
+        self.assertEqual(self.extractor.get_api_count(self.extractor.data), 200)
 
     def test_get_api_next_cursor(self):
         self.assertEqual(self.extractor.get_api_next_cursor(self.extractor.data), "offset|100|100")

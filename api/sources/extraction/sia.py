@@ -5,7 +5,7 @@ class SiaProjectExtractProcessor(SingleResponseExtractProcessor):
 
     @classmethod
     def get_api_count(cls, data):
-        return len(data["results"])
+        return data["count"]
 
     @classmethod
     def get_api_results_path(cls):
@@ -25,6 +25,10 @@ class SiaProjectExtractProcessor(SingleResponseExtractProcessor):
             return
         return f"offset|{previous_offset}|{info['size']}"
 
+    @classmethod
+    def get_parties(cls, node):
+        return [{"name": node["contactinformatie"]["naam"]}]
+
 
 SiaProjectExtractProcessor.OBJECTIVE = {
     "external_id": "$.id",
@@ -39,6 +43,6 @@ SiaProjectExtractProcessor.OBJECTIVE = {
     "owner": lambda node: None,
     "persons": lambda node: [],
     "keywords": lambda node: None,
-    "parties": lambda node: [],
+    "parties": SiaProjectExtractProcessor.get_parties,
     "products": lambda node: [],
 }
