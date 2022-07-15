@@ -12,6 +12,17 @@ class HkuPersonExtractProcessor(SingleResponseExtractProcessor, SinglePageAPIMix
         return "$.root.item"
 
     @classmethod
+    def build_person_id(cls, identifier):
+        if not identifier:
+            return identifier
+        return f"hku:person:{identifier}"
+
+    @classmethod
+    def get_external_id(cls, node):
+        identifier = node["personid"] or None
+        return cls.build_person_id(identifier)
+
+    @classmethod
     def get_name(cls, node):
         names = [node["first_name"], node["prefix"], node["last_name"]]
         return " ".join([name for name in names if name])
@@ -26,7 +37,7 @@ class HkuPersonExtractProcessor(SingleResponseExtractProcessor, SinglePageAPIMix
 
 
 HkuPersonExtractProcessor.OBJECTIVE = {
-    "external_id": "$.personid",
+    "external_id": HkuPersonExtractProcessor.get_external_id,
     "name": HkuPersonExtractProcessor.get_name,
     "first_name": "$.first_name",
     "last_name": "$.last_name",
@@ -58,6 +69,23 @@ class HkuProjectExtractProcessor(SingleResponseExtractProcessor, SinglePageAPIMi
         return "$.root.project"
 
     @classmethod
+    def build_product_id(cls, identifier):
+        if not identifier:
+            return identifier
+        return f"hku:product:{identifier}"
+
+    @classmethod
+    def build_project_id(cls, identifier):
+        if not identifier:
+            return identifier
+        return f"hku:project:{identifier}"
+
+    @classmethod
+    def get_external_id(cls, node):
+        identifier = node["projectid"] or None
+        return cls.build_project_id(identifier)
+
+    @classmethod
     def get_coordinates(cls, node):
         coordinates = node["coordinates"].replace("lat: ", "").replace("lon: ", "").split(",")
         return coordinates
@@ -67,9 +95,16 @@ class HkuProjectExtractProcessor(SingleResponseExtractProcessor, SinglePageAPIMi
         parties = node["organisations"].get("party", [])
         return [{"name": party["name"]} for party in parties]
 
+    @classmethod
+    def get_products(cls, node):
+        return [
+            cls.build_product_id(product_id)
+            for product_id in node["resultids"]["ID"]
+        ]
+
 
 HkuProjectExtractProcessor.OBJECTIVE = {
-    "external_id": "$.projectid",
+    "external_id": HkuProjectExtractProcessor.get_external_id,
     "title": "$.title",
     "status": "$.status.value",
     "started_at": "$.started_at",
@@ -82,5 +117,5 @@ HkuProjectExtractProcessor.OBJECTIVE = {
     "persons": lambda node: [],
     "keywords": "$.tags.value",
     "parties": HkuProjectExtractProcessor.get_parties,
-    "products": "$.resultids.ID"
+    "products": HkuProjectExtractProcessor.get_products
 }
