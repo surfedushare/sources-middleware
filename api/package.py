@@ -1,5 +1,5 @@
 PACKAGE = {
-    "version": "0.3.4",
+    "version": "0.3.5",
     "name": "middleware",
     "directory": "api",
     "cpu": "1024",
