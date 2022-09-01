@@ -21,6 +21,7 @@ class TestPersonsExtraction(ExtractorTestCase):
     def test_get_is_employed(self):
         self.assertFalse(self.results[0]["is_employed"])
         self.assertTrue(self.results[1]["is_employed"])
+        self.assertFalse(self.results[2]["is_employed"])
 
 
 class TestProjectsExtraction(ExtractorTestCase):

@@ -23,7 +23,7 @@ class HvaPersonExtractProcessor(SingleResponseExtractProcessor, PureAPIMixin):
     @classmethod
     def get_is_employed(cls, node):
         today = datetime.today()
-        for association in node["staffOrganizationAssociations"]:
+        for association in node.get("staffOrganizationAssociations", []):
             end_date = association["period"].get("endDate", None)
             if not end_date or date_parser(end_date) > today:
                 break
