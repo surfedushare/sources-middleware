@@ -1,3 +1,7 @@
+from datetime import datetime
+
+from datagrowth.utils import reach
+
 from sources.extraction.base import SingleResponseExtractProcessor, SinglePageAPIMixin
 
 
@@ -61,6 +65,13 @@ HkuPersonExtractProcessor.OBJECTIVE = {
 class HkuProjectExtractProcessor(SingleResponseExtractProcessor, SinglePageAPIMixin):
 
     @classmethod
+    def parse_date(cls, date_input):
+        if not date_input:
+            return
+        date = datetime.strptime(date_input, "%d-%M-%Y")
+        return date.isoformat()
+
+    @classmethod
     def get_api_count(cls, data):
         return len(data["root"]["project"])
 
@@ -102,13 +113,32 @@ class HkuProjectExtractProcessor(SingleResponseExtractProcessor, SinglePageAPIMi
             for product_id in node["resultids"]["ID"]
         ]
 
+    @classmethod
+    def get_status(cls, node):
+        status_value = "$.status.value"
+        match reach(status_value, node):
+            case "afgerond":
+                return "finished"
+            case "in uitvoering":
+                return "ongoing"
+            case _:
+                return status_value
+
+    @classmethod
+    def get_started_at(cls, node):
+        return cls.parse_date(node["started_at"])
+
+    @classmethod
+    def get_ended_at(cls, node):
+        return cls.parse_date(node["ended_at"])
+
 
 HkuProjectExtractProcessor.OBJECTIVE = {
     "external_id": HkuProjectExtractProcessor.get_external_id,
     "title": "$.title",
-    "status": "$.status.value",
-    "started_at": "$.started_at",
-    "ended_at": "$.ended_at",
+    "status": HkuProjectExtractProcessor.get_status,
+    "started_at": HkuProjectExtractProcessor.get_started_at,
+    "ended_at": HkuProjectExtractProcessor.get_ended_at,
     "coordinates": HkuProjectExtractProcessor.get_coordinates,
     "goal": "$.goal",
     "description": "$.description",
