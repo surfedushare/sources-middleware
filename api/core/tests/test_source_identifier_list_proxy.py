@@ -77,6 +77,7 @@ class TestSourceIdentifierListProxy(TestCase):
 
     def test_fetch(self):
         response = self.proxy.fetch("projects", "offset|0|100")
+        self.assertEqual(response.status_code, 200)
         data = response.json()
         self.assertEqual(data["count"], 200)
         self.assertEqual(data["pagination"], {

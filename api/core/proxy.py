@@ -148,5 +148,6 @@ class SourceIdentifierListProxy(SourceProxy):
             results.append(response.json())
         data["results"] = results
         io_response = Response()
+        io_response.status_code = 200
         io_response.raw = BytesIO(json.dumps(data).encode("utf-8"))
         return io_response
