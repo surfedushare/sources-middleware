@@ -27,7 +27,10 @@ class SiaProjectExtractProcessor(SingleResponseExtractProcessor):
 
     @classmethod
     def get_parties(cls, node):
-        return [{"name": node["contactinformatie"]["naam"]}]
+        contact_parties = [{"name": node["contactinformatie"]["naam"]}]
+        network_parties = [{"name": network_party["naam"]} for network_party in node["netwerkleden"]]
+        consortium_parties = [{"name": network_party["naam"]} for network_party in node["consortiumpartners"]]
+        return contact_parties + consortium_parties + network_parties
 
 
 SiaProjectExtractProcessor.OBJECTIVE = {
