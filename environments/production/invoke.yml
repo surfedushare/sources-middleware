@@ -15,6 +15,8 @@ sources:
     base_url: "https://pure.buas.nl"
   sharekit:
     base_url: "https://api.surfsharekit.nl"
+  hanze:
+    base_url: "https://hanze.azure-api.net"
 
 postgres:
   host: "nppo.cewgqm9ngaxe.eu-central-1.rds.amazonaws.com"
@@ -40,3 +42,5 @@ secrets:
     api_key: "arn:aws:secretsmanager:eu-central-1:870512711545:secret:credentials/sharekit"
   sia:
     api_key: "arn:aws:secretsmanager:eu-central-1:870512711545:secret:credentials/sia"
+  hanze:
+    api_key: "arn:aws:secretsmanager:eu-central-1:870512711545:secret:credentials/hanze"

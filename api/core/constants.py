@@ -11,3 +11,4 @@ class AuthenticationTypes(Enum):
     API_KEY_HEADER = "api_key_header"
     BEARER_TOKEN_HEADER = "bearer_token_header"
     AUTHENTICATION_HEADER = "authentication"
+    OCP_APIM = "ocp_apim"

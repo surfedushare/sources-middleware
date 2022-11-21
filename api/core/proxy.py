@@ -55,6 +55,10 @@ class SourceProxy(object):
             request.headers.update({
                 "Authorization": f"Bearer {self.auth['token']}"
             })
+        elif self.auth["type"] == AuthenticationTypes.OCP_APIM:
+            request.headers.update({
+                "Ocp-Apim-Subscription-Key": self.auth['token']
+            })
         return request
 
     def parse_pagination_parameters(self, cursor):

@@ -18,6 +18,8 @@ sources:
     base_url: "https://pure.buas.nl"
   sharekit:
     base_url: "https://api.acc.surfsharekit.nl"
+  hanze:
+    base_url: "https://hanzetest.azure-api.net"
 
 postgres:
   host: "postgres"
@@ -42,4 +44,6 @@ secrets:
   sharekit:
     api_key: null
   sia:
+    api_key: null
+  hanze:
     api_key: null

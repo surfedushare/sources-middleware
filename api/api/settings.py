@@ -392,4 +392,30 @@ SOURCES = {
             })
         }
     },
+    "hanze": {
+        "base": {
+            "url": environment.sources.hanze.base_url,
+            "headers": {
+                "accept": "application/json"
+            },
+            "parameters": {}
+        },
+        "endpoints": {
+            "projects": {
+                "url": "/nppo/projects",
+                "extractor": "HanzeProjectExtractProcessor"
+            }
+        },
+        "auth": {
+            "type": AuthenticationTypes.OCP_APIM,
+            "token": environment.secrets.hanze.api_key
+        },
+        "pagination": {
+            "type": PaginationTypes.OFFSET,
+            "parameters": OrderedDict({
+                "offset": 0,
+                "size": 100
+            })
+        }
+    }
 }
