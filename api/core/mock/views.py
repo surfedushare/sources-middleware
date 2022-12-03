@@ -4,13 +4,15 @@ from rest_framework.pagination import PageNumberPagination
 from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 
-from core.mock.persons import PersonsMock
+from core.mock.persons import PersonsMock, PartialPersonsMock, UserMock
 from core.mock.projects import ProjectsMock
 
 
 MOCKS = {
     "persons": PersonsMock(),
-    "projects": ProjectsMock()
+    "projects": ProjectsMock(),
+    "partial_persons": PartialPersonsMock(),
+    "user": UserMock(),
 }
 
 
@@ -39,6 +41,6 @@ class EntityMockDetailAPIView(APIView):
 
     def get(self, request, pk, entity=None):
         try:
-            return Response(next((obj for obj in MOCKS[entity].data if obj["external_id"] == pk)))
+            return Response(next((obj for obj in MOCKS[entity].data if str(obj["external_id"]) == pk)))
         except StopIteration:
             raise Http404(f"Object with primary key not found: {pk}")
