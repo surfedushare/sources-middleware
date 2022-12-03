@@ -1,3 +1,4 @@
+from django.conf import settings
 from sources.extraction.base import SingleResponseExtractProcessor
 
 
@@ -42,8 +43,8 @@ SiaProjectExtractProcessor.OBJECTIVE = {
     "coordinates": lambda node: [],
     "goal": "$.eindrapportage",
     "description": "$.samenvatting",
-    "contact": lambda node: None,
-    "owner": lambda node: None,
+    "contact": lambda node: settings.SIA_CONTACT_EMAIL,  # takes value from an AWS secret, will be None on localhost
+    "owner": lambda node: settings.SIA_CONTACT_EMAIL,  # takes value from an AWS secret, will be None on localhost
     "persons": lambda node: [],
     "keywords": lambda node: None,
     "parties": SiaProjectExtractProcessor.get_parties,

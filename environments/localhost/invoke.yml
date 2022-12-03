@@ -45,5 +45,6 @@ secrets:
     api_key: null
   sia:
     api_key: null
+    contact_email: null
   hanze:
     api_key: null

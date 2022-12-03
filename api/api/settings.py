@@ -419,3 +419,8 @@ SOURCES = {
         }
     }
 }
+
+
+# Institution settings
+
+SIA_CONTACT_EMAIL = environment.secrets.sia.contact_email
