@@ -42,6 +42,6 @@ secrets:
     api_key: "arn:aws:secretsmanager:eu-central-1:870512711545:secret:credentials/sharekit"
   sia:
     api_key: "arn:aws:secretsmanager:eu-central-1:870512711545:secret:credentials/sia"
-    contact_email: "arn:aws:secretsmanager:eu-central-1:825135206789:secret:credentials/sia"
+    contact_email: "arn:aws:secretsmanager:eu-central-1:870512711545:secret:credentials/sia"
   hanze:
     api_key: "arn:aws:secretsmanager:eu-central-1:870512711545:secret:credentials/hanze"
