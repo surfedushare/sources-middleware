@@ -265,7 +265,16 @@ SOURCES = {
         "base": {
             "url": environment.sources.hva.base_url,
             "headers": {},
-            "parameters": {}
+            "parameters": {},
+            "resources": {
+                "persons": {
+                    "user": {
+                        "url": "/ws/api/users",
+                        "resource_id": "$.user.uuid",
+                        "results_path": "$.items",
+                    }
+                }
+            }
         },
         "endpoints": {
             "persons": {
