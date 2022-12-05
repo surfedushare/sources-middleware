@@ -18,12 +18,15 @@ class PersonsMock(object):
             for ix, person in enumerate(data)
         ]
 
+    def build_email(self, name):
+        return f"{slugify(name)}@publinova-mock.nl"
+
     def build_person(self, name, include_email=True, include_orcid=False, external_id=None):
         if not external_id:
             hash = md5()
             hash.update(name.encode("utf-8"))
             external_id = hash.hexdigest()
-        email = f"{slugify(name)}@publinova-mock.nl" if include_email else None
+        email = self.build_email(name) if include_email else None
         orcid = external_id if include_orcid else None
         return {
             "name": name,

@@ -9,7 +9,7 @@ from rest_framework.response import Response
 
 from api.schema import MiddlewareAPISchema
 from core.models import Source
-from core.proxy import SourceProxy, SourceIdentifierListProxy
+from core.proxy import SourceProxy, SourceIdentifierListProxy, SourceMultipleResourcesProxy
 
 
 class ListEntities(views.APIView):
@@ -37,8 +37,15 @@ class ListEntities(views.APIView):
         source = get_object_or_404(Source, slug=view_kwargs.get("source", None))
         if source.slug not in settings.SOURCES:
             raise Http404(f"Source implementation '{source.slug}' not found in settings")
+        # Build the correct proxy class
         is_identifier_list_source = bool(settings.SOURCES[source.slug]["base"].get("identifier_list", None))
-        ProxyClass = SourceProxy if not is_identifier_list_source else SourceIdentifierListProxy
+        is_multiple_resources_source = bool(settings.SOURCES[source.slug]["base"].get("resources", None))
+        if is_identifier_list_source or is_multiple_resources_source:
+            assert is_identifier_list_source ^ is_multiple_resources_source, \
+                "identifier_list and resources are mutually exclusive configurations"
+            ProxyClass = SourceIdentifierListProxy if is_identifier_list_source else SourceMultipleResourcesProxy
+        else:
+            ProxyClass = SourceProxy
         source_proxy = ProxyClass(**settings.SOURCES[source.slug])
         # Read and validate input params
         entity = view_kwargs.get("entity", None)
