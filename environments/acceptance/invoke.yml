@@ -10,7 +10,7 @@ django:
 
 sources:
   hva:
-    base_url: "https://accpure.hva.nl"
+    base_url: "https://pure.hva.nl"
   buas:
     base_url: "https://pure.buas.nl"
   sharekit:
