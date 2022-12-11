@@ -41,8 +41,8 @@ def deploy(ctx, mode):
     print("Deploying middleware:", ctx.config.env)
     ecs_client.update_service(
         cluster=FARGATE_CLUSTER_NAME,
-        service="search-portal",
-        taskDefinition="search-portal",
+        service="middleware",
+        taskDefinition="middleware",
         forceNewDeployment=True,
     )
 
