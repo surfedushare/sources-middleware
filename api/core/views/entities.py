@@ -33,13 +33,16 @@ class ListEntities(views.APIView):
     schema = MiddlewareAPISchema()
 
     def validate_request(self, request, view_kwargs):
+        # Read and validate input params
+        entity = view_kwargs.get("entity", None)
         # Load the source and its proxy
         source = get_object_or_404(Source, slug=view_kwargs.get("source", None))
         if source.slug not in settings.SOURCES:
             raise Http404(f"Source implementation '{source.slug}' not found in settings")
         # Build the correct proxy class
         is_identifier_list_source = bool(settings.SOURCES[source.slug]["base"].get("identifier_list", None))
-        is_multiple_resources_source = bool(settings.SOURCES[source.slug]["base"].get("resources", None))
+        is_multiple_resources_source = bool(settings.SOURCES[source.slug]["base"].get("resources", None)) and \
+            entity in settings.SOURCES[source.slug]["base"]["resources"]
         if is_identifier_list_source or is_multiple_resources_source:
             assert is_identifier_list_source ^ is_multiple_resources_source, \
                 "identifier_list and resources are mutually exclusive configurations"
@@ -47,8 +50,7 @@ class ListEntities(views.APIView):
         else:
             ProxyClass = SourceProxy
         source_proxy = ProxyClass(**settings.SOURCES[source.slug])
-        # Read and validate input params
-        entity = view_kwargs.get("entity", None)
+        # Validate cursor
         cursor = source_proxy.validate_cursor(request.GET.get("cursor", None))
         return source, source_proxy, entity, cursor
 
