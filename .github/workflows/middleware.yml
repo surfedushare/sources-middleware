@@ -42,7 +42,7 @@ jobs:
           pip install -r requirements.txt
       - name: Setup Repository
         run: |
-          invoke aws.sync-repository-state
+          invoke aws.sync-repository-state --no-profile
       - name: Run Tests
         run: |
           cd api
