@@ -1,13 +1,13 @@
 # Common
 psycopg2-binary==2.9.3
-django==3.2.5
+django==3.2.16
 djangorestframework==3.11.2
 django-cors-headers==3.4.0
 whitenoise==5.1.0
 requests==2.24.0
 Jinja2==2.11.3
 markupsafe==2.0.1
-pyyaml==5.3.1
+pyyaml==5.4.1
 uritemplate==3.0.1
 python-dateutil==2.8.1
 
@@ -16,7 +16,7 @@ jsonschema==3.2.0
 pytz==2020.1
 urlobject==2.4.3
 git+https://github.com/fako/django-json-field.git
-lxml==4.8.0
+lxml==4.9.1
 datagrowth==0.18.0
 
 # Tools
@@ -24,6 +24,6 @@ invoke==1.7.0
 sentry-sdk==1.0.0
 
 # AWS
-awscli==1.24.7
-boto3==1.23.7
+awscli==1.27.27
+boto3==1.26.27
 requests-aws4auth==1.0
