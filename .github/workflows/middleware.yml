@@ -45,6 +45,7 @@ jobs:
       - name: Setup Repository
         run: |
           invoke aws.sync-repository-state --no-profile
+          invoke prepare-builds
           cd api
           python manage.py runserver 8080 &
       - name: Run Tests
