@@ -13,6 +13,8 @@ jobs:
       APPLICATION_CONTEXT: host
       APPLICATION_MODE: localhost
       INVOKE_POSTGRES_HOST: localhost
+      AWS_ACCESS_KEY_ID: AKIA4VLUZ2543W42M7M7
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
     services:
       postgres:
