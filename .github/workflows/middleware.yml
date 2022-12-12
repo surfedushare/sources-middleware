@@ -12,7 +12,7 @@ jobs:
     env:
       APPLICATION_CONTEXT: host
       APPLICATION_MODE: localhost
-      POL_POSTGRES_HOST: localhost
+      INVOKE_POSTGRES_HOST: localhost
 
     services:
       postgres:
