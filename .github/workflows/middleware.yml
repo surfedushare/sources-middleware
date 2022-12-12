@@ -46,9 +46,8 @@ jobs:
         run: |
           invoke aws.sync-repository-state --no-profile
           invoke prepare-builds
-          cd api
-          python manage.py runserver 8080 &
       - name: Run Tests
         run: |
           cd api
+          python manage.py runserver 8080 &
           python manage.py test
