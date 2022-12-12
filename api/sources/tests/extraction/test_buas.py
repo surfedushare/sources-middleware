@@ -43,11 +43,11 @@ class TestProjectsExtraction(ExtractorTestCase):
             self.results[0]["parties"],
             [
                 {"name": "Camptoo"},
-                {"name": "DEOdrive"}, 
-                {"name": "Dutch Innovation Centre for Electric Road Transport (Dutch-INCERT)"}, 
-                {"name": "Emodz"}, {"name": "EMOSS"}, 
+                {"name": "DEOdrive"},
+                {"name": "Dutch Innovation Centre for Electric Road Transport (Dutch-INCERT)"},
+                {"name": "Emodz"}, {"name": "EMOSS"},
                 {"name": "EVConsult"},
-                {"name": "Hansa Green Tour"}, 
+                {"name": "Hansa Green Tour"},
                 {"name": "Rijksdienst voor Ondernemend Nederland (RVO.nl)"}
             ]
         )

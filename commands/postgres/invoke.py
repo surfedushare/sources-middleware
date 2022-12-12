@@ -42,7 +42,7 @@ def setup_postgres_localhost(ctx):
         )
     # Migrate the application
     ctx.run(
-        f"cd api && python manage.py migrate",
+        "cd api && python manage.py migrate",
         echo=True, pty=True
     )
     # Create generic superuser named supersurf

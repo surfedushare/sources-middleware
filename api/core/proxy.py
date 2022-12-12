@@ -36,7 +36,7 @@ class SourceProxy(object):
                 *self.pagination["parameters"].values()
             )
 
-        cursor_validator = RegexValidator(f"{pagination_type.value}\|\d+\|\d+")
+        cursor_validator = RegexValidator(f"{pagination_type.value}" + r"\|\d+\|\d+")
         try:
             cursor_validator(cursor)
         except ValidationError:

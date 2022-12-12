@@ -1,12 +1,9 @@
-import json
 import boto3
 from time import sleep
 
 from invoke.tasks import task
-from invoke.exceptions import Exit
 
-from environments.project import MODE, FARGATE_CLUSTER_NAME
-from commands import TARGETS
+from environments.project import FARGATE_CLUSTER_NAME
 
 
 def await_steady_fargate_services(ecs_client, services):
