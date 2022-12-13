@@ -1,29 +1,6 @@
 from sources.tests.extraction.base import ExtractorTestCase
 
 
-# class TestPersonsExtraction(ExtractorTestCase):
-#
-#     source = "buas"
-#     entity = "persons"
-#
-#     def test_get_api_count(self):
-#         self.assertEqual(self.extractor.get_api_count(self.extractor.data), 398)
-#
-#     def test_get_api_next_cursor(self):
-#         self.assertEqual(self.extractor.get_api_next_cursor(self.extractor.data), "offset|100|100")
-#
-#     def test_get_api_previous_cursor(self):
-#         self.assertIsNone(self.extractor.get_api_previous_cursor(self.extractor.data))
-#
-#     def test_get_name(self):
-#         self.assertEqual(self.results[0]["name"], "F Maggie")
-#
-#     def test_get_is_employed(self):
-#         self.assertFalse(self.results[0]["is_employed"])
-#         self.assertTrue(self.results[1]["is_employed"])
-#         self.assertFalse(self.results[2]["is_employed"])
-
-
 class TestProjectsExtraction(ExtractorTestCase):
 
     source = "hanze"

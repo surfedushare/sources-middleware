@@ -5,58 +5,10 @@ from sources.extraction.base import SingleResponseExtractProcessor
 from sources.extraction.pure import PureAPIMixin
 
 
-# class HanzePersonExtractProcessor(SingleResponseExtractProcessor, PureAPIMixin):
-#
-#     @classmethod
-#     def get_name(cls, node):
-#         return f"{node['name']['firstName']} {node['name']['lastName']}"
-#
-#     @classmethod
-#     def get_is_employed(cls, node):
-#         today = datetime.today()
-#         for association in node.get("staffOrganisationAssociations", []):
-#             end_date = association.get("period", None).get("endDate", None)
-#             if not end_date or date_parser(end_date, ignoretz=True) > today:
-#                 break
-#         else:
-#             return False
-#         return True
-#
-#
-# HanzePersonExtractProcessor.OBJECTIVE = {
-#     "external_id": "$.uuid",
-#     "name": HanzePersonExtractProcessor.get_name,
-#     "first_name": "$.name.firstName",
-#     "last_name": "$.name.lastName",
-#     "prefix": lambda node: None,
-#     "initials": lambda node: None,
-#     "title": lambda node: None,
-#     "email": lambda node: None,
-#     "phone": lambda node: None,
-#     "skills": lambda node: [],
-#     "themes": lambda node: [],
-#     "description": lambda node: None,
-#     "parties": lambda node: [],
-#     "photo_url": lambda node: None,
-#     "isni": lambda node: None,
-#     "dai": lambda node: None,
-#     "orcid": "$.orcid",
-#     "is_employed": HanzePersonExtractProcessor.get_is_employed
-# }
-
-
 class HanzeProjectExtractProcessor(SingleResponseExtractProcessor, PureAPIMixin):
 
     @classmethod
     def get_status(cls, node):
-        # Hanze wants to filter out projects that have no research_focus_areas or research_line
-        for keywords in node.get("keywordGroups", []):
-            if keywords["logicalName"] == "research_focus_areas":
-                for classification in keywords["classifications"]:
-                    if classification["uri"] == "research_focus_areas/05/no_hanze_research_focus_area_applicable":
-                        return "inactive"
-                    elif classification["uri"] == "research_focus_areas/02g_no_research_line_applicable":
-                        return "inactive"
         today = datetime.today()
         end_date = node.get("period", {}).get("endDate")
         return "ongoing" if not end_date or today <= date_parser(end_date) else "finished"
