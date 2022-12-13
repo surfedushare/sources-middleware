@@ -142,8 +142,8 @@ HkuProjectExtractProcessor.OBJECTIVE = {
     "coordinates": HkuProjectExtractProcessor.get_coordinates,
     "goal": "$.goal",
     "description": "$.description",
-    "contact": "$.contact",
-    "owner": "$.owner",
+    "contact": lambda node: node.get("contact", None) or None,  # might be an empty object for some reason
+    "owner": lambda node: node.get("owner", None) or None,  # might be an empty object for some reason
     "persons": lambda node: [],
     "keywords": "$.tags.value",
     "parties": HkuProjectExtractProcessor.get_parties,
