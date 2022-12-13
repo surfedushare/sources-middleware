@@ -48,6 +48,16 @@ BuasPersonExtractProcessor.OBJECTIVE = {
 class BuasProjectExtractProcessor(SingleResponseExtractProcessor, PureAPIMixin):
 
     @classmethod
+    def get_status(cls, node):
+        match node["status"]["key"]:
+            case "FINISHED":
+                return "finished"
+            case "RUNNING":
+                return "ongoing"
+            case _:
+                return "unknown"
+
+    @classmethod
     def get_parties(cls, node):
         return [
             {"name": party["externalOrganisation"]["name"]["text"][0]["value"]}
@@ -81,7 +91,7 @@ class BuasProjectExtractProcessor(SingleResponseExtractProcessor, PureAPIMixin):
 BuasProjectExtractProcessor.OBJECTIVE = {
     "external_id": "$.uuid",
     "title": "$.title.text.0.value",
-    "status": "$.status.key",
+    "status": BuasProjectExtractProcessor.get_status,
     "started_at": "$.period.startDate",
     "ended_at": "$.period.endDate",
     "coordinates": lambda node: [],

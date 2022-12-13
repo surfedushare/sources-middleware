@@ -28,10 +28,14 @@ class TestProjectsExtraction(ExtractorTestCase):
     entity = "projects"
 
     def test_get_api_count(self):
-        self.assertEqual(self.extractor.get_api_count(self.extractor.data), 1)
+        self.assertEqual(self.extractor.get_api_count(self.extractor.data), 2)
 
     def test_get_external_id(self):
         self.assertEqual(self.results[0]["external_id"], "hku:project:1")
+
+    def test_get_status(self):
+        self.assertEqual(self.results[0]["status"], "ongoing")
+        self.assertEqual(self.results[1]["status"], "finished")
 
     def test_get_coordinates(self):
         self.assertEqual(self.results[0]["coordinates"], ["52.0958071", "5.1115789"])

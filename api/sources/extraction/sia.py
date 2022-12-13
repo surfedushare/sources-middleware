@@ -27,6 +27,14 @@ class SiaProjectExtractProcessor(SingleResponseExtractProcessor):
         return f"offset|{previous_offset}|{info['size']}"
 
     @classmethod
+    def get_status(cls, node):
+        match node["status"]:
+            case "Afgerond":
+                return "finished"
+            case _:
+                return "unknown"
+
+    @classmethod
     def get_parties(cls, node):
         contact_parties = [{"name": node["contactinformatie"]["naam"]}]
         network_parties = [{"name": network_party["naam"]} for network_party in node["netwerkleden"]]
@@ -37,7 +45,7 @@ class SiaProjectExtractProcessor(SingleResponseExtractProcessor):
 SiaProjectExtractProcessor.OBJECTIVE = {
     "external_id": "$.id",
     "title": "$.titel",
-    "status": "$.status",
+    "status": SiaProjectExtractProcessor.get_status,
     "started_at": "$.startdatum",
     "ended_at": "$.einddatum",
     "coordinates": lambda node: [],

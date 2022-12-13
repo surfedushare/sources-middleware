@@ -40,7 +40,6 @@ class TestProjectsExtraction(ExtractorTestCase):
 
     def test_get_status(self):
         self.assertEqual(self.results[0]["status"], "finished")
-        self.assertEqual(self.results[1]["status"], "inactive")
         self.assertEqual(self.results[4]["status"], "ongoing")
 
     def test_get_title(self):

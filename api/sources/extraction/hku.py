@@ -122,7 +122,7 @@ class HkuProjectExtractProcessor(SingleResponseExtractProcessor, SinglePageAPIMi
             case "in uitvoering":
                 return "ongoing"
             case _:
-                return status_value
+                return "unknown"
 
     @classmethod
     def get_started_at(cls, node):

@@ -20,6 +20,9 @@ class TestProjectsExtraction(ExtractorTestCase):
     def test_get_api_previous_cursor(self):
         self.assertIsNone(self.extractor.get_api_previous_cursor(self.extractor.data))
 
+    def test_get_status(self):
+        self.assertEqual(self.results[0]["status"], "finished")
+
     def test_get_parties(self):
         self.assertEqual(
             self.results[0]["parties"],
