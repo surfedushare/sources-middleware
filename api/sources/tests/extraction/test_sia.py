@@ -20,6 +20,9 @@ class TestProjectsExtraction(ExtractorTestCase):
     def test_get_api_previous_cursor(self):
         self.assertIsNone(self.extractor.get_api_previous_cursor(self.extractor.data))
 
+    def test_get_external_id(self):
+        self.assertEqual(self.results[0]["external_id"], "sia:project:315")
+
     def test_get_status(self):
         self.assertEqual(self.results[0]["status"], "finished")
 

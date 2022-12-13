@@ -27,6 +27,12 @@ class SiaProjectExtractProcessor(SingleResponseExtractProcessor):
         return f"offset|{previous_offset}|{info['size']}"
 
     @classmethod
+    def get_external_id(cls, node):
+        if not node["id"]:
+            return
+        return f"sia:project:{node['id']}"
+
+    @classmethod
     def get_status(cls, node):
         match node["status"]:
             case "Afgerond":
@@ -43,7 +49,7 @@ class SiaProjectExtractProcessor(SingleResponseExtractProcessor):
 
 
 SiaProjectExtractProcessor.OBJECTIVE = {
-    "external_id": "$.id",
+    "external_id": SiaProjectExtractProcessor.get_external_id,
     "title": "$.titel",
     "status": SiaProjectExtractProcessor.get_status,
     "started_at": "$.startdatum",
