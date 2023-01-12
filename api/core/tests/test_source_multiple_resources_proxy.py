@@ -36,9 +36,9 @@ class TestSourceMultipleResourcesProxy(TestCase):
         "token": "access"
     }
     pagination = {
-        "type": PaginationTypes.OFFSET,
+        "type": PaginationTypes.PAGE,
         "parameters": OrderedDict({
-            "offset": 0,
+            "page": 0,
             "size": 100
         })
     }
@@ -50,18 +50,13 @@ class TestSourceMultipleResourcesProxy(TestCase):
 
     def test_extract_resource_identifiers(self):
         partial_response = self.client.get("/mocks/entity/partial-persons/")
-        identifiers_1 = self.proxy.extract_resource_identifiers(
+        identifiers = self.proxy.extract_resource_identifiers(
             partial_response,
-            "offset|0|2",
             self.base["resources"]["persons"]["user"]
         )
-        self.assertEqual(identifiers_1, [14949, 14774])
-        identifiers_2 = self.proxy.extract_resource_identifiers(
-            partial_response,
-            "offset|2|2",
-            self.base["resources"]["persons"]["user"]
-        )
-        self.assertEqual(identifiers_2, [14944, 14546])
+        self.assertEqual(len(identifiers), 100)
+        for identifier in identifiers:
+            self.assertIsInstance(identifier, int)
 
     def test_build_detail_request(self):
         user_request = self.proxy.build_resource_request(self.base["resources"]["persons"]["user"], 14949)
@@ -72,16 +67,10 @@ class TestSourceMultipleResourcesProxy(TestCase):
         })
         self.assertEqual(user_request.headers["api-key"], "access")
 
-    def test_fetch(self):
-        response = self.proxy.fetch("persons", "offset|0|100")
-        self.assertEqual(response.status_code, 200)
-        data = response.json()
-        self.assertEqual(data["count"], 200)
-        self.assertEqual(data["next"], "http://localhost:8080/mocks/entity/partial-persons/?page=2&test=param")
-        self.assertIsNone(data["previous"])
-        self.assertEqual(len(data["results"]), 100)
+    def assert_results(self, results):
+        self.assertEqual(len(results), 100)
         reference_person = self.person_mock.build_person("reference")
-        for result in data["results"]:
+        for result in results:
             self.assertIsInstance(result, dict)
             self.assertIn("user", result, "Expected an user object to get added to the 'partial person' entity")
             self.assertIsInstance(result["user"], dict)
@@ -94,3 +83,24 @@ class TestSourceMultipleResourcesProxy(TestCase):
                 self.person_mock.build_email(result["name"]),
                 "Expected the user resource to contain email addresses"
             )
+
+    def test_fetch_initial(self):
+        response = self.proxy.fetch("persons", "page|1|100")
+        self.assertEqual(response.status_code, 200)
+        data = response.json()
+        self.assertEqual(data["count"], 200)
+        self.assertEqual(
+            data["next"],
+            "http://localhost:8080/mocks/entity/partial-persons/?page=2&size=100&test=param"
+        )
+        self.assertIsNone(data["previous"])
+        self.assert_results(data["results"])
+
+    def test_fetch_next(self):
+        response = self.proxy.fetch("persons", "page|2|100")
+        self.assertEqual(response.status_code, 200)
+        data = response.json()
+        self.assertEqual(data["count"], 200)
+        self.assertIsNone(data["next"])
+        self.assertEqual(data["previous"], "http://localhost:8080/mocks/entity/partial-persons/?size=100&test=param")
+        self.assert_results(data["results"])

@@ -163,20 +163,17 @@ class SourceMultipleResourcesProxy(SourceProxy):
         super().__init__(base, endpoints, auth=auth, pagination=pagination)
         assert base["resources"], \
             "Expected base source configuration to contain a resources key for SourceMultipleResourcesProxy"
-        assert pagination["type"] == PaginationTypes.OFFSET, \
-            "Expected offset pagination for SourceMultipleResourcesProxy"
+        assert pagination["type"] in [PaginationTypes.OFFSET, PaginationTypes.PAGE], \
+            "Expected page or offset pagination for SourceMultipleResourcesProxy"
 
-    def extract_resource_identifiers(self, response, cursor, resource_config):
+    def extract_resource_identifiers(self, response, resource_config):
         data = response.json()
         results = reach(resource_config["results_path"], data)
         if not results:
             return []
-        pagination_parameters = self.parse_pagination_parameters(cursor)
-        start = pagination_parameters["offset"]
-        end = pagination_parameters["offset"] + pagination_parameters["size"]
         return [
             reach(resource_config["resource_id"], obj)
-            for obj in results[start:end]
+            for obj in results
         ]
 
     def build_resource_request(self, resource_config, identifier):
@@ -193,12 +190,12 @@ class SourceMultipleResourcesProxy(SourceProxy):
     def fetch(self, entity, cursor=None):
         assert cursor, "Expected a cursor to be able to fetch using a SourceIdentifierListProxy"
         # Fetch the list of main resources
-        partial_response = super().fetch(entity, cursor=None)
+        partial_response = super().fetch(entity, cursor=cursor)
         partial_data = partial_response.json()
         # For each subresource gather the data and write it onto the main resource
         session = Session()
         for resource_name, resource_config in self.base["resources"][entity].items():
-            identifiers = self.extract_resource_identifiers(partial_response, cursor, resource_config)
+            identifiers = self.extract_resource_identifiers(partial_response, resource_config)
             resource_data = {}
             for identifier in identifiers:
                 request = self.build_resource_request(resource_config, identifier)
