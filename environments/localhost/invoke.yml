@@ -10,6 +10,8 @@ django:
   debug: true
   sentry:
     dsn: null
+  fixtures:
+    - "core/fixtures/initial.json"
 
 sources:
   hva:

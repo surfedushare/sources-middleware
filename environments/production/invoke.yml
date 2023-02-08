@@ -7,6 +7,8 @@ django:
   debug: false
   sentry:
     dsn: "https://27bd031e891a48dbbbefb9e4f48a3cd6@o1143393.ingest.sentry.io/6263722"
+  fixtures:
+    - "core/fixtures/initial.json"
 
 sources:
   hva:

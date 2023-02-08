@@ -1,0 +1,149 @@
+[
+{
+    "model": "core.source",
+    "pk": 2,
+    "fields": {
+        "name": "Mock",
+        "slug": "mock",
+        "entities": {
+            "persons": {
+                "is_available": true,
+                "allows_update": false
+            },
+            "projects": {
+                "is_available": true,
+                "allows_update": false
+            }
+        },
+        "is_repository": false,
+        "created_at": "2022-04-27T08:21:48.045Z",
+        "modified_at": "2022-04-27T08:21:48.045Z"
+    }
+},
+{
+    "model": "core.source",
+    "pk": 3,
+    "fields": {
+        "name": "Hogeschool voor de Kunsten Utrecht",
+        "slug": "hku",
+        "entities": {
+            "persons": {
+                "is_available": true,
+                "allows_update": false
+            },
+            "projects": {
+                "is_available": true,
+                "allows_update": false
+            }
+        },
+        "is_repository": false,
+        "created_at": "2022-04-27T08:21:48.045Z",
+        "modified_at": "2022-04-27T08:21:48.045Z"
+    }
+},
+{
+    "model": "core.source",
+    "pk": 4,
+    "fields": {
+        "name": "Sharekit",
+        "slug": "sharekit",
+        "entities": {
+            "persons": {
+                "is_available": true,
+                "allows_update": false
+            },
+            "projects": {
+                "is_available": false,
+                "allows_update": false
+            }
+        },
+        "is_repository": true,
+        "created_at": "2022-04-27T08:23:55.059Z",
+        "modified_at": "2022-04-27T08:23:55.059Z"
+    }
+},
+{
+    "model": "core.source",
+    "pk": 5,
+    "fields": {
+        "name": "Hogeschool van Amsterdam",
+        "slug": "hva",
+        "entities": {
+            "persons": {
+                "is_available": true,
+                "allows_update": false
+            },
+            "projects": {
+                "is_available": false,
+                "allows_update": false
+            }
+        },
+        "is_repository": false,
+        "created_at": "2022-04-27T08:24:07.274Z",
+        "modified_at": "2022-04-27T08:24:07.274Z"
+    }
+},
+{
+    "model": "core.source",
+    "pk": 6,
+    "fields": {
+        "name": "Breda University of Applied Sciences",
+        "slug": "buas",
+        "entities": {
+            "persons": {
+                "is_available": true,
+                "allows_update": false
+            },
+            "projects": {
+                "is_available": true,
+                "allows_update": false
+            }
+        },
+        "is_repository": false,
+        "created_at": "2022-04-29T09:31:33.792Z",
+        "modified_at": "2023-01-11T11:55:43.693Z"
+    }
+},
+{
+    "model": "core.source",
+    "pk": 7,
+    "fields": {
+        "name": "SIA",
+        "slug": "sia",
+        "entities": {
+            "persons": {
+                "is_available": false,
+                "allows_update": false
+            },
+            "projects": {
+                "is_available": true,
+                "allows_update": false
+            }
+        },
+        "is_repository": true,
+        "created_at": "2022-05-05T12:34:47.164Z",
+        "modified_at": "2022-05-05T12:34:47.165Z"
+    }
+},
+{
+    "model": "core.source",
+    "pk": 8,
+    "fields": {
+        "name": "Hanze",
+        "slug": "hanze",
+        "entities": {
+            "persons": {
+                "is_available": false,
+                "allows_update": false
+            },
+            "projects": {
+                "is_available": true,
+                "allows_update": false
+            }
+        },
+        "is_repository": false,
+        "created_at": "2022-11-21T16:11:35.135Z",
+        "modified_at": "2022-11-21T16:11:35.135Z"
+    }
+}
+]

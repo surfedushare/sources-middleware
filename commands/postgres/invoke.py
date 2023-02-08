@@ -55,3 +55,9 @@ def setup_postgres_localhost(ctx):
         warn=True,
         watchers=[postgres_password_responder],
     )
+    # Load data fixtures to get the project going
+    for fixture in ctx.config.django.fixtures:
+        ctx.run(
+            f"cd api && python manage.py loaddata {fixture}",
+            echo=True, pty=True
+        )
