@@ -59,7 +59,7 @@ HkuPersonExtractProcessor.OBJECTIVE = {
     "dai": lambda node: None,
     "orcid": lambda node: None,
     "is_employed": lambda node: True,
-    "job_title": None
+    "job_title": lambda node: None
 }
 
 
