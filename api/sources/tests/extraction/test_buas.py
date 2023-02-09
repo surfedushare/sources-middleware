@@ -74,4 +74,8 @@ class TestProjectsExtraction(ExtractorTestCase):
         )
 
     def test_get_owner(self):
-        self.assertEqual(self.results[0]["owner"], "4f3e10ea-c09b-4f9e-98bb-7407d1340112")
+        self.assertEqual(self.results[0]["owner"], {
+            "external_id": "4f3e10ea-c09b-4f9e-98bb-7407d1340112",
+            "email": None,
+            "name": None
+        })

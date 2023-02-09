@@ -47,6 +47,14 @@ class SiaProjectExtractProcessor(SingleResponseExtractProcessor):
         consortium_parties = [{"name": network_party["naam"]} for network_party in node["consortiumpartners"]]
         return contact_parties + consortium_parties + network_parties
 
+    @classmethod
+    def get_owner_and_contact(cls, node):
+        return {
+            "external_id": None,
+            "email": settings.SIA_CONTACT_EMAIL,  # takes value from an AWS secret, will be None on localhost
+            "name": None
+        }
+
 
 SiaProjectExtractProcessor.OBJECTIVE = {
     "external_id": SiaProjectExtractProcessor.get_external_id,
@@ -57,8 +65,8 @@ SiaProjectExtractProcessor.OBJECTIVE = {
     "coordinates": lambda node: [],
     "goal": "$.eindrapportage",
     "description": "$.samenvatting",
-    "contact": lambda node: settings.SIA_CONTACT_EMAIL,  # takes value from an AWS secret, will be None on localhost
-    "owner": lambda node: settings.SIA_CONTACT_EMAIL,  # takes value from an AWS secret, will be None on localhost
+    "contact": SiaProjectExtractProcessor.get_owner_and_contact,
+    "owner": SiaProjectExtractProcessor.get_owner_and_contact,
     "persons": lambda node: [],
     "keywords": lambda node: None,
     "parties": SiaProjectExtractProcessor.get_parties,

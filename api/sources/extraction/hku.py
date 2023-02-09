@@ -133,6 +133,17 @@ class HkuProjectExtractProcessor(SingleResponseExtractProcessor, SinglePageAPIMi
     def get_ended_at(cls, node):
         return cls.parse_date(node["ended_at"])
 
+    @staticmethod
+    def parse_person_property(node, property_name):
+        full_name = node.get(property_name, None)
+        if not full_name:  # might be an empty object for some reason
+            return None
+        return {
+            "external_id": None,
+            "email": None,
+            "name": full_name
+        }
+
 
 HkuProjectExtractProcessor.OBJECTIVE = {
     "external_id": HkuProjectExtractProcessor.get_external_id,
@@ -143,8 +154,8 @@ HkuProjectExtractProcessor.OBJECTIVE = {
     "coordinates": HkuProjectExtractProcessor.get_coordinates,
     "goal": "$.goal",
     "description": "$.description",
-    "contact": lambda node: node.get("contact", None) or None,  # might be an empty object for some reason
-    "owner": lambda node: node.get("owner", None) or None,  # might be an empty object for some reason
+    "contact": lambda node: HkuProjectExtractProcessor.parse_person_property(node, "contact"),
+    "owner": lambda node: HkuProjectExtractProcessor.parse_person_property(node, "owner"),
     "persons": lambda node: [],
     "keywords": "$.tags.value",
     "parties": HkuProjectExtractProcessor.get_parties,

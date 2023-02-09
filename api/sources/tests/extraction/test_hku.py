@@ -47,9 +47,21 @@ class TestProjectsExtraction(ExtractorTestCase):
         self.assertEqual(self.results[0]["products"], ["hku:product:1", "hku:product:2"])
 
     def test_lambda_owner(self):
-        self.assertEqual(self.results[0]["owner"], "Pietje Puk")
+        self.assertEqual(self.results[0]["owner"], {
+            "external_id": None,
+            "email": None,
+            "name": "Pietje Puk"
+        })
         self.assertIsNone(self.results[1]["owner"])
 
     def test_lambda_contact(self):
-        self.assertEqual(self.results[0]["contact"], "Pietje Puk")
-        self.assertEqual(self.results[1]["contact"], "Falkon Hub Hub")
+        self.assertEqual(self.results[0]["contact"], {
+            "external_id": None,
+            "email": None,
+            "name": "Pietje Puk"
+        })
+        self.assertEqual(self.results[1]["contact"], {
+            "external_id": None,
+            "email": None,
+            "name": "Falkon Hub Hub"
+        })

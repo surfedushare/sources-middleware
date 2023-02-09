@@ -60,7 +60,11 @@ class HanzeProjectExtractProcessor(SingleResponseExtractProcessor, PureAPIMixin)
     def get_owner(cls, node):
         persons = cls.get_persons(node)
         if persons:
-            return persons[0]
+            return {
+                "external_id": persons[0],
+                "email": None,
+                "name": None
+            }
 
 
 HanzeProjectExtractProcessor.OBJECTIVE = {
