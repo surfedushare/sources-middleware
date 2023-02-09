@@ -31,6 +31,20 @@ class HvaPersonExtractProcessor(SingleResponseExtractProcessor, PureAPIMixin):
             return False
         return True
 
+    @classmethod
+    def get_job_title(cls, node):
+        today = datetime.today()
+        for association in node.get("staffOrganizationAssociations", []):
+            end_date = association.get("period", None).get("endDate", None)
+            if not end_date or date_parser(end_date, ignoretz=True) > today:
+                break
+        else:
+            return
+        job_title_object = association.get("jobTitle", None)
+        if not job_title_object:
+            return
+        return next(iter(job_title_object["term"].values()), None)
+
 
 HvaPersonExtractProcessor.OBJECTIVE = {
     "external_id": "$.uuid",
@@ -50,5 +64,6 @@ HvaPersonExtractProcessor.OBJECTIVE = {
     "isni": HvaPersonExtractProcessor.get_isni,
     "dai": lambda node: None,
     "orcid": "$.orcid",
-    "is_employed": HvaPersonExtractProcessor.get_is_employed
+    "is_employed": HvaPersonExtractProcessor.get_is_employed,
+    "job_title": HvaPersonExtractProcessor.get_job_title
 }

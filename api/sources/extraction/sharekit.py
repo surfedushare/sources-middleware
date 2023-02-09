@@ -51,5 +51,6 @@ SharekitPersonExtractProcessor.OBJECTIVE = {
     "isni": "$.attributes.isni",
     "dai": "$.attributes.dai",
     "orcid": "$.attributes.orcid",
-    "is_employed": lambda node: True
+    "is_employed": lambda node: True,
+    "job_title": None
 }

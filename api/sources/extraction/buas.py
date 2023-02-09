@@ -22,6 +22,22 @@ class BuasPersonExtractProcessor(SingleResponseExtractProcessor, PureAPIMixin):
             return False
         return True
 
+    @classmethod
+    def get_job_title(cls, node):
+        today = datetime.today()
+        for association in node.get("staffOrganisationAssociations", []):
+            end_date = association.get("period", None).get("endDate", None)
+            if not end_date or date_parser(end_date, ignoretz=True) > today:
+                break
+        else:
+            return
+        job_title_object = association.get("jobTitle", association.get("jobDescription", None))
+        if not job_title_object:
+            return
+        elif "term" in job_title_object:
+            job_title_object = job_title_object["term"]
+        return job_title_object["text"][0]["value"]
+
 
 BuasPersonExtractProcessor.OBJECTIVE = {
     "external_id": "$.uuid",
@@ -41,7 +57,8 @@ BuasPersonExtractProcessor.OBJECTIVE = {
     "isni": lambda node: None,
     "dai": lambda node: None,
     "orcid": "$.orcid",
-    "is_employed": BuasPersonExtractProcessor.get_is_employed
+    "is_employed": BuasPersonExtractProcessor.get_is_employed,
+    "job_title": BuasPersonExtractProcessor.get_job_title
 }
 
 
