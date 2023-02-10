@@ -68,14 +68,14 @@ class TestProjectsExtraction(ExtractorTestCase):
         )
 
     def test_get_persons(self):
-        self.assertEqual(
-            self.results[0]["persons"],
-            ["4f3e10ea-c09b-4f9e-98bb-7407d1340112", "97ee5bd3-2145-4a4a-9a61-827e2ec839ef"]
-        )
+        self.assertEqual(self.results[0]["persons"], [
+            {"external_id": "4f3e10ea-c09b-4f9e-98bb-7407d1340112", "email": None, "name": "Ikke Vogelaar"},
+            {"external_id": "97ee5bd3-2145-4a4a-9a61-827e2ec839ef", "email": None, "name": "Pietje Peter"}
+        ])
 
     def test_get_owner(self):
         self.assertEqual(self.results[0]["owner"], {
             "external_id": "4f3e10ea-c09b-4f9e-98bb-7407d1340112",
             "email": None,
-            "name": None
+            "name": "Ikke Vogelaar"
         })

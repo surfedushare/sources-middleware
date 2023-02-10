@@ -45,7 +45,7 @@ class HanzeProjectExtractProcessor(SingleResponseExtractProcessor, PureAPIMixin)
 
     @classmethod
     def get_persons(cls, node):
-        person_ids = []
+        persons = []
         for participant in node.get("participants", []):
             if "person" in participant:
                 person = participant["person"]
@@ -53,18 +53,18 @@ class HanzeProjectExtractProcessor(SingleResponseExtractProcessor, PureAPIMixin)
                 person = participant["externalPerson"]
             else:
                 continue
-            person_ids.append(person["uuid"])
-        return person_ids
+            persons.append({
+                "external_id": person["uuid"],
+                "email": None,
+                "name": f"{participant['name']['firstName']} {participant['name']['lastName']}"
+            })
+        return persons
 
     @classmethod
     def get_owner(cls, node):
         persons = cls.get_persons(node)
         if persons:
-            return {
-                "external_id": persons[0],
-                "email": None,
-                "name": None
-            }
+            return persons[0]
 
 
 HanzeProjectExtractProcessor.OBJECTIVE = {
