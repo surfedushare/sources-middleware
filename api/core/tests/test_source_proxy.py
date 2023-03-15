@@ -19,11 +19,11 @@ class TestSourceProxy(TestCase):
     endpoints = {
         "persons": {
             "url": "/mocks/entity/persons/",
-            "extractor": "MockPersonExtractProcessor"
+            "extractor": "DjangoPersonExtractProcessor"
         },
         "projects": {
             "url": "/mocks/entity/projects/",
-            "extractor": "MockProjectExtractProcessor"
+            "extractor": "DjangoProjectExtractProcessor"
         }
     }
     auth = {

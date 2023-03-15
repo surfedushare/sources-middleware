@@ -28,7 +28,7 @@ class TestSourceMultipleResourcesProxy(TestCase):
     endpoints = {
         "persons": {
             "url": "/mocks/entity/partial-persons",
-            "extractor": "MockProjectExtractProcessor"
+            "extractor": "DjangoProjectExtractProcessor"
         }
     }
     auth = {
