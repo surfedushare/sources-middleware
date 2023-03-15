@@ -239,18 +239,43 @@ ENTITIES = ["persons", "projects"]
 SOURCES = {
     "mock": {
         "base": {
-            "url": "http://localhost:8080",
+            "url": environment.sources.django.base_url,
             "headers": {},
             "parameters": {}
         },
         "endpoints": {
             "persons": {
                 "url": "/mocks/entity/persons/",
-                "extractor": "MockPersonExtractProcessor"
+                "extractor": "DjangoPersonExtractProcessor"
             },
             "projects": {
                 "url": "/mocks/entity/persons/",
-                "extractor": "MockProjectExtractProcessor"
+                "extractor": "DjangoProjectExtractProcessor"
+            }
+        },
+        "auth": {},
+        "pagination": {
+            "type": PaginationTypes.PAGE,
+            "parameters": OrderedDict({
+                "page": 1,
+                "page_size": 100
+            })
+        }
+    },
+    "manual": {
+        "base": {
+            "url": environment.sources.django.base_url,
+            "headers": {},
+            "parameters": {}
+        },
+        "endpoints": {
+            "persons": {
+                "url": "/manual/entity/persons/",
+                "extractor": "DjangoPersonExtractProcessor"
+            },
+            "projects": {
+                "url": "/manual/entity/persons/",
+                "extractor": "DjangoProjectExtractProcessor"
             }
         },
         "auth": {},
