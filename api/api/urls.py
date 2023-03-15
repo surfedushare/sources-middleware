@@ -5,7 +5,7 @@ from rest_framework.schemas import get_schema_view
 
 from api.views import health_check
 from core.views import ListSources, ListEntities
-from core.mock.views import EntityMockAPIView, EntityMockIdListAPIView, EntityMockDetailAPIView
+from testing.mock.views import EntityMockAPIView, EntityMockIdListAPIView, EntityMockDetailAPIView
 
 api_urlpatterns = [
     path("sources/", ListSources.as_view(), name="sources"),

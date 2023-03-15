@@ -4,8 +4,8 @@ from rest_framework.pagination import PageNumberPagination
 from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 
-from core.mock.persons import PersonsMock, PartialPersonsMock, UserMock
-from core.mock.projects import ProjectsMock
+from testing.mock.persons import PersonsMock, PartialPersonsMock, UserMock
+from testing.mock.projects import ProjectsMock
 
 
 MOCKS = {

@@ -11,7 +11,7 @@ class PersonsMock(object):
         self.data = self.load_data()
 
     def load_data(self):
-        with open(os.path.join("core", "mock", "fixtures", "persons.json"), encoding="utf-8") as fixtures_json:
+        with open(os.path.join("testing", "mock", "fixtures", "persons.json"), encoding="utf-8") as fixtures_json:
             data = json.load(fixtures_json)
         return [
             self.build_person(person["value"], include_email=bool(ix % 2), include_orcid=not ix % 2)
@@ -53,7 +53,7 @@ class PersonsMock(object):
 class PartialPersonsMock(PersonsMock):
 
     def load_data(self):
-        with open(os.path.join("core", "mock", "fixtures", "persons.json"), encoding="utf-8") as fixtures_json:
+        with open(os.path.join("testing", "mock", "fixtures", "persons.json"), encoding="utf-8") as fixtures_json:
             data = json.load(fixtures_json)
         return [
             self.build_person(person["value"], include_email=False, include_orcid=not ix % 2, external_id=person["id"])
@@ -63,7 +63,7 @@ class PartialPersonsMock(PersonsMock):
 
 class UserMock(PersonsMock):
     def load_data(self):
-        with open(os.path.join("core", "mock", "fixtures", "persons.json"), encoding="utf-8") as fixtures_json:
+        with open(os.path.join("testing", "mock", "fixtures", "persons.json"), encoding="utf-8") as fixtures_json:
             data = json.load(fixtures_json)
         return [
             self.build_person(person["value"], include_email=True, include_orcid=not ix % 2, external_id=person["id"])
