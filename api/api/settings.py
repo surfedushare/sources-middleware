@@ -249,7 +249,7 @@ SOURCES = {
                 "extractor": "DjangoPersonExtractProcessor"
             },
             "projects": {
-                "url": "/mocks/entity/persons/",
+                "url": "/mocks/entity/projects/",
                 "extractor": "DjangoProjectExtractProcessor"
             }
         },
@@ -274,7 +274,7 @@ SOURCES = {
                 "extractor": "DjangoPersonExtractProcessor"
             },
             "projects": {
-                "url": "/manual/entity/persons/",
+                "url": "/manual/entity/projects/",
                 "extractor": "DjangoProjectExtractProcessor"
             }
         },
