@@ -3,7 +3,7 @@ from urllib.parse import urlparse, parse_qsl
 from sources.extraction.base import SingleResponseExtractProcessor
 
 
-class MockAPIMixin(object):
+class DjangoAPIMixin(object):
 
     response = None
     config = None
@@ -30,11 +30,11 @@ class MockAPIMixin(object):
         return self._convert_to_cursor_link(data["previous"])
 
 
-class MockPersonExtractProcessor(SingleResponseExtractProcessor, MockAPIMixin):
+class DjangoPersonExtractProcessor(SingleResponseExtractProcessor, DjangoAPIMixin):
     pass
 
 
-MockPersonExtractProcessor.OBJECTIVE = {
+DjangoPersonExtractProcessor.OBJECTIVE = {
     "external_id": "$.external_id",
     "name": "$.name",
     "first_name": "$.first_name",
@@ -56,11 +56,11 @@ MockPersonExtractProcessor.OBJECTIVE = {
 }
 
 
-class MockProjectExtractProcessor(SingleResponseExtractProcessor, MockAPIMixin):
+class DjangoProjectExtractProcessor(SingleResponseExtractProcessor, DjangoAPIMixin):
     pass
 
 
-MockProjectExtractProcessor.OBJECTIVE = {
+DjangoProjectExtractProcessor.OBJECTIVE = {
     "external_id": "$.external_id",
     "title": "$.title",
     "status": "$.status.value",

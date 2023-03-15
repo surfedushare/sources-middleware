@@ -14,6 +14,8 @@ django:
     - "core/fixtures/initial.json"
 
 sources:
+  django:
+    base_url: "http://localhost:8080"
   hva:
     base_url: "https://accpure.hva.nl"
   buas:

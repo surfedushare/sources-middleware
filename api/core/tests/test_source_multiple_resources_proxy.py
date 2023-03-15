@@ -4,7 +4,7 @@ from django.test import TestCase
 
 from core.constants import PaginationTypes, AuthenticationTypes
 from core.proxy import SourceMultipleResourcesProxy
-from core.mock.persons import PersonsMock
+from testing.mock.persons import PersonsMock
 
 
 class TestSourceMultipleResourcesProxy(TestCase):
@@ -28,7 +28,7 @@ class TestSourceMultipleResourcesProxy(TestCase):
     endpoints = {
         "persons": {
             "url": "/mocks/entity/partial-persons",
-            "extractor": "MockProjectExtractProcessor"
+            "extractor": "DjangoProjectExtractProcessor"
         }
     }
     auth = {

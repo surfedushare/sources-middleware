@@ -11,6 +11,8 @@ django:
     - "core/fixtures/initial.json"
 
 sources:
+  django:
+    base_url: "https://sources.acc.publinova.nl"
   hva:
     base_url: "https://pure.hva.nl"
   buas:

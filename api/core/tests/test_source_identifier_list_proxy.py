@@ -21,7 +21,7 @@ class TestSourceIdentifierListProxy(TestCase):
     endpoints = {
         "projects": {
             "url": "/mocks/entity/project-ids",
-            "extractor": "MockProjectExtractProcessor"
+            "extractor": "DjangoProjectExtractProcessor"
         }
     }
     auth = {
