@@ -1,4 +1,24 @@
 from hashlib import md5
+from copy import copy
+
+
+PROJECT_DEFAULTS = {
+    "title": None,
+    "external_id": None,
+    "status": None,
+    "started_at": None,
+    "ended_at": None,
+    "coordinates": [0, 0],
+    "goal": None,
+    "contact": None,
+    "persons": [],
+    "owner": None,
+    "description": None,
+    "parties": [],
+    "keywords": [],
+    "products": [],
+    "photo_url": None
+}
 
 
 class ProjectsMock(object):
@@ -13,20 +33,9 @@ class ProjectsMock(object):
         hash = md5()
         hash.update(title.encode("utf-8"))
         external_id = hash.hexdigest()
-        return {
+        project = copy(PROJECT_DEFAULTS)
+        project.update({
             "title": title,
-            "external_id": external_id,
-            "status": None,
-            "started_at": None,
-            "ended_at": None,
-            "coordinates": [0, 0],
-            "goal": None,
-            "contact": None,
-            "persons": [],
-            "owner": None,
-            "description": None,
-            "parties": [],
-            "keywords": [],
-            "products": [],
-            "photo_url": None
-        }
+            "external_id": external_id
+        })
+        return project

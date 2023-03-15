@@ -1,8 +1,31 @@
 import os
 import json
 from hashlib import md5
+from copy import copy
 
 from django.utils.text import slugify
+
+
+PERSON_DEFAULTS = {
+    "name": None,
+    "external_id": None,
+    "email": None,
+    "orcid": None,
+    "isni": None,
+    "dai": None,
+    "first_name": None,
+    "last_name": None,
+    "prefix": None,
+    "initials": None,
+    "title": None,
+    "phone": None,
+    "skills": [],
+    "themes": [],
+    "description": None,
+    "parties": [],
+    "photo_url": None,
+    "is_employed": True
+}
 
 
 class PersonsMock(object):
@@ -28,26 +51,14 @@ class PersonsMock(object):
             external_id = hash.hexdigest()
         email = self.build_email(name) if include_email else None
         orcid = external_id if include_orcid else None
-        return {
+        person = copy(PERSON_DEFAULTS)
+        person.update({
             "name": name,
             "external_id": external_id,
             "email": email,
             "orcid": orcid,
-            "isni": None,
-            "dai": None,
-            "first_name": None,
-            "last_name": None,
-            "prefix": None,
-            "initials": None,
-            "title": None,
-            "phone": None,
-            "skills": [],
-            "themes": [],
-            "description": None,
-            "parties": [],
-            "photo_url": None,
-            "is_employed": True
-        }
+        })
+        return person
 
 
 class PartialPersonsMock(PersonsMock):
