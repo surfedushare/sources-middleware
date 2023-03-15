@@ -50,5 +50,5 @@ jobs:
         run: |
           cd api
           python manage.py runserver 8080 &
-          sleep 5
+          sleep 30
           python manage.py test
