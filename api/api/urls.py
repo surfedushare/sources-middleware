@@ -5,7 +5,8 @@ from rest_framework.schemas import get_schema_view
 
 from api.views import health_check
 from core.views import ListSources, ListEntities
-from testing.mock.views import EntityMockAPIView, EntityMockIdListAPIView, EntityMockDetailAPIView
+from testing.views import EntityMockAPIView, EntityMockIdListAPIView, EntityMockDetailAPIView, ManualEntityAPIView
+
 
 api_urlpatterns = [
     path("sources/", ListSources.as_view(), name="sources"),
@@ -43,5 +44,6 @@ urlpatterns = [
     path('mocks/entity/project-ids/<str:pk>/', EntityMockDetailAPIView.as_view(), kwargs={"entity": "projects"}),
     path('mocks/entity/partial-persons/', EntityMockAPIView.as_view(), kwargs={"entity": "partial_persons"}),
     path('mocks/entity/user/<str:pk>/', EntityMockDetailAPIView.as_view(), kwargs={"entity": "user"}),
-    path('mocks/entity/<str:entity>/', EntityMockAPIView.as_view())
+    path('mocks/entity/<str:entity>/', EntityMockAPIView.as_view()),
+    path('manual/entity/<str:entity>/', ManualEntityAPIView.as_view())
 ]
