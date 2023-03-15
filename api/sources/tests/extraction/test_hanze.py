@@ -23,7 +23,30 @@ class TestProjectsExtraction(ExtractorTestCase):
         self.assertEqual(self.results[0]["title"], "Ontwerpend onderzoek, coproductie in context van krimp\t")
 
     def test_get_description(self):
-        self.assertTrue(self.results[0]["description"].startswith("Het project ‘Ontwerpend onderzoek,"))
+        self.assertTrue(
+            self.results[0]["description"].startswith("ontwerpend onderzoek"),
+            "Expected description to start with keyfindings when layman description is missing"
+        )
+        self.assertIn(
+            "\n\nHet project ‘Ontwerpend onderzoek", self.results[0]["description"],
+            "Expected description to contain project description when keyfindings are present"
+        )
+        self.assertFalse(
+            self.results[0]["description"].endswith("\n\n"),
+            "Newlines should only occur between description types"
+        )
+        self.assertTrue(
+            self.results[1]["description"].startswith("Patiënten zijn vaak zenuwachtig"),
+            "Expected description to start with project description when layman description and keyfindings are missing"
+        )
+        self.assertNotIn(
+            "\n\n", self.results[1]["description"],
+            "Expected description to contain no newlines if only a project description is available"
+        )
+        self.assertIsNone(
+            self.results[6]["description"],
+            "Expected description to be None when no descriptions are present"
+        )
 
     def test_get_keywords(self):
         self.assertEqual(self.results[0]["keywords"], [])

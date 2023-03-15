@@ -1,3 +1,4 @@
+import os
 from datetime import datetime
 from dateutil.parser import parse as date_parser
 
@@ -20,11 +21,27 @@ class HanzeProjectExtractProcessor(SingleResponseExtractProcessor, PureAPIMixin)
 
     @classmethod
     def get_description(cls, node):
-        descriptions = [description for description in node["descriptions"] if "value" in description]
-        if not descriptions:
-            return
-        description = descriptions[0]
-        return list(description["value"].values())[0]
+        # Gather all possible descriptions
+        language_code = None
+        descriptions = {}
+        for description in node["descriptions"]:
+            if "value" not in description:
+                continue
+            if language_code is None:
+                language_code = list(description["value"].keys())[0]
+            description_type = os.path.split(description["type"]["uri"])[1]
+            descriptions[description_type] = description["value"][language_code]
+        # Concatenate different descriptions to be a singular text
+        description = ""
+        if "laymansdescription" in descriptions:
+            description += descriptions["laymansdescription"]
+            description += "\n\n"
+        if "keyfindings" in descriptions:
+            description += descriptions["keyfindings"]
+            description += "\n\n"
+        if "projectdescription" in descriptions:
+            description += descriptions["projectdescription"]
+        return description.strip() or None
 
     @classmethod
     def get_keywords(cls, node):
