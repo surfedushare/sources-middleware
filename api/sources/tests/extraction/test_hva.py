@@ -17,18 +17,21 @@ class TestPersonsExtraction(ExtractorTestCase):
 
     def test_get_name(self):
         self.assertEqual(self.results[0]["name"], "Pietje Puk")
-        self.assertEqual(self.results[1]["name"], "Josefien Janssen")
 
     def test_get_isni(self):
-        self.assertIsNone(self.results[0]["isni"])
-        self.assertEqual(self.results[1]["isni"], "0000000011111111")
+        self.assertIsNone(
+            self.results[0]["isni"],
+            "According to Jasper Bedaux in an email on 15th Feb 2023 Hva won't pass along ISNI."
+        )
 
     def test_get_is_employed(self):
-        self.assertFalse(self.results[0]["is_employed"])
-        self.assertTrue(self.results[1]["is_employed"])
-        self.assertFalse(self.results[2]["is_employed"])
+        self.skipTest(
+            "According to Jasper Bedaux in an email on 6th March 2023 HvA won't pass along non-employed people"
+        )
 
     def test_get_job_title(self):
-        self.assertIsNone(self.results[0]["job_title"])
-        self.assertEqual(self.results[1]["job_title"], "Senior Lecturer")
-        self.assertIsNone(self.results[2]["job_title"])
+        self.assertEqual(self.results[0]["job_title"], "Senior Lecturer")
+        self.assertIsNone(
+            self.results[1]["job_title"],
+            "Missing job titles in staffOrganizationAssociation objects should return None"
+        )
