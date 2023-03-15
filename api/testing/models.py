@@ -26,4 +26,4 @@ def get_project_defaults():
 
 
 class ManualProject(ManualEntity):
-    properties = models.JSONField(default=get_person_defaults)
+    properties = models.JSONField(default=get_project_defaults)
