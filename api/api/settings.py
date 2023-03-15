@@ -79,6 +79,7 @@ INSTALLED_APPS = [
     'api',
     'core',
     'sources',
+    'testing',
 ]
 
 MIDDLEWARE = [

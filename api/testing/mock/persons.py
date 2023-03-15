@@ -5,27 +5,7 @@ from copy import copy
 
 from django.utils.text import slugify
 
-
-PERSON_DEFAULTS = {
-    "name": None,
-    "external_id": None,
-    "email": None,
-    "orcid": None,
-    "isni": None,
-    "dai": None,
-    "first_name": None,
-    "last_name": None,
-    "prefix": None,
-    "initials": None,
-    "title": None,
-    "phone": None,
-    "skills": [],
-    "themes": [],
-    "description": None,
-    "parties": [],
-    "photo_url": None,
-    "is_employed": True
-}
+from testing.constants import PERSON_DEFAULTS
 
 
 class PersonsMock(object):
