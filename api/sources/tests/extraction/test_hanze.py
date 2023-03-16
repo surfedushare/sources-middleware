@@ -28,19 +28,15 @@ class TestProjectsExtraction(ExtractorTestCase):
             "Expected description to start with keyfindings when layman description is missing"
         )
         self.assertIn(
-            "\n\nHet project ‘Ontwerpend onderzoek", self.results[0]["description"],
+            "</br></br>Het project ‘Ontwerpend onderzoek", self.results[0]["description"],
             "Expected description to contain project description when keyfindings are present"
-        )
-        self.assertFalse(
-            self.results[0]["description"].endswith("\n\n"),
-            "Newlines should only occur between description types"
         )
         self.assertTrue(
             self.results[1]["description"].startswith("Patiënten zijn vaak zenuwachtig"),
             "Expected description to start with project description when layman description and keyfindings are missing"
         )
         self.assertNotIn(
-            "\n\n", self.results[1]["description"],
+            "</br></br>", self.results[1]["description"],
             "Expected description to contain no newlines if only a project description is available"
         )
         self.assertIsNone(

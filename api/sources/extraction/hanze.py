@@ -35,13 +35,16 @@ class HanzeProjectExtractProcessor(SingleResponseExtractProcessor, PureAPIMixin)
         description = ""
         if "laymansdescription" in descriptions:
             description += descriptions["laymansdescription"]
-            description += "\n\n"
+
         if "keyfindings" in descriptions:
+            if description:
+                description += "</br></br>"
             description += descriptions["keyfindings"]
-            description += "\n\n"
         if "projectdescription" in descriptions:
+            if description:
+                description += "</br></br>"
             description += descriptions["projectdescription"]
-        return description.strip() or None
+        return description or None
 
     @classmethod
     def get_keywords(cls, node):
