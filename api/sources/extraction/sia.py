@@ -49,11 +49,11 @@ class SiaProjectExtractProcessor(SingleResponseExtractProcessor):
 
     @classmethod
     def get_owner_and_contact(cls, node):
-        return {
+        return [{
             "external_id": None,
             "email": settings.SIA_CONTACT_EMAIL,  # takes value from an AWS secret, will be None on localhost
             "name": None
-        }
+        }]
 
 
 SiaProjectExtractProcessor.OBJECTIVE = {

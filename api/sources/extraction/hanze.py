@@ -83,8 +83,7 @@ class HanzeProjectExtractProcessor(SingleResponseExtractProcessor, PureAPIMixin)
     @classmethod
     def get_owners(cls, node):
         persons = cls.get_persons(node)
-        if persons:
-            return [persons[0]]
+        return [persons[0]] if persons else []
 
 
 HanzeProjectExtractProcessor.OBJECTIVE = {
