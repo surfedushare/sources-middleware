@@ -144,6 +144,20 @@ class HkuProjectExtractProcessor(SingleResponseExtractProcessor, SinglePageAPIMi
             "name": full_name
         }
 
+    @classmethod
+    def get_owners(cls, node):
+        owner = HkuProjectExtractProcessor.parse_person_property(node, "owner")
+        if not owner:
+            return []
+        return [owner]
+
+    @classmethod
+    def get_contacts(cls, node):
+        contact = HkuProjectExtractProcessor.parse_person_property(node, "contact")
+        if not contact:
+            return []
+        return [contact]
+
 
 HkuProjectExtractProcessor.OBJECTIVE = {
     "external_id": HkuProjectExtractProcessor.get_external_id,
@@ -154,8 +168,8 @@ HkuProjectExtractProcessor.OBJECTIVE = {
     "coordinates": HkuProjectExtractProcessor.get_coordinates,
     "goal": "$.goal",
     "description": "$.description",
-    "contact": lambda node: HkuProjectExtractProcessor.parse_person_property(node, "contact"),
-    "owner": lambda node: HkuProjectExtractProcessor.parse_person_property(node, "owner"),
+    "contacts": HkuProjectExtractProcessor.get_contacts,
+    "owners": HkuProjectExtractProcessor.get_owners,
     "persons": lambda node: [],
     "keywords": "$.tags.value",
     "parties": HkuProjectExtractProcessor.get_parties,

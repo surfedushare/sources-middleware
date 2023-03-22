@@ -103,10 +103,10 @@ class BuasProjectExtractProcessor(SingleResponseExtractProcessor, PureAPIMixin):
         return persons
 
     @classmethod
-    def get_owner(cls, node):
+    def get_owners(cls, node):
         persons = cls.get_persons(node)
         if persons:
-            return persons[0]
+            return [persons[0]]
 
 
 BuasProjectExtractProcessor.OBJECTIVE = {
@@ -118,8 +118,8 @@ BuasProjectExtractProcessor.OBJECTIVE = {
     "coordinates": lambda node: [],
     "goal": lambda node: None,
     "description": "$.descriptions.0.value.text.0.value",
-    "contact": BuasProjectExtractProcessor.get_owner,
-    "owner": BuasProjectExtractProcessor.get_owner,
+    "contacts": BuasProjectExtractProcessor.get_owners,
+    "owners": BuasProjectExtractProcessor.get_owners,
     "persons": BuasProjectExtractProcessor.get_persons,
     "keywords": "$.keywordGroups.0.keywordContainers.0.freeKeywords.0.freeKeywords",
     "parties": BuasProjectExtractProcessor.get_parties,

@@ -81,10 +81,10 @@ class HanzeProjectExtractProcessor(SingleResponseExtractProcessor, PureAPIMixin)
         return persons
 
     @classmethod
-    def get_owner(cls, node):
+    def get_owners(cls, node):
         persons = cls.get_persons(node)
         if persons:
-            return persons[0]
+            return [persons[0]]
 
 
 HanzeProjectExtractProcessor.OBJECTIVE = {
@@ -96,8 +96,8 @@ HanzeProjectExtractProcessor.OBJECTIVE = {
     "coordinates": lambda node: [],
     "goal": lambda node: None,
     "description": HanzeProjectExtractProcessor.get_description,
-    "contact": HanzeProjectExtractProcessor.get_owner,
-    "owner": HanzeProjectExtractProcessor.get_owner,
+    "contacts": HanzeProjectExtractProcessor.get_owners,
+    "owners": HanzeProjectExtractProcessor.get_owners,
     "persons": HanzeProjectExtractProcessor.get_persons,
     "keywords": HanzeProjectExtractProcessor.get_keywords,
     "parties": lambda node: [],
