@@ -101,5 +101,6 @@ HanzeProjectExtractProcessor.OBJECTIVE = {
     "persons": HanzeProjectExtractProcessor.get_persons,
     "keywords": HanzeProjectExtractProcessor.get_keywords,
     "parties": lambda node: [],
-    "products": HanzeProjectExtractProcessor.get_products
+    "products": HanzeProjectExtractProcessor.get_products,
+    "research_themes": lambda node: [],
 }

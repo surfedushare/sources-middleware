@@ -173,5 +173,6 @@ HkuProjectExtractProcessor.OBJECTIVE = {
     "persons": lambda node: [],
     "keywords": "$.tags.value",
     "parties": HkuProjectExtractProcessor.get_parties,
-    "products": HkuProjectExtractProcessor.get_products
+    "products": HkuProjectExtractProcessor.get_products,
+    "research_themes": lambda node: [],
 }

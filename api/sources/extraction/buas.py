@@ -123,5 +123,6 @@ BuasProjectExtractProcessor.OBJECTIVE = {
     "persons": BuasProjectExtractProcessor.get_persons,
     "keywords": "$.keywordGroups.0.keywordContainers.0.freeKeywords.0.freeKeywords",
     "parties": BuasProjectExtractProcessor.get_parties,
-    "products": BuasProjectExtractProcessor.get_products
+    "products": BuasProjectExtractProcessor.get_products,
+    "research_themes": lambda node: [],
 }

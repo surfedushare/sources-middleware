@@ -35,5 +35,6 @@ PROJECT_DEFAULTS = {
     "parties": [],
     "keywords": [],
     "products": [],
-    "photo_url": None
+    "photo_url": None,
+    "research_themes": [],
 }

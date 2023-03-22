@@ -71,4 +71,5 @@ SiaProjectExtractProcessor.OBJECTIVE = {
     "keywords": lambda node: None,
     "parties": SiaProjectExtractProcessor.get_parties,
     "products": lambda node: [],
+    "research_themes": lambda node: [],
 }
