@@ -69,10 +69,11 @@ DjangoProjectExtractProcessor.OBJECTIVE = {
     "coordinates": "$.coordinates",
     "goal": "$.goal",
     "description": "$.description",
-    "contact": "$.contact",
-    "owner": "$.owner",
+    "contacts": "$.contacts",
+    "owners": "$.owners",
     "persons": "$.persons",
     "keywords": "$.tags.value",
     "parties": "$.parties",
-    "products": "$.resultids.ID"
+    "products": "$.resultids.ID",
+    "research_themes": "$.research_themes",
 }
