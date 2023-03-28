@@ -53,6 +53,7 @@ DjangoPersonExtractProcessor.OBJECTIVE = {
     "dai": "$.dai",
     "orcid": "$.orcid",
     "is_employed": "$.is_employed",
+    "job_title": "$.job_title",
 }
 
 

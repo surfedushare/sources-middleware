@@ -16,7 +16,8 @@ PERSON_DEFAULTS = {
     "description": None,
     "parties": [],
     "photo_url": None,
-    "is_employed": True
+    "is_employed": True,
+    "job_title": None,
 }
 
 
