@@ -58,7 +58,8 @@ BuasPersonExtractProcessor.OBJECTIVE = {
     "dai": lambda node: None,
     "orcid": "$.orcid",
     "is_employed": BuasPersonExtractProcessor.get_is_employed,
-    "job_title": BuasPersonExtractProcessor.get_job_title
+    "job_title": BuasPersonExtractProcessor.get_job_title,
+    "research_themes": lambda node: [],
 }
 
 

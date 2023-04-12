@@ -65,5 +65,6 @@ HvaPersonExtractProcessor.OBJECTIVE = {
     "dai": lambda node: None,
     "orcid": "$.orcid",
     "is_employed": HvaPersonExtractProcessor.get_is_employed,
-    "job_title": HvaPersonExtractProcessor.get_job_title
+    "job_title": HvaPersonExtractProcessor.get_job_title,
+    "research_themes": lambda node: [],
 }
