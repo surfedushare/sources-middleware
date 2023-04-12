@@ -18,6 +18,7 @@ PERSON_DEFAULTS = {
     "photo_url": None,
     "is_employed": True,
     "job_title": None,
+    "research_themes": [],
 }
 
 
