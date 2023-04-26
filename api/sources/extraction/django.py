@@ -76,6 +76,6 @@ DjangoProjectExtractProcessor.OBJECTIVE = {
     "persons": "$.persons",
     "keywords": "$.tags.value",
     "parties": "$.parties",
-    "products": "$.resultids.ID",
+    "products": "$.products",
     "research_themes": "$.research_themes",
 }
