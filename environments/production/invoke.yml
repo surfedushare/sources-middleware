@@ -1,8 +1,6 @@
 # NB: This file is committed in a public repo. DO NOT COMMIT REAL SECRETS!
 # It uses AWS Secret Manager to lookup any secrets at application bootstrap
 
-env: "production"
-
 django:
   debug: false
   sentry:
@@ -25,27 +23,7 @@ sources:
 postgres:
   host: "nppo.cewgqm9ngaxe.eu-central-1.rds.amazonaws.com"
   port: 5432
-  database: "nppo_middleware"
-  user: "nppo_middleware"
 
 aws:
   is_aws: true
-
-secrets:
-  postgres:
-    password: "arn:aws:secretsmanager:eu-central-1:870512711545:secret:middleware/postgres-application"
-    application_password: "arn:aws:secretsmanager:eu-central-1:870512711545:secret:middleware/postgres-application"
-  django:
-    secret_key: "arn:aws:secretsmanager:eu-central-1:870512711545:secret:middleware/django"
-    admin_password: "arn:aws:secretsmanager:eu-central-1:870512711545:secret:middleware/django"
-  hva:
-    api_key: "arn:aws:secretsmanager:eu-central-1:870512711545:secret:credentials/hva"
-  buas:
-    api_key: "arn:aws:secretsmanager:eu-central-1:870512711545:secret:credentials/buas"
-  sharekit:
-    api_key: "arn:aws:secretsmanager:eu-central-1:870512711545:secret:credentials/sharekit"
-  sia:
-    api_key: "arn:aws:secretsmanager:eu-central-1:870512711545:secret:credentials/sia"
-    contact_email: "arn:aws:secretsmanager:eu-central-1:870512711545:secret:credentials/sia"
-  hanze:
-    api_key: "arn:aws:secretsmanager:eu-central-1:870512711545:secret:credentials/hanze"
+  load_secrets: true

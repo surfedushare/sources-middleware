@@ -1,6 +1,6 @@
 from invoke.tasks import task
 
-from commands.aws.ecs import run_task
+from commands.aws.ecs import run_data_engineering_task
 
 
 @task(help={
@@ -13,12 +13,12 @@ def migrate(ctx, mode):
     command = ["python", "manage.py", "migrate"]
     environment = [
         {
-            "name": "INVOKE_POSTGRES_USER",
+            "name": "DET_POSTGRES_USER",
             "value": f"{ctx.config.postgres.user}"
         },
         {
-            "name": "INVOKE_SECRETS_POSTGRES_PASSWORD",
+            "name": "DET_SECRETS_POSTGRES_PASSWORD",
             "value": f"{ctx.config.aws.postgres_password_arn}"
         },
     ]
-    run_task(ctx, mode, command, environment)
+    run_data_engineering_task(ctx, mode, command, environment)

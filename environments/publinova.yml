@@ -1,0 +1,7 @@
+postgres:
+  database: "middleware_publinova"
+  user: "middleware_publinova"
+  application_user: "middleware_publinova"
+
+django:
+  domain: "sources.{environment_code}.publinova.nl"

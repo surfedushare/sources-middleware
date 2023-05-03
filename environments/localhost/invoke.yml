@@ -4,8 +4,6 @@
 
 # NB: When making changes restart your container or development server to load the update
 
-env: "localhost"
-
 django:
   debug: true
   sentry:
@@ -28,27 +26,7 @@ sources:
 postgres:
   host: "postgres"
   port: 5432
-  database: "nppo_middleware"
-  user: "nppo_middleware"
 
 aws:
   is_aws: false
-
-secrets:
-  postgres:
-    password: "qwerty"
-    application_password: "qwerty"
-  django:
-    secret_key: "development-secret-key--do-not-use"
-    admin_password: "qwerty"
-  hva:
-    api_key: null
-  buas:
-    api_key: null
-  sharekit:
-    api_key: null
-  sia:
-    api_key: null
-    contact_email: null
-  hanze:
-    api_key: null
+  load_secrets: true
