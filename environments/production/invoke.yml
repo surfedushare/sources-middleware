@@ -21,7 +21,7 @@ sources:
     base_url: "https://hanze.azure-api.net"
 
 postgres:
-  host: "nppo.cewgqm9ngaxe.eu-central-1.rds.amazonaws.com"
+  host: "surfpol-edushare.cef190hciiol.eu-central-1.rds.amazonaws.com"
   port: 5432
 
 aws:

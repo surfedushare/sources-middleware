@@ -44,9 +44,10 @@ def prepare_builds(ctx, commit=None):
 
 @task(help={
     "commit": "The commit hash a new build should include in its info.json. Will also be used to tag the new image.",
-    "docker_login": "Specify this flag to login to AWS registry. Needed only once per session"
+    "docker_login": "Specify this flag to login to AWS registry. Needed only once per session",
+    "no_cache": "Use this flag to disable cache layers from the remote registry"
 })
-def build(ctx, commit=None, docker_login=False):
+def build(ctx, commit=None, docker_login=False, no_cache=False):
     """
     Uses Docker to build an image for a Django project
     """
@@ -62,9 +63,10 @@ def build(ctx, commit=None, docker_login=False):
     target_info = TARGETS["middleware"]
     name = target_info['name']
     latest_remote_image = f"{ctx.config.aws.production.registry}/{name}:latest"
+    cache = f"--build-arg BUILDKIT_INLINE_CACHE=1 --cache-from {latest_remote_image}" if not no_cache else ""
     ctx.run(
         f"DOCKER_BUILDKIT=1 docker build "
-        f"--build-arg BUILDKIT_INLINE_CACHE=1 --cache-from {latest_remote_image} --progress=plain "
+        f"{cache} --progress=plain "
         f"--platform=linux/amd64 -f api/Dockerfile -t {name}:{commit} .",
         pty=True,
         echo=True

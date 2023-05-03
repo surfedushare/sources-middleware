@@ -10,7 +10,7 @@ jobs:
       matrix:
         python-version: ["3.10"]
     env:
-      APPLICATION_CONTEXT: host
+      APPLICATION_CONTEXT: unprivileged
       APPLICATION_MODE: localhost
       DET_POSTGRES_HOST: localhost
       AWS_ACCESS_KEY_ID: AKIA4VLUZ2543W42M7M7

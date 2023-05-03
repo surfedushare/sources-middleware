@@ -8,8 +8,8 @@ The first specifies a mode like "production", "acceptance" or "development".
 The second specifies where the code is run either "host" or "container"
 The third indicates which project specific configuration to load.
 
-Any configuration that you want to override can be set by using environment variables prefixed with "POL_".
-For instance: if you want to override the django.debug configuration set POL_DJANGO_DEBUG=0.
+Any configuration that you want to override can be set by using environment variables prefixed with "DET_".
+For instance: if you want to override the django.debug configuration set DET_DJANGO_DEBUG=0.
 If you leave empty any POL environment variables they are assumed to be unset. Use "0" for a False value.
 
 Parts of the configuration is identical across environments
@@ -24,8 +24,9 @@ import json
 from invoke.config import Config
 import boto3
 import requests
-from environments.aws import (AWS_ENVIRONMENT_CONFIGURATIONS, AWS_ACCOUNT_CONFIGURATIONS, AWS_SECRET_CONFIGURATIONS,
-                              ENVIRONMENT_NAMES_TO_CODES, ENVIRONMENT_NAMES_TO_ACCOUNT_IDS)
+
+from .aws import (AWS_ENVIRONMENT_CONFIGURATIONS, AWS_ACCOUNT_CONFIGURATIONS, AWS_SECRET_CONFIGURATIONS,
+                  ENVIRONMENT_NAMES_TO_CODES, ENVIRONMENT_NAMES_TO_ACCOUNT_IDS)
 
 
 MODE = os.environ.get("APPLICATION_MODE", "production")
@@ -146,15 +147,14 @@ def create_configuration(mode=None, context="container"):
     :return: invoke configuration
     """
     mode = mode or MODE
-    configuration_directory = os.path.join(ENVIRONMENTS, "data_engineering")
     config = DETConfig(
         defaults=build_configuration_defaults(mode),
-        system_prefix=os.path.join(configuration_directory, mode) + os.path.sep,
+        system_prefix=os.path.join(ENVIRONMENTS, mode) + os.path.sep,
         lazy=True
     )
-    config._project_path = os.path.join(configuration_directory, f"{PROJECT}.yml")
+    config._project_path = os.path.join(ENVIRONMENTS, f"{PROJECT}.yml")
     if context == "host":
-        config.set_runtime_path(os.path.join(configuration_directory, mode, "superuser.invoke.yml"))
+        config.set_runtime_path(os.path.join(ENVIRONMENTS, mode, "superuser.invoke.yml"))
     config.load_system()
     config.load_user()
     config.load_project()

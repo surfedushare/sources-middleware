@@ -1,6 +1,6 @@
 from invoke import Collection
 
-from environments.configuration import create_configuration_and_session
+from environments.configuration.main import create_configuration_and_session
 from commands.postgres.invoke import setup_postgres_localhost
 from commands.deploy import prepare_builds, build, push, promote, deploy, migrate, print_available_images
 from commands.aws.ecs import cleanup_ecs_artifacts
