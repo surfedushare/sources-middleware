@@ -106,7 +106,7 @@ class HkuProjectExtractProcessor(SingleResponseExtractProcessor, SinglePageAPIMi
     @classmethod
     def get_parties(cls, node):
         parties = node["organisations"].get("party", [])
-        if not parties:  # might be an empty object for some reason
+        if not parties or isinstance(parties, dict):  # might be an empty object for some reason
             return []
         return [{"name": party["name"]} for party in parties]
 
