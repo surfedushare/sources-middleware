@@ -68,7 +68,7 @@ SiaProjectExtractProcessor.OBJECTIVE = {
     "contact": SiaProjectExtractProcessor.get_owner_and_contact,
     "owner": SiaProjectExtractProcessor.get_owner_and_contact,
     "persons": lambda node: [],
-    "keywords": lambda node: None,
+    "keywords": lambda node: [],
     "parties": SiaProjectExtractProcessor.get_parties,
     "products": lambda node: [],
     "research_themes": lambda node: [],
