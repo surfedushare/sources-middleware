@@ -13,6 +13,7 @@ jobs:
       APPLICATION_CONTEXT: unprivileged
       APPLICATION_MODE: localhost
       DET_POSTGRES_HOST: localhost
+      DET_POSTGRES_USER: postgres
       AWS_ACCESS_KEY_ID: AKIA4VLUZ2543W42M7M7
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
