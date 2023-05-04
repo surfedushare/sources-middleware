@@ -22,7 +22,6 @@ jobs:
         image: postgres
         env:
           POSTGRES_PASSWORD: qwerty
-          POSTGRES_DB: nppo_middleware
         ports:
           - 5432:5432
         options: >-

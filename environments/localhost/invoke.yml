@@ -27,6 +27,14 @@ postgres:
   host: "postgres"
   port: 5432
 
+secrets:
+  postgres:
+    password: "qwerty"
+    application_password: "qwerty"
+  django:
+    secret_key: "development-secret-key--do-not-use"
+    admin_password: "qwerty"
+
 aws:
   is_aws: false
   load_secrets: true
