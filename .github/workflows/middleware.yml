@@ -14,7 +14,7 @@ jobs:
       APPLICATION_MODE: localhost
       DET_POSTGRES_HOST: localhost
       DET_POSTGRES_USER: postgres
-      AWS_ACCESS_KEY_ID: AKIA4VLUZ2543W42M7M7
+      AWS_ACCESS_KEY_ID: AKIAQIL2LTMHIQI5BFH2
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
     services:
@@ -45,7 +45,7 @@ jobs:
           pip install -r requirements.txt
       - name: Setup Repository
         run: |
-          invoke aws.sync-repository-state --no-profile --bucket-prefix=nppo-prod
+          invoke aws.sync-repository-state --no-profile
           invoke prepare-builds
       - name: Run Tests
         run: |
