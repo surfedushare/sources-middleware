@@ -32,7 +32,7 @@ def sync_repository_state(ctx, push=False, no_profile=False, bucket_prefix=None)
     source = repository_state_bucket if not push else local_directory
     destination = local_directory if not push else repository_state_bucket
     targets = [
-        #("cp", os.path.join("nginx", "ip-whitelist.conf")),
+        ("cp", os.path.join("nginx", "ip-whitelist.conf")),
         ("sync", os.path.join("api", "sources", "fixtures"))
     ]
     for operation, path in targets:
