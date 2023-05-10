@@ -17,11 +17,11 @@ services:
       - DJANGO_SETTINGS_MODULE=api.settings
       - APPLICATION_MODE=${APPLICATION_MODE}
       - AWS_DEFAULT_REGION=${AWS_DEFAULT_REGION}
-      - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
-      - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
+      - AWS_PROFILE=${AWS_PROFILE}
     ports:
       - "127.0.0.1:8080:8080"
     volumes:
+      - ${HOME}/.aws:/home/app/.aws
       - ./api:/usr/src/app
     depends_on:
       - postgres
