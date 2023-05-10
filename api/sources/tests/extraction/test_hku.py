@@ -28,23 +28,37 @@ class TestProjectsExtraction(ExtractorTestCase):
     entity = "projects"
 
     def test_get_api_count(self):
-        self.assertEqual(self.extractor.get_api_count(self.extractor.data), 2)
+        self.assertEqual(self.extractor.get_api_count(self.extractor.data), 10)
 
     def test_get_external_id(self):
-        self.assertEqual(self.results[0]["external_id"], "hku:project:1")
+        self.assertEqual(self.results[0]["external_id"], "hku:project:6376215")
 
     def test_get_status(self):
         self.assertEqual(self.results[0]["status"], "ongoing")
-        self.assertEqual(self.results[1]["status"], "finished")
+        self.assertEqual(self.results[6]["status"], "finished")
 
     def test_get_coordinates(self):
         self.assertEqual(self.results[0]["coordinates"], ["52.0958071", "5.1115789"])
 
-    def test_get_skills(self):
-        self.assertEqual(self.results[0]["parties"], [{"name": "SURF"}])
+    def test_get_parties(self):
+        self.assertEqual(self.results[0]["parties"], [])
+        self.assertEqual(self.results[3]["parties"], [
+            {"name": "Universiteit van Amsterdam"},
+            {"name": "University Utrecht"},
+            {"name": "Amsterdamse Hogeschool voor de Kunsten"},
+            {"name": "STICHTING HOGESCHOOL VOOR DE KUNSTEN UTRECHT"}
+        ])
 
     def test_get_products(self):
-        self.assertEqual(self.results[0]["products"], ["hku:product:1", "hku:product:2"])
+        self.assertEqual(self.results[0]["products"], [])
+        self.assertEqual(self.results[6]["products"], [
+            "hku:product:5952225",
+            "hku:product:5952144",
+            "hku:product:5952143",
+            "hku:product:5952142",
+            "hku:product:5952132",
+            "hku:product:5952117"
+        ])
 
     def test_lambda_owners(self):
         self.assertEqual(self.results[0]["owners"], [
@@ -54,20 +68,25 @@ class TestProjectsExtraction(ExtractorTestCase):
                 "name": "Pietje Puk"
             }
         ])
-        self.assertEqual(self.results[1]["owners"], [])
-
-    def test_lambda_contacts(self):
-        self.assertEqual(self.results[0]["contacts"], [
+        self.assertEqual(self.results[5]["owners"], [
+            {
+                "external_id": None,
+                "email": None,
+                "name": "Klaartje Klaar"
+            },
             {
                 "external_id": None,
                 "email": None,
                 "name": "Pietje Puk"
             }
         ])
-        self.assertEqual(self.results[1]["contacts"], [
+        self.assertEqual(self.results[6]["owners"], [])
+
+    def test_lambda_contacts(self):
+        self.assertEqual(self.results[5]["contacts"], [
             {
                 "external_id": None,
                 "email": None,
-                "name": "Falkon Hub Hub"
+                "name": "Pietje Puk"
             }
         ])
