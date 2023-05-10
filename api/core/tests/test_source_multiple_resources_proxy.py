@@ -61,7 +61,7 @@ class TestSourceMultipleResourcesProxy(TestCase):
     def test_build_detail_request(self):
         user_request = self.proxy.build_resource_request(self.base["resources"]["persons"]["user"], 14949)
         self.assertEqual(user_request.method, "GET")
-        self.assertEqual(user_request.url, "http://localhost:8080/mocks/entity/user/14949")
+        self.assertEqual(user_request.url, "http://localhost:8080/mocks/entity/user/14949/")
         self.assertEqual(user_request.params, {
             "test": "param"
         })
