@@ -5,6 +5,14 @@ from datagrowth.utils import reach
 from sources.extraction.base import SingleResponseExtractProcessor, SinglePageAPIMixin
 
 
+def value_or_none(node, key):
+    """
+    Sometimes an empty value is an empty object.
+    This function replaces any falsy values with None.
+    """
+    return node.get(key, None) or None
+
+
 class HkuPersonExtractProcessor(SingleResponseExtractProcessor, SinglePageAPIMixin):
 
     @classmethod
@@ -48,11 +56,11 @@ HkuPersonExtractProcessor.OBJECTIVE = {
     "prefix": "$.prefix",
     "initials": lambda node: None,
     "title": "$.title.value",
-    "email": "$.email",
+    "email": lambda node: value_or_none(node, "email"),
     "phone": lambda node: None,
     "skills": HkuPersonExtractProcessor.get_skills,
     "themes": HkuPersonExtractProcessor.get_themes,
-    "description": "$.description",
+    "description": lambda node: value_or_none(node, "description"),
     "parties": lambda node: [],
     "photo_url": "$.photo_url.transcoded",
     "isni": lambda node: None,
