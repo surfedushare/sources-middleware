@@ -45,7 +45,7 @@ jobs:
           pip install -r requirements.txt
       - name: Setup Repository
         run: |
-          invoke aws.sync-repository-state --no-profile
+          invoke aws.sync-repository-state --no-profile --bucket-prefix=pol-prod
           invoke prepare-builds
       - name: Run Tests
         run: |

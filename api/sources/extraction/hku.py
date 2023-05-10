@@ -5,6 +5,14 @@ from datagrowth.utils import reach
 from sources.extraction.base import SingleResponseExtractProcessor, SinglePageAPIMixin
 
 
+def value_or_none(node, key):
+    """
+    Sometimes an empty value is an empty object.
+    This function replaces any falsy values with None.
+    """
+    return node.get(key, None) or None
+
+
 class HkuPersonExtractProcessor(SingleResponseExtractProcessor, SinglePageAPIMixin):
 
     @classmethod
@@ -48,11 +56,11 @@ HkuPersonExtractProcessor.OBJECTIVE = {
     "prefix": "$.prefix",
     "initials": lambda node: None,
     "title": "$.title.value",
-    "email": "$.email",
+    "email": lambda node: value_or_none(node, "email"),
     "phone": lambda node: None,
     "skills": HkuPersonExtractProcessor.get_skills,
     "themes": HkuPersonExtractProcessor.get_themes,
-    "description": "$.description",
+    "description": lambda node: value_or_none(node, "description"),
     "parties": lambda node: [],
     "photo_url": "$.photo_url.transcoded",
     "isni": lambda node: None,
@@ -108,13 +116,17 @@ class HkuProjectExtractProcessor(SingleResponseExtractProcessor, SinglePageAPIMi
         parties = node["organisations"].get("party", [])
         if not parties or isinstance(parties, dict):  # might be an empty object for some reason
             return []
-        return [{"name": party["name"]} for party in parties]
+        return [{"name": party["name"]} for party in parties if party["name"]]
 
     @classmethod
     def get_products(cls, node):
+        if not node["resultids"]:  # might be an empty object for some reason
+            return []
+        product_ids = node["resultids"]["ID"] if isinstance(node["resultids"]["ID"], list) else \
+            [node["resultids"]["ID"]]
         return [
             cls.build_product_id(product_id)
-            for product_id in node["resultids"]["ID"]
+            for product_id in product_ids
         ]
 
     @classmethod
@@ -138,28 +150,31 @@ class HkuProjectExtractProcessor(SingleResponseExtractProcessor, SinglePageAPIMi
 
     @staticmethod
     def parse_person_property(node, property_name):
-        full_name = node.get(property_name, None)
-        if not full_name:  # might be an empty object for some reason
-            return None
-        return {
-            "external_id": None,
-            "email": None,
-            "name": full_name
-        }
+        person = node.get(property_name, None)
+        if not person:  # might be an empty object for some reason
+            return []
+        if isinstance(person, str):
+            return [{
+                "external_id": None,
+                "email": None,
+                "name": person
+            }]
+        return [
+            {
+                "external_id": None,
+                "email": None,
+                "name": name
+            }
+            for name in person["ul"]["li"]
+        ]
 
     @classmethod
     def get_owners(cls, node):
-        owner = HkuProjectExtractProcessor.parse_person_property(node, "owner")
-        if not owner:
-            return []
-        return [owner]
+        return HkuProjectExtractProcessor.parse_person_property(node, "owner")
 
     @classmethod
     def get_contacts(cls, node):
-        contact = HkuProjectExtractProcessor.parse_person_property(node, "contact")
-        if not contact:
-            return []
-        return [contact]
+        return HkuProjectExtractProcessor.parse_person_property(node, "contact")
 
 
 HkuProjectExtractProcessor.OBJECTIVE = {
