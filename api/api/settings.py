@@ -388,7 +388,7 @@ SOURCES = {
         },
         "auth": {
             "type": AuthenticationTypes.BEARER_TOKEN_HEADER,
-            "token": environment.secrets.sharekit.api_key
+            "token": environment.secrets.sharekit.publinova
         },
         "pagination": {
             "type": PaginationTypes.PAGE,

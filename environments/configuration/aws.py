@@ -46,7 +46,7 @@ AWS_SECRET_CONFIGURATIONS = {
         "admin_password": "arn:aws:secretsmanager:eu-central-1:{account}:secret:harvester/django",
     },
     "sharekit": {
-        "api_key": "arn:aws:secretsmanager:eu-central-1:{account}:secret:credentials/sharekit",
+        "publinova": "arn:aws:secretsmanager:eu-central-1:{account}:secret:credentials/sharekit",
     },
     "hanze": {
         "api_key": "arn:aws:secretsmanager:eu-central-1:{account}:secret:credentials/hanze",
