@@ -2,17 +2,37 @@ from django.conf import settings
 from django.contrib.auth.hashers import make_password
 
 
-def insert_django_user_statement(username, raw_password):
-    settings.configure()
+def insert_django_user_statement(username, raw_password, api_key, configure_settings=True):
+    # Determine user status and username based on input
+    if username.endswith("/superuser"):
+        is_superuser = True
+        username = username.replace("/superuser", "")
+    else:
+        is_superuser = username == "supersurf"
+    is_staff = "@surf.nl" in username or "@zooma.nl" in username or is_superuser
+    email = username if "@" in username else ""
+    # Configure Django during first run to be able to generate passwords hashes
+    if configure_settings:
+        settings.configure()
+    # Generate password hashes
     hash_password = make_password(raw_password)
     escaped_password = hash_password.replace("$", r"\$")
+    # Insert user and token into correct table
     user_table = "auth_user"
     user_insert = (
         f"INSERT INTO {user_table} "
         "(password, is_superuser, is_staff, is_active, username, first_name, last_name, email, date_joined) "
-        f"VALUES ('{escaped_password}', true, true, true, '{username}', '', '', '', NOW())"
+        f"VALUES ('{escaped_password}', {is_superuser}, {is_staff}, true, '{username}', '', '', '{email}', NOW())"
     )
-    return user_insert
+    return (
+        "WITH user_insert AS ("
+        f"  {user_insert}"
+        "   RETURNING id"
+        ")"
+        f"INSERT INTO authtoken_token "
+        " (key, created, user_id) "
+        f"VALUES ('{api_key}', NOW(), (SELECT id FROM user_insert))"
+    )
 
 
 def setup_database_statements(database_name, root_user, application_user, application_password, allow_tests=False):

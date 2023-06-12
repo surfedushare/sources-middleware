@@ -47,14 +47,18 @@ def setup_postgres_localhost(ctx):
     )
     # Create generic superuser named supersurf
     admin_password = ctx.config.secrets.django.admin_password
-    insert_user = insert_django_user_statement("supersurf", admin_password)
-    ctx.run(
-        f'psql -h localhost -U {postgres_user} -d {ctx.config.postgres.database} -W -c "{insert_user}"',
-        echo=True,
-        pty=True,
-        warn=True,
-        watchers=[postgres_password_responder],
-    )
+    insert_superuser = insert_django_user_statement("supersurf", admin_password, admin_password)
+    insert_users = [insert_superuser]
+    for username, credential in ctx.config.django.users.items():
+        insert_users.append(insert_django_user_statement(username, credential, credential, configure_settings=False))
+    for statement in insert_users:
+        ctx.run(
+            f'psql -h localhost -U {postgres_user} -d {ctx.config.postgres.database} -W -c "{statement}"',
+            echo=True,
+            pty=True,
+            warn=True,
+            watchers=[postgres_password_responder],
+        )
     # Load data fixtures to get the project going
     for fixture in ctx.config.django.fixtures:
         ctx.run(
