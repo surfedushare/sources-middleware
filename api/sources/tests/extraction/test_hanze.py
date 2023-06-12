@@ -81,3 +81,8 @@ class TestProjectsExtraction(ExtractorTestCase):
                 "name": "Johan de Acteur"
             }
         ])
+
+    def test_research_theme(self):
+        self.assertEqual(self.results[1]["research_themes"], ["techniek"])
+        self.assertEqual(self.results[8]["research_themes"], ["economie_management", "ruimtelijkeordening_planning"])
+
