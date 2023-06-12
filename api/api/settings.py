@@ -439,6 +439,10 @@ SOURCES = {
             "projects": {
                 "url": "/nppo/projects",
                 "extractor": "HanzeProjectExtractProcessor"
+            },
+            "persons": {
+                "url": "/nppo/persons",
+                "extractor": "HanzePersonsExtractProcessor"
             }
         },
         "auth": {

@@ -81,3 +81,38 @@ class TestProjectsExtraction(ExtractorTestCase):
                 "name": "Johan de Acteur"
             }
         ])
+
+class TestPersonsExtraction(ExtractorTestCase):
+
+    source = "hanze"
+    entity = "persons"
+
+    def test_get_api_count(self):
+        self.assertEqual(self.extractor.get_api_count(self.extractor.data), 455)
+
+    def test_get_api_next_cursor(self):
+        self.assertEqual(self.extractor.get_api_next_cursor(self.extractor.data), "offset|10|10")
+
+    def test_get_api_previous_cursor(self):
+        self.assertIsNone(self.extractor.get_api_previous_cursor(self.extractor.data))
+
+    def test_get_name(self):
+        self.assertEqual(self.results[0]["name"], "Obi-Wan Kenobi")
+
+    def test_get_isni(self):
+        self.assertIsNone(
+            self.results[0]["isni"],
+            "Isni data is not available in the data."
+        )
+
+    def test_get_is_employed(self):
+        self.skipTest(
+            "According to Jasper Bedaux in an email on 6th March 2023 HvA won't pass along non-employed people"
+        )
+
+    def test_get_job_title(self):
+        self.assertEqual(self.results[0]["job_title"], "PhD Candidate")
+        self.assertIsNone(
+            self.results[1]["job_title"],
+            "Missing job titles in staffOrganizationAssociation objects should return None"
+        )
