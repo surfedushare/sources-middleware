@@ -82,6 +82,7 @@ class TestProjectsExtraction(ExtractorTestCase):
             }
         ])
 
+
 class TestPersonsExtraction(ExtractorTestCase):
 
     source = "hanze"
