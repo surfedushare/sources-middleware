@@ -59,7 +59,9 @@ def setup_postgres_remote(conn):
         insert_superuser = insert_django_user_statement("supersurf", admin_password, admin_password)
         insert_users = [insert_superuser]
         for username, credential in conn.config.django.users.items():
-            insert_users.append(insert_django_user_statement(username, credential, credential, configure_settings=False))
+            insert_users.append(
+                insert_django_user_statement(username, credential, credential, configure_settings=False)
+            )
         for statement in insert_users:
             conn.local(
                 f'psql -h localhost -p 1111 -U {postgres_user} -d {conn.config.postgres.database} -W -c "{statement}"',
