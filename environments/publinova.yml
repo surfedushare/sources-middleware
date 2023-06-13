@@ -5,3 +5,5 @@ postgres:
 
 django:
   domain: "sources.{environment_code}.publinova.nl"
+  users:
+    usernames: "arn:aws:secretsmanager:eu-central-1:{account}:secret:users/publinova"
