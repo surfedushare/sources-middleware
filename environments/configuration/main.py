@@ -103,7 +103,7 @@ def build_configuration_defaults(environment):
                 "profile_name": "pol-prod",
                 "registry": "017973353230.dkr.ecr.eu-central-1.amazonaws.com"
             },
-            "repositories": ["sources-middleware", "sources-middleware-nginx"],
+            "repositories": ["middleware", "middleware-nginx"],
             "task_definition_families": ["middleware"]
         },
         "secrets": dict()
