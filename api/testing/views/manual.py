@@ -11,19 +11,19 @@ class ManualEntityAPIView(APIView):
     permission_classes = (AllowAny,)
 
     @staticmethod
-    def get_objects(entity):
+    def get_objects(manual_id, entity):
         match entity:
             case "persons":
-                queryset = ManualPerson.objects.all()
+                queryset = ManualPerson.objects.filter(source=manual_id)
             case "projects":
-                queryset = ManualProject.objects.all()
+                queryset = ManualProject.objects.filter(source=manual_id)
             case _:
                 raise Http404()
         return [instance.properties for instance in queryset]
 
-    def get(self, request, entity):
+    def get(self, request, manual_id, entity):
         paginator = PageNumberPagination()
         paginator.page_size_query_param = "page_size"
-        objects = self.get_objects(entity)
+        objects = self.get_objects(manual_id, entity)
         page_data = paginator.paginate_queryset(objects, request, view=self)
         return paginator.get_paginated_response(data=page_data)
