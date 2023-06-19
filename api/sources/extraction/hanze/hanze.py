@@ -3,6 +3,7 @@ from datetime import datetime
 from dateutil.parser import parse as date_parser
 
 from sources.extraction.base import SingleResponseExtractProcessor
+from sources.extraction.hanze.research_themes import ASJC_TO_RESEARCH_THEME
 from sources.extraction.pure import PureAPIMixin
 
 
@@ -149,6 +150,18 @@ class HanzeProjectExtractProcessor(SingleResponseExtractProcessor, PureAPIMixin)
         persons = cls.get_persons(node)
         return [persons[0]] if persons else []
 
+    @classmethod
+    def get_research_themes(cls, node):
+        research_themes = []
+        for keywords in node.get("keywordGroups", []):
+            if keywords["logicalName"] == "ASJCSubjectAreas":
+                asjc_identifiers = [
+                    classification["uri"].replace("/dk/atira/pure/subjectarea/asjc/", "")
+                    for classification in keywords["classifications"]
+                ]
+                research_themes += [ASJC_TO_RESEARCH_THEME[identifier] for identifier in asjc_identifiers]
+        return research_themes
+
 
 HanzeProjectExtractProcessor.OBJECTIVE = {
     "external_id": "$.uuid",
@@ -165,5 +178,5 @@ HanzeProjectExtractProcessor.OBJECTIVE = {
     "keywords": HanzeProjectExtractProcessor.get_keywords,
     "parties": lambda node: [],
     "products": HanzeProjectExtractProcessor.get_products,
-    "research_themes": lambda node: [],
+    "research_themes": HanzeProjectExtractProcessor.get_research_themes,
 }
