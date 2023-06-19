@@ -107,9 +107,9 @@ class TestPersonsExtraction(ExtractorTestCase):
         )
 
     def test_get_is_employed(self):
-        self.skipTest(
-            "According to Jasper Bedaux in an email on 6th March 2023 HvA won't pass along non-employed people"
-        )
+        self.assertTrue(self.results[0]["is_employed"])
+        self.assertFalse(self.results[1]["is_employed"])
+        self.assertTrue(self.results[2]["is_employed"])
 
     def test_get_job_title(self):
         self.assertEqual(self.results[0]["job_title"], "PhD Candidate")
