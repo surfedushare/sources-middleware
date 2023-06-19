@@ -133,7 +133,7 @@
         "slug": "hanze",
         "entities": {
             "persons": {
-                "is_available": false,
+                "is_available": true,
                 "allows_update": false
             },
             "projects": {
