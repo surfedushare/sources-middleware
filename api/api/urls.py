@@ -45,5 +45,5 @@ urlpatterns = [
     path('mocks/entity/partial-persons/', EntityMockAPIView.as_view(), kwargs={"entity": "partial_persons"}),
     path('mocks/entity/user/<str:pk>/', EntityMockDetailAPIView.as_view(), kwargs={"entity": "user"}),
     path('mocks/entity/<str:entity>/', EntityMockAPIView.as_view()),
-    path('manual/entity/<str:entity>/', ManualEntityAPIView.as_view())
+    path('manual/<int:manual_id>/entity/<str:entity>/', ManualEntityAPIView.as_view())
 ]

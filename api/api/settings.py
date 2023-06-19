@@ -237,56 +237,6 @@ REST_FRAMEWORK = {
 ENTITIES = ["persons", "projects"]
 
 SOURCES = {
-    "mock": {
-        "base": {
-            "url": environment.sources.django.base_url,
-            "headers": {},
-            "parameters": {}
-        },
-        "endpoints": {
-            "persons": {
-                "url": "/mocks/entity/persons/",
-                "extractor": "DjangoPersonExtractProcessor"
-            },
-            "projects": {
-                "url": "/mocks/entity/projects/",
-                "extractor": "DjangoProjectExtractProcessor"
-            }
-        },
-        "auth": {},
-        "pagination": {
-            "type": PaginationTypes.PAGE,
-            "parameters": OrderedDict({
-                "page": 1,
-                "page_size": 100
-            })
-        }
-    },
-    "manual": {
-        "base": {
-            "url": environment.sources.django.base_url,
-            "headers": {},
-            "parameters": {}
-        },
-        "endpoints": {
-            "persons": {
-                "url": "/manual/entity/persons/",
-                "extractor": "DjangoPersonExtractProcessor"
-            },
-            "projects": {
-                "url": "/manual/entity/projects/",
-                "extractor": "DjangoProjectExtractProcessor"
-            }
-        },
-        "auth": {},
-        "pagination": {
-            "type": PaginationTypes.PAGE,
-            "parameters": OrderedDict({
-                "page": 1,
-                "page_size": 100
-            })
-        }
-    },
     "hva": {
         "base": {
             "url": environment.sources.hva.base_url,
@@ -454,7 +404,63 @@ SOURCES = {
         }
     }
 }
-
+# Add the mock to SOURCES
+SOURCES.update({
+    "mock": {
+        "base": {
+            "url": environment.sources.django.base_url,
+            "headers": {},
+            "parameters": {}
+        },
+        "endpoints": {
+            "persons": {
+                "url": "/mocks/entity/persons/",
+                "extractor": "DjangoPersonExtractProcessor"
+            },
+            "projects": {
+                "url": "/mocks/entity/projects/",
+                "extractor": "DjangoProjectExtractProcessor"
+            }
+        },
+        "auth": {},
+        "pagination": {
+            "type": PaginationTypes.PAGE,
+            "parameters": OrderedDict({
+                "page": 1,
+                "page_size": 100
+            })
+        }
+    }
+})
+# Add a number of manuals to SOURCES
+SOURCES.update({
+    f"manual-{ix}": {
+        "base": {
+           "url": environment.sources.django.base_url,
+           "headers": {},
+           "parameters": {}
+        },
+        "endpoints": {
+           "persons": {
+               "url": f"/manual/{ix}/entity/persons/",
+               "extractor": "DjangoPersonExtractProcessor"
+           },
+           "projects": {
+               "url": f"/manual/{ix}/entity/projects/",
+               "extractor": "DjangoProjectExtractProcessor"
+           }
+        },
+        "auth": {},
+        "pagination": {
+           "type": PaginationTypes.PAGE,
+           "parameters": OrderedDict({
+               "page": 1,
+               "page_size": 100
+           })
+        }
+    }
+    for ix in range(1, 4)
+})
 
 # Institution settings
 
