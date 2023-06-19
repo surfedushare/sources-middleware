@@ -4,4 +4,4 @@ from sources.extraction.hku import HkuPersonExtractProcessor, HkuProjectExtractP
 from sources.extraction.buas import BuasPersonExtractProcessor, BuasProjectExtractProcessor
 from sources.extraction.sharekit import SharekitPersonExtractProcessor
 from sources.extraction.sia import SiaProjectExtractProcessor
-from sources.extraction.hanze import HanzeProjectExtractProcessor
+from sources.extraction.hanze import HanzeProjectExtractProcessor, HanzePersonsExtractProcessor

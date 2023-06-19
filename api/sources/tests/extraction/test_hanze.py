@@ -85,3 +85,39 @@ class TestProjectsExtraction(ExtractorTestCase):
     def test_research_theme(self):
         self.assertEqual(self.results[1]["research_themes"], ["techniek"])
         self.assertEqual(self.results[8]["research_themes"], ["economie_management", "ruimtelijkeordening_planning"])
+
+
+class TestPersonsExtraction(ExtractorTestCase):
+
+    source = "hanze"
+    entity = "persons"
+
+    def test_get_api_count(self):
+        self.assertEqual(self.extractor.get_api_count(self.extractor.data), 455)
+
+    def test_get_api_next_cursor(self):
+        self.assertEqual(self.extractor.get_api_next_cursor(self.extractor.data), "offset|10|10")
+
+    def test_get_api_previous_cursor(self):
+        self.assertIsNone(self.extractor.get_api_previous_cursor(self.extractor.data))
+
+    def test_get_name(self):
+        self.assertEqual(self.results[0]["name"], "Obi-Wan Kenobi")
+
+    def test_get_isni(self):
+        self.assertIsNone(
+            self.results[0]["isni"],
+            "Isni data is not available in the data."
+        )
+
+    def test_get_is_employed(self):
+        self.assertTrue(self.results[0]["is_employed"])
+        self.assertFalse(self.results[1]["is_employed"])
+        self.assertTrue(self.results[2]["is_employed"])
+
+    def test_get_job_title(self):
+        self.assertEqual(self.results[0]["job_title"], "PhD Candidate")
+        self.assertIsNone(
+            self.results[1]["job_title"],
+            "Missing job titles in staffOrganizationAssociation objects should return None"
+        )

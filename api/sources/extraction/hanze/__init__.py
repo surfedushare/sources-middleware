@@ -1,1 +1,1 @@
-from sources.extraction.hanze.hanze import HanzeProjectExtractProcessor
+from sources.extraction.hanze.hanze import HanzeProjectExtractProcessor, HanzePersonsExtractProcessor
