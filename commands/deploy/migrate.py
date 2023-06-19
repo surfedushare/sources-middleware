@@ -21,4 +21,4 @@ def migrate(ctx, mode):
             "value": f"{ctx.config.aws.postgres_password_arn}"
         },
     ]
-    run_data_engineering_task(ctx, mode, command, environment)
+    run_data_engineering_task(ctx, "middleware", mode, command, environment)

@@ -69,7 +69,7 @@ def run_data_engineering_task(ctx, target, mode, command, environment=None):
         cluster=ctx.config.aws.cluster_name,
         taskDefinition=target,
         launchType="FARGATE",
-        overrides=_get_superuser_command_override(superuser_task_role, target, command, environment),
+        overrides=_get_superuser_command_override(superuser_task_role, target + "-publinova", command, environment),
         networkConfiguration=get_private_network_configuration(session)
     )
 
