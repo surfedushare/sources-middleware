@@ -30,9 +30,7 @@ class ProxyFiles(views.APIView):
     def validate_request(self, request, view_kwargs):
         # Read and validate input params
         file_path = view_kwargs.get("file_path", None)
-        print("file_path", file_path)
         if ".." in file_path:
-            print("here!!")
             raise ValidationError("Relative paths are not allowed when proxying files")
         # Load the source and its proxy
         source = get_object_or_404(Source, slug=view_kwargs.get("source", None))
