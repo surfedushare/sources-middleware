@@ -23,6 +23,9 @@ class ProxyFiles(views.APIView):
 
     The return type for this endpoint is indicated as "string", but in truth this endpoint will stream the file.
     This makes it possible to use the file directly as part of HTML src attributes.
+
+    Also note that if errors occur these errors are returned in JSON format and not as a streaming file.
+    Check the status code of the response to see if any errors occurred and handle the response accordingly.
     """
 
     schema = MiddlewareAPISchema()
