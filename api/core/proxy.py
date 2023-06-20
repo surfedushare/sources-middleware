@@ -18,11 +18,12 @@ class SourceProxy(object):
     auth = {}
     pagination = {}
 
-    def __init__(self, base, endpoints, auth=None, pagination=None):
+    def __init__(self, base, endpoints, auth=None, pagination=None, is_stream=False):
         self.base = base
         self.endpoints = endpoints
         self.auth = auth
         self.pagination = pagination
+        self.is_stream = is_stream
 
     def validate_cursor(self, cursor):
         if not self.pagination:
@@ -76,8 +77,10 @@ class SourceProxy(object):
                 cursor_key: cursor
             }
 
-    def build_request(self, entity, cursor=None):
+    def build_request(self, entity, cursor=None, path=None):
         url = f"{self.base['url']}{self.endpoints[entity]['url']}"
+        if path:
+            url = url.format(path=path)
         request = Request(
             "GET", url,
             params=copy(self.base['parameters']),
@@ -89,11 +92,11 @@ class SourceProxy(object):
             request = self._apply_request_authentication(request)
         return request
 
-    def fetch(self, entity, cursor=None):
-        request = self.build_request(entity, cursor)
+    def fetch(self, entity, cursor=None, path=None):
+        request = self.build_request(entity, cursor, path)
         prepared_request = request.prepare()  # NB: cookies or other state is not supported
         session = Session()
-        return session.send(prepared_request)
+        return session.send(prepared_request, stream=self.is_stream)
 
     def build_extractor(self, entity, response):
         Extractor = Processor.get_processor_class(self.endpoints[entity]["extractor"])
@@ -139,7 +142,7 @@ class SourceIdentifierListProxy(SourceProxy):
             request = self._apply_request_authentication(request)
         return request
 
-    def fetch(self, entity, cursor=None):
+    def fetch(self, entity, cursor=None, path=None):
         assert cursor, "Expected a cursor to be able to fetch using a SourceIdentifierListProxy"
         list_response = super().fetch(entity, cursor=None)
         data = self.extract_identifiers(list_response, cursor)
@@ -187,7 +190,7 @@ class SourceMultipleResourcesProxy(SourceProxy):
             request = self._apply_request_authentication(request)
         return request
 
-    def fetch(self, entity, cursor=None):
+    def fetch(self, entity, cursor=None, path=None):
         assert cursor, "Expected a cursor to be able to fetch using a SourceIdentifierListProxy"
         # Fetch the list of main resources
         partial_response = super().fetch(entity, cursor=cursor)
@@ -210,3 +213,9 @@ class SourceMultipleResourcesProxy(SourceProxy):
         io_response.status_code = 200
         io_response.raw = BytesIO(json.dumps(partial_data).encode("utf-8"))
         return io_response
+
+
+class SourceFileProxy(SourceProxy):
+
+    def __init__(self, base, endpoints, auth=None, pagination=None):
+        super().__init__(base, endpoints, auth, pagination, is_stream=True)

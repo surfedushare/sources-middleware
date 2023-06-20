@@ -1,16 +1,17 @@
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include, re_path
 from django.views.generic import TemplateView
 from rest_framework.schemas import get_schema_view
 
 from api.views import health_check
-from core.views import ListSources, ListEntities
+from core.views import ListSources, ListEntities, ProxyFiles
 from testing.views import EntityMockAPIView, EntityMockIdListAPIView, EntityMockDetailAPIView, ManualEntityAPIView
 
 
 api_urlpatterns = [
     path("sources/", ListSources.as_view(), name="sources"),
-    path("entities/<str:entity>/<str:source>/", ListEntities.as_view(), name="entities")
+    path("entities/<str:entity>/<str:source>/", ListEntities.as_view(), name="entities"),
+    re_path(r"^files/(?P<source>[\-\w]+)/(?P<file_path>.+)$", ProxyFiles.as_view(), name="files"),
 ]
 
 

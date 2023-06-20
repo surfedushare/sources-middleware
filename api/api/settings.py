@@ -424,6 +424,10 @@ SOURCES.update({
             "projects": {
                 "url": "/mocks/entity/projects/",
                 "extractor": "DjangoProjectExtractProcessor"
+            },
+            "files": {
+                "url": "/static/rest_framework/{path}",
+                "extractor": None
             }
         },
         "auth": {},
