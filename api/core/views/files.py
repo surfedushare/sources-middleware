@@ -7,6 +7,7 @@ from rest_framework import views
 from rest_framework.status import HTTP_422_UNPROCESSABLE_ENTITY, HTTP_200_OK, HTTP_417_EXPECTATION_FAILED
 from rest_framework.response import Response
 from rest_framework.exceptions import ValidationError
+from rest_framework.permissions import AllowAny
 
 from api.schema import MiddlewareAPISchema
 from core.models import Source
@@ -29,6 +30,7 @@ class ProxyFiles(views.APIView):
     """
 
     schema = MiddlewareAPISchema()
+    permission_classes = (AllowAny,)
 
     def validate_request(self, request, view_kwargs):
         # Read and validate input params

@@ -17,11 +17,6 @@ class TestProxyFilesView(TestCase):
             }
             for entity in settings.ENTITIES
         })
-        cls.tester = User.objects.create(username="tester")
-
-    def setUp(self):
-        super().setUp()
-        self.client.force_login(self.tester)
 
     def test_get_file(self):
         response = self.client.get("/api/v1/files/mock/js/default.js")
