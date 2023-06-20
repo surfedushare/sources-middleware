@@ -3,7 +3,7 @@ from collections import OrderedDict
 from django.test import TestCase
 
 from core.constants import PaginationTypes, AuthenticationTypes
-from core.proxy import FileProxy
+from core.proxy import SourceFileProxy
 
 
 class TestSourceProxy(TestCase):
@@ -35,7 +35,7 @@ class TestSourceProxy(TestCase):
 
     def setUp(self):
         super().setUp()
-        self.proxy = FileProxy(self.base, self.endpoints, self.auth, self.pagination)
+        self.proxy = SourceFileProxy(self.base, self.endpoints, self.auth, self.pagination)
 
     def test_init(self):
         self.assertEqual(self.proxy.base, self.base)
