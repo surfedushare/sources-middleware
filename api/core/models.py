@@ -22,6 +22,10 @@ class Source(models.Model):
         default=False,
         help_text="Enable when source is a repository for multiple organizations"
     )
+    proxy_files = models.BooleanField(
+        default=False,
+        help_text="Enable when the source need to proxy files to circumvent authentication during file downloads"
+    )
 
     created_at = models.DateTimeField(auto_now_add=True)
     modified_at = models.DateTimeField(auto_now=True)
@@ -30,9 +34,11 @@ class Source(models.Model):
         return self.name
 
     def is_allowed(self, entity, update=False):
+        if entity == "files":
+            return self.proxy_files
         return entity in self.entities and \
-               self.entities[entity]["is_available"] and \
-               (not update or self.entities[entity]["allows_update"])
+            self.entities[entity]["is_available"] and \
+            (not update or self.entities[entity]["allows_update"])
 
 
 class SourceSerializer(serializers.ModelSerializer):

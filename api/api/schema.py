@@ -20,6 +20,8 @@ class MiddlewareAPISchema(AutoSchema):
             operation["tags"] = ["Sources"]
         elif path.startswith("/entities"):
             operation["tags"] = ["Entities"]
+        elif path.startswith("/files"):
+            operation["tags"] = ["Files"]
         else:
             operation["tags"] = ["default"]
         return operation

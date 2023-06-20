@@ -257,7 +257,11 @@ SOURCES = {
                 "url": "/ws/api/persons",
                 "extractor": "HvaPersonExtractProcessor"
             },
-            "projects": None
+            "projects": None,
+            "files": {
+                "url": "/ws/api/research-outputs/{path}",
+                "extractor": None
+            }
         },
         "auth": {
             "type": AuthenticationTypes.API_KEY_HEADER,
@@ -424,6 +428,10 @@ SOURCES.update({
             "projects": {
                 "url": "/mocks/entity/projects/",
                 "extractor": "DjangoProjectExtractProcessor"
+            },
+            "files": {
+                "url": "/static/rest_framework/{path}",
+                "extractor": None
             }
         },
         "auth": {},

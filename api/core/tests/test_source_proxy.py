@@ -70,6 +70,13 @@ class TestSourceProxy(TestCase):
             for pagination_type in PaginationTypes
         }
 
+    def test_init(self):
+        self.assertEqual(self.proxy.base, self.base)
+        self.assertEqual(self.proxy.endpoints, self.endpoints)
+        self.assertEqual(self.proxy.auth, self.auth)
+        self.assertEqual(self.proxy.pagination, self.pagination)
+        self.assertFalse(self.proxy.is_stream)
+
     def test_validate_cursor(self):
         cursors = {
             PaginationTypes.PAGE: "page|0|10",
