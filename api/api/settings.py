@@ -257,7 +257,11 @@ SOURCES = {
                 "url": "/ws/api/persons",
                 "extractor": "HvaPersonExtractProcessor"
             },
-            "projects": None
+            "projects": None,
+            "files": {
+                "url": "/ws/api/research-outputs/{path}",
+                "extractor": None
+            }
         },
         "auth": {
             "type": AuthenticationTypes.API_KEY_HEADER,
