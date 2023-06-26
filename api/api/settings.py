@@ -397,6 +397,10 @@ SOURCES = {
             "persons": {
                 "url": "/nppo/persons",
                 "extractor": "HanzePersonsExtractProcessor"
+            },
+            "files": {
+                "url": "/nppo/research-outputs/{path}",
+                "extractor": None
             }
         },
         "auth": {
