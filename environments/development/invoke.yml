@@ -10,7 +10,7 @@ django:
 
 sources:
   django:
-    base_url: "https://sources.acc.publinova.nl"
+    base_url: "https://sources.dev.publinova.nl"
   hva:
     base_url: "https://pure.hva.nl"
   buas:
