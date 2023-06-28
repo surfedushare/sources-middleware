@@ -128,7 +128,7 @@ def push(ctx, commit=None, docker_login=False, push_latest=False):
 )
 def promote(ctx, commit=None, docker_login=False, version=None, exclude=None):
     """
-    Pushes a previously made Docker image to the AWS container registry, that's shared between environments
+    Adds deploy tags to a previously pushed Docker image in the AWS container registry.
     """
     # Check the input for validity
     if commit and version:
@@ -182,7 +182,10 @@ def promote(ctx, commit=None, docker_login=False, version=None, exclude=None):
 
 @task()
 def print_available_images(ctx):
-
+    """
+    Retrieves some images from AWS and prints them in version order.
+    Possibly misses versions if it's not part of the first images batch from AWS.
+    """
     # Load info
     target_info = TARGETS["middleware"]
     name = target_info["name"]
