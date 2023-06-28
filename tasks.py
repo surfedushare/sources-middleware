@@ -8,14 +8,15 @@ from commands.aws.repository import sync_repository_state
 
 
 environment, _ = create_configuration_and_session()
-aws_collection = Collection("aws", build, push, promote, migrate, print_available_images, deploy, sync_repository_state,
-                            cleanup_ecs_artifacts)
+container_collection = Collection("container", prepare_builds, build, push, promote, deploy)
+database_collection = Collection("db", setup_postgres_localhost, migrate)
+aws_collection = Collection("aws", print_available_images, sync_repository_state, cleanup_ecs_artifacts)
 aws_collection.configure(environment)
 
 
 namespace = Collection(
+    container_collection,
+    database_collection,
     aws_collection,
-    prepare_builds,
-    setup_postgres_localhost
 )
 namespace.configure(environment)
