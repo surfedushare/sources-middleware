@@ -23,6 +23,13 @@ class BuasPersonExtractProcessor(SingleResponseExtractProcessor, PureAPIMixin):
         return True
 
     @classmethod
+    def get_photo_url(cls, node):
+        profile_photos = node.get("profilePhotos", [])
+        if not profile_photos:
+            return
+        return profile_photos[0]["url"]
+
+    @classmethod
     def get_job_title(cls, node):
         today = datetime.today()
         for association in node.get("staffOrganisationAssociations", []):
@@ -53,7 +60,7 @@ BuasPersonExtractProcessor.OBJECTIVE = {
     "themes": lambda node: [],
     "description": lambda node: None,
     "parties": lambda node: [],
-    "photo_url": lambda node: None,
+    "photo_url": BuasPersonExtractProcessor.get_photo_url,
     "isni": lambda node: None,
     "dai": lambda node: None,
     "orcid": "$.orcid",
