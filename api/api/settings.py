@@ -307,11 +307,11 @@ SOURCES = {
         },
         "endpoints": {
             "persons": {
-                "url": "/ws/api/523/persons",
+                "url": "/ws/api/524/persons",
                 "extractor": "BuasPersonExtractProcessor"
             },
             "projects": {
-                "url": "/ws/api/523/projects",
+                "url": "/ws/api/524/projects",
                 "extractor": "BuasProjectExtractProcessor"
             }
         },
