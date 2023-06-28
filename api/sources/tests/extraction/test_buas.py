@@ -18,6 +18,10 @@ class TestPersonsExtraction(ExtractorTestCase):
     def test_get_name(self):
         self.assertEqual(self.results[0]["name"], "F Maggie")
 
+    def test_get_photo_url(self):
+        self.assertIsNone(self.results[0]["photo_url"])
+        self.assertEqual(self.results[1]["photo_url"], "https://pure.buas.nl/ws/files/251152/Bassie_Ozzie.jpg")
+
     def test_get_is_employed(self):
         self.assertFalse(self.results[0]["is_employed"])
         self.assertTrue(self.results[1]["is_employed"])
