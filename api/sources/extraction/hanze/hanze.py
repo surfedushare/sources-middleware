@@ -95,7 +95,9 @@ class HanzeProjectExtractProcessor(SingleResponseExtractProcessor, PureAPIMixin)
             if language_code is None:
                 language_code = list(description["value"].keys())[0]
             description_type = os.path.split(description["type"]["uri"])[1]
-            descriptions[description_type] = description["value"][language_code]
+            description_text = description["value"].get(language_code, None)
+            if description_text:
+                descriptions[description_type] = description_text
         # Concatenate different descriptions to be a singular text
         description = ""
         if "laymansdescription" in descriptions:
