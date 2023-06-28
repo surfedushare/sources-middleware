@@ -1,10 +1,14 @@
 from invoke import Collection
 
 from environments.system_configuration.main import create_configuration_and_session
+from commands.utils import assert_repo_root_directory
 from commands.postgres.invoke import setup_postgres_localhost
 from commands.deploy import prepare_builds, build, push, promote, deploy, migrate, print_available_images
 from commands.aws.ecs import cleanup_ecs_artifacts
 from commands.aws.repository import sync_repository_state
+
+
+assert_repo_root_directory()
 
 
 environment, _ = create_configuration_and_session()
