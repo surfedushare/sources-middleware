@@ -7,4 +7,8 @@ export APPLICATION_CONTEXT=host
 export $(cat .env | xargs)
 
 # Activate virtual environment
-source venv/bin/activate
+if command -v conda >/dev/null 2>&1 && { conda env list | grep 'middleware'; } >/dev/null 2>&1; then
+    conda activate middleware
+else
+    source venv/bin/activate;
+fi
