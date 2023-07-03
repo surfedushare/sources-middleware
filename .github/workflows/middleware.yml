@@ -46,7 +46,7 @@ jobs:
       - name: Setup Repository
         run: |
           invoke aws.sync-repository-state --no-profile --bucket-prefix=pol-prod
-          invoke prepare-builds
+          invoke container.prepare-builds
       - name: Run Tests
         run: |
           cd api
