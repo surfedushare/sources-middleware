@@ -33,6 +33,16 @@ class HanzePersonsExtractProcessor(SingleResponseExtractProcessor, PureAPIMixin)
         return True
 
     @classmethod
+    def get_photo_url(cls, node):
+        photo_list = node.get("profilePhotos", None)
+        if not photo_list:
+            return
+        photo_url = photo_list[0].get("url", None)
+        if not photo_url:
+            return
+        return photo_list[0]["url"]
+
+    @classmethod
     def get_job_title(cls, node):
         today = datetime.today()
         for association in node.get("staffOrganizationAssociations", []):
@@ -61,7 +71,7 @@ HanzePersonsExtractProcessor.OBJECTIVE = {
     "themes": lambda node: [],
     "description": lambda node: None,
     "parties": lambda node: [],
-    "photo_url": lambda node: None,
+    "photo_url": HanzePersonsExtractProcessor.get_photo_url,
     "isni": HanzePersonsExtractProcessor.get_isni,
     "dai": lambda node: None,
     "orcid": "$.orcid",

@@ -5,7 +5,7 @@ from commands.postgres.sql import setup_database_statements
 from commands.postgres.sql import insert_django_user_statement
 
 
-@task(name="setup_postgres")
+@task(name="setup")
 def setup_postgres_localhost(ctx):
     """
     Sets up the postgres databases and roles with correct permissions on localhost

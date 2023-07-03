@@ -121,3 +121,7 @@ class TestPersonsExtraction(ExtractorTestCase):
             self.results[1]["job_title"],
             "Missing job titles in staffOrganizationAssociation objects should return None"
         )
+
+    def test_get_photo_url(self):
+        self.assertEqual(self.results[0]["photo_url"], None)
+        self.assertEqual(self.results[1]["photo_url"], "https://testurl/api/.jpeg")
