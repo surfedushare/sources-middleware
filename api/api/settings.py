@@ -49,7 +49,7 @@ SECRET_KEY = environment.secrets.django.secret_key
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = environment.django.debug
 
-DOMAIN = f"sources.{environment.service.env}.publinova.nl"
+DOMAIN = f"sources.{environment.aws.environment_code}.publinova.nl"
 ALLOWED_HOSTS = ["*"]
 
 USE_X_FORWARDED_HOST = True
