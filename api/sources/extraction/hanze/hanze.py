@@ -2,6 +2,9 @@ import os
 from datetime import datetime
 from dateutil.parser import parse as date_parser
 
+from django.conf import settings
+from django.urls import reverse
+
 from sources.extraction.base import SingleResponseExtractProcessor
 from sources.extraction.hanze.research_themes import ASJC_TO_RESEARCH_THEME
 from sources.extraction.pure import PureAPIMixin
@@ -40,7 +43,16 @@ class HanzePersonsExtractProcessor(SingleResponseExtractProcessor, PureAPIMixin)
         photo_url = photo_list[0].get("url", None)
         if not photo_url:
             return
-        return photo_list[0]["url"]
+        file_path_segment = "/nppo/persons/"
+        if file_path_segment not in photo_url:
+            return photo_url  # not dealing with a url we recognize as a file url
+        start = photo_url.index(file_path_segment)
+        file_path = photo_url[start + len(file_path_segment):]
+        proxy_photo_url = reverse("v1:files", kwargs={
+            "source": "hanze",
+            "file_path": file_path
+        })
+        return f"https://{settings.DOMAIN}{proxy_photo_url}"
 
     @classmethod
     def get_job_title(cls, node):
