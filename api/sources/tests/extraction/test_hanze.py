@@ -83,8 +83,8 @@ class TestProjectsExtraction(ExtractorTestCase):
         ])
 
     def test_research_theme(self):
-        self.assertEqual(self.results[1]["research_themes"], ["techniek"])
-        self.assertEqual(self.results[8]["research_themes"], ["economie_management", "ruimtelijkeordening_planning"])
+        self.assertEqual(self.results[0]["research_themes"], [])
+        self.assertEqual(self.results[1]["research_themes"], ["gezondheid"])
 
 
 class TestPersonsExtraction(ExtractorTestCase):
