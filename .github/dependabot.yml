@@ -10,7 +10,7 @@ updates:
       - dependency-name: "*"
         update-types: ["version-update:semver-major"]
 
-  # Maintain dependencies for Harvester (Python)
+  # Maintain dependencies for API (Python)
   - package-ecosystem: "pip"
     directory: "/api"
     schedule:
