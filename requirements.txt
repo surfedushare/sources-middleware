@@ -3,7 +3,7 @@ gitpython==3.1.29
 flake8==6.0.0
 
 # Tools
-ipython==8.2.0
+ipython==8.10.0
 fabric==2.7.0
 ipdb==0.13.3
 wheel==0.37.1
