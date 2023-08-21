@@ -18,7 +18,7 @@ sources:
   sharekit:
     base_url: "https://api.surfsharekit.nl"
   hanze:
-    base_url: "https://hanzetest.azure-api.net"
+    base_url: "https://apimanagement.hanze.nl"
 
 postgres:
   host: "surfpol-edushare.c85na2fjlzol.eu-central-1.rds.amazonaws.com"
