@@ -4,7 +4,7 @@ flake8==6.1.0
 
 # Tools
 ipython==8.14.0
-fabric==2.7.0
+fabric==2.7.1
 ipdb==0.13.13
 wheel==0.41.1
 
