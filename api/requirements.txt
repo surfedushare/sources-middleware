@@ -21,7 +21,7 @@ datagrowth==0.18.0
 
 # Tools
 invoke==1.7.0
-sentry-sdk==1.0.0
+sentry-sdk==1.29.2
 
 # AWS
 awscli==1.29.30
