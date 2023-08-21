@@ -1,6 +1,6 @@
 # Common
 psycopg2-binary==2.9.3
-django==3.2.16
+django==3.2.20
 djangorestframework==3.11.2
 django-cors-headers==3.14.0
 whitenoise==5.1.0
