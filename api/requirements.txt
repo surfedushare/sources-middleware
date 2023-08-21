@@ -25,4 +25,4 @@ sentry-sdk==1.29.2
 # AWS
 awscli==1.29.30
 boto3==1.28.30
-requests-aws4auth==1.0
+requests-aws4auth==1.2.3
