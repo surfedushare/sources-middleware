@@ -176,6 +176,22 @@ class HkuProjectExtractProcessor(SingleResponseExtractProcessor, SinglePageAPIMi
     def get_contacts(cls, node):
         return HkuProjectExtractProcessor.parse_person_property(node, "contact")
 
+    @classmethod
+    def get_persons(cls, node):
+        persons = node.get("persons", {}).get("person", None)
+        if persons is None:
+            return []
+        if isinstance(persons, dict):
+            persons = [persons]
+        return [
+            {
+                "external_id": HkuPersonExtractProcessor.build_person_id(person["person_id"]),
+                "email": person.get("email", None),
+                "name": f"{person['first_name']} {person['last_name']}"
+            }
+            for person in persons
+        ]
+
 
 HkuProjectExtractProcessor.OBJECTIVE = {
     "external_id": HkuProjectExtractProcessor.get_external_id,
@@ -188,7 +204,7 @@ HkuProjectExtractProcessor.OBJECTIVE = {
     "description": "$.description",
     "contacts": HkuProjectExtractProcessor.get_contacts,
     "owners": HkuProjectExtractProcessor.get_owners,
-    "persons": lambda node: [],
+    "persons": HkuProjectExtractProcessor.get_persons,
     "keywords": "$.tags.value",
     "parties": HkuProjectExtractProcessor.get_parties,
     "products": HkuProjectExtractProcessor.get_products,

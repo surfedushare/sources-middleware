@@ -90,3 +90,24 @@ class TestProjectsExtraction(ExtractorTestCase):
                 "name": "Pietje Puk"
             }
         ])
+
+    def test_persons(self):
+        self.assertEqual(self.results[0]["persons"], [
+            {
+                "external_id": "hku:person:6714229",
+                "email": "hello.goodbye@hku.nl",
+                "name": "Hello Goodbye"
+            },
+            {
+                "external_id": "hku:person:6698518",
+                "email": "pietje-puk@hku.nl",
+                "name": "Pietje Puk"
+            }
+        ])
+        self.assertEqual(self.results[1]["persons"], [
+            {
+                "external_id": "hku:person:6699825",
+                "email": "christian.bale@hku.nl",
+                "name": "Christian Bale"
+            }
+        ])
