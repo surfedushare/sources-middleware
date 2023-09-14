@@ -16,7 +16,7 @@ class TestPersonsExtraction(ExtractorTestCase):
         self.assertEqual(self.results[0]["name"], "Pietje Puk")
 
     def test_get_skills(self):
-        self.assertEqual(self.results[0]["skills"], [])
+        self.assertEqual(self.results[0]["skills"], ["skills-yo"])
 
     def test_get_themes(self):
         self.assertEqual(self.results[0]["themes"], ["Taal, Cultuur en Kunsten", "Techniek"])

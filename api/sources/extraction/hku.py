@@ -41,11 +41,13 @@ class HkuPersonExtractProcessor(SingleResponseExtractProcessor, SinglePageAPIMix
 
     @classmethod
     def get_skills(cls, node):
-        return node.get("skills").get("value", [])
+        skills = node.get("skills").get("value", [])
+        return skills if isinstance(skills, list) else [skills]
 
     @classmethod
     def get_themes(cls, node):
-        return node.get("theme").get("value", [])
+        themes = node.get("theme").get("value", [])
+        return themes if isinstance(themes, list) else [themes]
 
 
 HkuPersonExtractProcessor.OBJECTIVE = {
