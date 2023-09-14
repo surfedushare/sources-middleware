@@ -172,11 +172,13 @@ class HkuProjectExtractProcessor(SingleResponseExtractProcessor, SinglePageAPIMi
 
     @classmethod
     def get_owners(cls, node):
-        return HkuProjectExtractProcessor.parse_person_property(node, "owner")
+        persons = HkuProjectExtractProcessor.get_persons(node)
+        return [persons[0]] if len(persons) else []
 
     @classmethod
     def get_contacts(cls, node):
-        return HkuProjectExtractProcessor.parse_person_property(node, "contact")
+        persons = HkuProjectExtractProcessor.get_persons(node)
+        return [persons[0]] if len(persons) else []
 
     @classmethod
     def get_persons(cls, node):

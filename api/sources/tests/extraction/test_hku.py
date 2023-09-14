@@ -63,21 +63,16 @@ class TestProjectsExtraction(ExtractorTestCase):
     def test_lambda_owners(self):
         self.assertEqual(self.results[0]["owners"], [
             {
-                "external_id": None,
-                "email": None,
-                "name": "Pietje Puk"
+                "external_id": "hku:person:6714229",
+                "email": "hello.goodbye@hku.nl",
+                "name": "Hello Goodbye"
             }
         ])
         self.assertEqual(self.results[5]["owners"], [
             {
-                "external_id": None,
-                "email": None,
+                "external_id": "hku:person:6714394",
+                "email": {},
                 "name": "Klaartje Klaar"
-            },
-            {
-                "external_id": None,
-                "email": None,
-                "name": "Pietje Puk"
             }
         ])
         self.assertEqual(self.results[6]["owners"], [])
@@ -85,9 +80,9 @@ class TestProjectsExtraction(ExtractorTestCase):
     def test_lambda_contacts(self):
         self.assertEqual(self.results[5]["contacts"], [
             {
-                "external_id": None,
-                "email": None,
-                "name": "Pietje Puk"
+                "external_id": "hku:person:6714394",
+                "email": {},
+                "name": "Klaartje Klaar"
             }
         ])
 
