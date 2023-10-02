@@ -196,6 +196,11 @@ class HkuProjectExtractProcessor(SingleResponseExtractProcessor, SinglePageAPIMi
             for person in persons
         ]
 
+    @classmethod
+    def get_keywords(cls, node):
+        keywords = node.get("tags").get("value", [])
+        return keywords if isinstance(keywords, list) else [keywords]
+
 
 HkuProjectExtractProcessor.OBJECTIVE = {
     "external_id": HkuProjectExtractProcessor.get_external_id,
@@ -209,7 +214,7 @@ HkuProjectExtractProcessor.OBJECTIVE = {
     "contacts": HkuProjectExtractProcessor.get_contacts,
     "owners": HkuProjectExtractProcessor.get_owners,
     "persons": HkuProjectExtractProcessor.get_persons,
-    "keywords": "$.tags.value",
+    "keywords": HkuProjectExtractProcessor.get_keywords,
     "parties": HkuProjectExtractProcessor.get_parties,
     "products": HkuProjectExtractProcessor.get_products,
     "research_themes": lambda node: [],

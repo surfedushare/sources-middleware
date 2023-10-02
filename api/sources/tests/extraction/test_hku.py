@@ -106,3 +106,11 @@ class TestProjectsExtraction(ExtractorTestCase):
                 "name": "Christian Bale"
             }
         ])
+
+    def test_get_keywords(self):
+        self.assertEqual(self.results[0]["keywords"], [])
+        self.assertEqual(self.results[1]["keywords"], ["interactieve narratieven"])
+        self.assertEqual(self.results[4]["keywords"], [
+            "design thinking",
+            "technologie"
+        ])
