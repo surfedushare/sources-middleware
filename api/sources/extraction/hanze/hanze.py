@@ -43,7 +43,7 @@ class HanzePersonsExtractProcessor(SingleResponseExtractProcessor, PureAPIMixin)
         photo_url = photo_list[0].get("url", None)
         if not photo_url:
             return
-        file_path_segment = "/nppo/persons/"
+        file_path_segment = "/nppo/"
         if file_path_segment not in photo_url:
             return photo_url  # not dealing with a url we recognize as a file url
         start = photo_url.index(file_path_segment)
