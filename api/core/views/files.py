@@ -57,7 +57,7 @@ class ProxyFiles(views.APIView):
             capture_message(message, level="warning")
             return Response(
                 data={"detail": message},
-                status=HTTP_417_EXPECTATION_FAILED
+                status=source_response.status_code
             )
         return StreamingHttpResponse(
             source_response.raw,
