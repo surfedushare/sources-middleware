@@ -1,11 +1,11 @@
 # Development
 gitpython==3.1.32
-flake8==6.1.0
+flake8==7.0.0
 
 # Tools
-ipython==8.14.0
-fabric==2.7.1
+ipython==8.23.0
+fabric==3.2.2
 ipdb==0.13.13
-wheel==0.41.1
+wheel==0.43.0
 
 -r api/requirements.txt

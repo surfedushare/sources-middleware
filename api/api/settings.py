@@ -260,7 +260,7 @@ SOURCES = {
             },
             "projects": None,
             "files": {
-                "url": "/ws/api/research-outputs/{path}",
+                "url": "/ws/api/{path}",
                 "extractor": None
             }
         },
@@ -400,7 +400,7 @@ SOURCES = {
                 "extractor": "HanzePersonsExtractProcessor"
             },
             "files": {
-                "url": "/nppo/research-outputs/{path}",
+                "url": "/nppo/{path}",
                 "extractor": None
             }
         },

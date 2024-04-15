@@ -4,7 +4,7 @@ from django.conf import settings
 from django.shortcuts import get_object_or_404, Http404
 from django.http import StreamingHttpResponse
 from rest_framework import views
-from rest_framework.status import HTTP_422_UNPROCESSABLE_ENTITY, HTTP_200_OK, HTTP_417_EXPECTATION_FAILED
+from rest_framework.status import HTTP_422_UNPROCESSABLE_ENTITY, HTTP_200_OK
 from rest_framework.response import Response
 from rest_framework.exceptions import ValidationError
 from rest_framework.permissions import AllowAny
@@ -57,7 +57,7 @@ class ProxyFiles(views.APIView):
             capture_message(message, level="warning")
             return Response(
                 data={"detail": message},
-                status=HTTP_417_EXPECTATION_FAILED
+                status=source_response.status_code
             )
         return StreamingHttpResponse(
             source_response.raw,
