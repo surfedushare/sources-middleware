@@ -34,17 +34,19 @@ class SiaProjectExtractProcessor(SingleResponseExtractProcessor):
 
     @classmethod
     def get_status(cls, node):
-        match node["status"]:
+        match node.get("status", "Verwijderd"):
             case "Afgerond":
                 return "finished"
+            case "Verwijderd":
+                return "deleted"
             case _:
                 return "unknown"
 
     @classmethod
     def get_parties(cls, node):
-        contact_parties = [{"name": node["contactinformatie"]["naam"]}]
-        network_parties = [{"name": network_party["naam"]} for network_party in node["netwerkleden"]]
-        consortium_parties = [{"name": network_party["naam"]} for network_party in node["consortiumpartners"]]
+        contact_parties = [{"name": node["contactinformatie"]["naam"]}] if node.get("contactinformatie") else []
+        network_parties = [{"name": network_party["naam"]} for network_party in node.get("netwerkleden", [])]
+        consortium_parties = [{"name": network_party["naam"]} for network_party in node.get("consortiumpartners", [])]
         return contact_parties + consortium_parties + network_parties
 
     @classmethod

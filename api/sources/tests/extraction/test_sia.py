@@ -22,9 +22,11 @@ class TestProjectsExtraction(ExtractorTestCase):
 
     def test_get_external_id(self):
         self.assertEqual(self.results[0]["external_id"], "sia:project:315")
+        self.assertEqual(self.results[1]["external_id"], "sia:project:1676")
 
     def test_get_status(self):
         self.assertEqual(self.results[0]["status"], "finished")
+        self.assertEqual(self.results[1]["status"], "deleted")
 
     def test_get_parties(self):
         self.assertEqual(
@@ -55,3 +57,4 @@ class TestProjectsExtraction(ExtractorTestCase):
                 {"name": "Willem II"}
             ]
         )
+        self.assertEqual(self.results[1]["parties"], [], "Expected deleted project to have no parties")
