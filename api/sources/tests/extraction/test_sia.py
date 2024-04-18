@@ -24,6 +24,10 @@ class TestProjectsExtraction(ExtractorTestCase):
         self.assertEqual(self.results[0]["external_id"], "sia:project:315")
         self.assertEqual(self.results[1]["external_id"], "sia:project:1676")
 
+    def test_title(self):
+        self.assertEqual(self.results[0]["title"], "Groin Injury Prevention Study (GRIP)")
+        self.assertEqual(self.results[1]["title"], "", "Publinova expects strings for the title field")
+
     def test_get_status(self):
         self.assertEqual(self.results[0]["status"], "finished")
         self.assertEqual(self.results[1]["status"], "deleted")

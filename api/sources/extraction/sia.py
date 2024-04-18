@@ -33,6 +33,10 @@ class SiaProjectExtractProcessor(SingleResponseExtractProcessor):
         return f"sia:project:{node['id']}"
 
     @classmethod
+    def get_title(cls, node):
+        return node.get("titel") or ""
+
+    @classmethod
     def get_status(cls, node):
         match node.get("status", "Verwijderd"):
             case "Afgerond":
@@ -60,7 +64,7 @@ class SiaProjectExtractProcessor(SingleResponseExtractProcessor):
 
 SiaProjectExtractProcessor.OBJECTIVE = {
     "external_id": SiaProjectExtractProcessor.get_external_id,
-    "title": "$.titel",
+    "title": SiaProjectExtractProcessor.get_title,
     "status": SiaProjectExtractProcessor.get_status,
     "started_at": "$.startdatum",
     "ended_at": "$.einddatum",
