@@ -1,5 +1,5 @@
 # Development
-gitpython==3.1.32
+gitpython==3.1.43
 flake8==7.0.0
 
 # Tools
