@@ -18,6 +18,14 @@ class TestPersonsExtraction(ExtractorTestCase):
     def test_get_name(self):
         self.assertEqual(self.results[0]["name"], "F Maggie")
 
+    def test_get_description(self):
+        self.assertIsNone(self.results[0]["description"])
+        self.assertTrue(
+            self.results[1]["description"].startswith(
+                "<p><strong>Oscar Bastiaens</strong> (1990) is a researcher and lecturer"
+            )
+        )
+
     def test_get_photo_url(self):
         self.assertIsNone(self.results[0]["photo_url"])
         self.assertEqual(self.results[1]["photo_url"], "https://pure.buas.nl/ws/files/251152/Bassie_Ozzie.jpg")

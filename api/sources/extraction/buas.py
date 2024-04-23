@@ -1,3 +1,5 @@
+import os
+
 from datetime import datetime
 from dateutil.parser import parse as date_parser
 
@@ -8,8 +10,20 @@ from sources.extraction.pure import PureAPIMixin
 class BuasPersonExtractProcessor(SingleResponseExtractProcessor, PureAPIMixin):
 
     @classmethod
+    def parse_profile_information(cls, node, info_type):
+        for profile_information in node.get("profileInformations", []):
+            profile_information_uri = profile_information.get("type").get("uri")
+            _, profile_information_type = os.path.split(profile_information_uri)
+            if profile_information_type == info_type:
+                return profile_information.get("value").get("text")[0].get("value")
+
+    @classmethod
     def get_name(cls, node):
         return f"{node['name']['firstName']} {node['name']['lastName']}"
+
+    @classmethod
+    def get_description(cls, node):
+        return cls.parse_profile_information(node, "researchinterests")
 
     @classmethod
     def get_is_employed(cls, node):
@@ -58,7 +72,7 @@ BuasPersonExtractProcessor.OBJECTIVE = {
     "phone": lambda node: None,
     "skills": lambda node: [],
     "themes": lambda node: [],
-    "description": lambda node: None,
+    "description": BuasPersonExtractProcessor.get_description,
     "parties": lambda node: [],
     "photo_url": BuasPersonExtractProcessor.get_photo_url,
     "isni": lambda node: None,
