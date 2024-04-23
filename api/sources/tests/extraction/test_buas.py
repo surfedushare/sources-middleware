@@ -28,9 +28,9 @@ class TestPersonsExtraction(ExtractorTestCase):
 
     def test_get_skills(self):
         self.assertIsNone(self.results[0]["skills"])
-        self.assertEqual(
-            self.results[1]["skills"], "<p>\u00a0Multi-narrative design (transmedia), semiotics, virtual reality</p>"
-        )
+        self.assertEqual(self.results[1]["skills"], [
+            "Multi-narrative design (transmedia)", "semiotics", "virtual reality"
+        ])
 
     def test_get_email(self):
         self.assertIsNone(self.results[0]["email"])

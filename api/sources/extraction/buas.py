@@ -1,7 +1,8 @@
 import os
-
 from datetime import datetime
 from dateutil.parser import parse as date_parser
+
+from django.utils.html import strip_tags
 
 from sources.extraction.base import SingleResponseExtractProcessor
 from sources.extraction.pure import PureAPIMixin
@@ -35,7 +36,11 @@ class BuasPersonExtractProcessor(SingleResponseExtractProcessor, PureAPIMixin):
 
     @classmethod
     def get_skills(cls, node):
-        return cls.parse_profile_information(node, "subjects")
+        raw_skills = cls.parse_profile_information(node, "subjects")
+        if not raw_skills:
+            return
+        skills = strip_tags(raw_skills).split(",")
+        return [skill.strip() for skill in skills]
 
     @classmethod
     def get_email(cls, node):
