@@ -18,6 +18,14 @@ class BuasPersonExtractProcessor(SingleResponseExtractProcessor, PureAPIMixin):
                 return profile_information.get("value").get("text")[0].get("value")
 
     @classmethod
+    def parse_current_staff_association(cls, node):
+        today = datetime.today()
+        for association in node.get("staffOrganisationAssociations", []):
+            end_date = association.get("period", None).get("endDate", None)
+            if not end_date or date_parser(end_date, ignoretz=True) > today:
+                return association
+
+    @classmethod
     def get_name(cls, node):
         return f"{node['name']['firstName']} {node['name']['lastName']}"
 
@@ -30,15 +38,17 @@ class BuasPersonExtractProcessor(SingleResponseExtractProcessor, PureAPIMixin):
         return cls.parse_profile_information(node, "subjects")
 
     @classmethod
+    def get_email(cls, node):
+        staff_association = cls.parse_current_staff_association(node)
+        if not staff_association:
+            return
+        for email in staff_association.get("emails", []):
+            return email.get("value").get("value")
+
+    @classmethod
     def get_is_employed(cls, node):
-        today = datetime.today()
-        for association in node.get("staffOrganisationAssociations", []):
-            end_date = association.get("period", None).get("endDate", None)
-            if not end_date or date_parser(end_date, ignoretz=True) > today:
-                break
-        else:
-            return False
-        return True
+        staff_association = cls.parse_current_staff_association(node)
+        return bool(staff_association)
 
     @classmethod
     def get_photo_url(cls, node):
@@ -72,7 +82,7 @@ BuasPersonExtractProcessor.OBJECTIVE = {
     "prefix": lambda node: None,
     "initials": lambda node: None,
     "title": lambda node: None,
-    "email": lambda node: None,
+    "email": BuasPersonExtractProcessor.get_email,
     "phone": lambda node: None,
     "skills": BuasPersonExtractProcessor.get_skills,
     "themes": lambda node: [],
