@@ -26,6 +26,12 @@ class TestPersonsExtraction(ExtractorTestCase):
             )
         )
 
+    def test_get_skills(self):
+        self.assertIsNone(self.results[0]["skills"])
+        self.assertEqual(
+            self.results[1]["skills"], "<p>\u00a0Multi-narrative design (transmedia), semiotics, virtual reality</p>"
+        )
+
     def test_get_photo_url(self):
         self.assertIsNone(self.results[0]["photo_url"])
         self.assertEqual(self.results[1]["photo_url"], "https://pure.buas.nl/ws/files/251152/Bassie_Ozzie.jpg")

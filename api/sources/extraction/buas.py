@@ -26,6 +26,10 @@ class BuasPersonExtractProcessor(SingleResponseExtractProcessor, PureAPIMixin):
         return cls.parse_profile_information(node, "researchinterests")
 
     @classmethod
+    def get_skills(cls, node):
+        return cls.parse_profile_information(node, "subjects")
+
+    @classmethod
     def get_is_employed(cls, node):
         today = datetime.today()
         for association in node.get("staffOrganisationAssociations", []):
@@ -70,7 +74,7 @@ BuasPersonExtractProcessor.OBJECTIVE = {
     "title": lambda node: None,
     "email": lambda node: None,
     "phone": lambda node: None,
-    "skills": lambda node: [],
+    "skills": BuasPersonExtractProcessor.get_skills,
     "themes": lambda node: [],
     "description": BuasPersonExtractProcessor.get_description,
     "parties": lambda node: [],
