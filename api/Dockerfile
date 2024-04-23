@@ -1,4 +1,4 @@
-FROM python:3.10
+FROM python:3.12
 SHELL ["/bin/bash", "-c"]
 
 RUN apt-get update && apt-get install -y less vim build-essential
@@ -29,7 +29,7 @@ USER app:app
 COPY api/requirements.txt /usr/src/app/
 RUN pip install -U --no-cache-dir --user pip
 RUN pip install wheel
-RUN pip install --no-cache-dir --user uwsgi==2.0.21
+RUN pip install --no-cache-dir --user uwsgi==2.0.24
 RUN pip install --no-cache-dir --user -r requirements.txt
 
 # Copy application
