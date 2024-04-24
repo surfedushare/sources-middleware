@@ -106,7 +106,7 @@ class TestPersonsExtraction(ExtractorTestCase):
 
     def test_get_description(self):
         self.assertEqual(self.results[0]["description"], "Personal profile", "Plain strings should be the description")
-        self.assertEqual(self.results[2]["description"], "Personal profile", "Expected HTML tags to get stripped")
+        self.assertIsNone(self.results[2]["description"], "Expected None if there is no description data")
         self.assertTrue(
             self.results[9]["description"].startswith(
                 "Musicians' biographical learning processes, lifelong and lifewide learning\n\n"

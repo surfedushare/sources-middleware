@@ -45,7 +45,7 @@ class HanzePersonsExtractProcessor(SingleResponseExtractProcessor, PureAPIMixin)
                 continue
             clean_description = strip_tags(description)
             descriptions.append(clean_description)
-        return "\n\n".join(descriptions)
+        return "\n\n".join(descriptions) if descriptions else None
 
     @classmethod
     def get_isni(cls, node):
