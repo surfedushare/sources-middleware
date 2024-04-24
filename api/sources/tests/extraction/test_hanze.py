@@ -104,6 +104,20 @@ class TestPersonsExtraction(ExtractorTestCase):
     def test_get_name(self):
         self.assertEqual(self.results[0]["name"], "Obi-Wan Kenobi")
 
+    def test_get_description(self):
+        self.assertEqual(self.results[0]["description"], "Personal profile", "Plain strings should be the description")
+        self.assertEqual(self.results[2]["description"], "Personal profile", "Expected HTML tags to get stripped")
+        self.assertTrue(
+            self.results[9]["description"].startswith(
+                "Musicians' biographical learning processes, lifelong and lifewide learning\n\n"
+            ),
+            "Expected multiple sections to be joined by two newlines"
+        )
+        self.assertEqual(
+            len(self.results[9]["description"]), 9970,
+            "Expected description concatenations to be long potentially"
+        )
+
     def test_get_isni(self):
         self.assertIsNone(
             self.results[0]["isni"],

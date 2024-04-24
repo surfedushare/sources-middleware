@@ -4,6 +4,7 @@ from dateutil.parser import parse as date_parser
 
 from django.conf import settings
 from django.urls import reverse
+from django.utils.html import strip_tags
 
 from sources.extraction.base import SingleResponseExtractProcessor
 from sources.extraction.hanze.research_themes import FOCUS_AREA_TO_RESEARCH_THEME
@@ -11,9 +12,38 @@ from sources.extraction.pure import PureAPIMixin
 
 
 class HanzePersonsExtractProcessor(SingleResponseExtractProcessor, PureAPIMixin):
+
+    @classmethod
+    def parse_profile_information(cls, node, info_type):
+        for profile_information in node.get("profileInformation", []):
+            profile_information_uri = profile_information.get("type").get("uri")
+            _, profile_information_type = os.path.split(profile_information_uri)
+            if profile_information_type == info_type:
+                texts = profile_information.get("value")
+                return texts.get("nl_NL", next(iter(texts.values())))
+
     @classmethod
     def get_name(cls, node):
         return f"{node['name']['firstName']} {node['name']['lastName']}"
+
+    @classmethod
+    def get_description(cls, node):
+        description_types = [
+            "personal_profile",
+            "researchinterests",
+            "teaching",
+            "url",
+            "professionalinformation",
+            "intellectualproperty",
+        ]
+        descriptions = []
+        for description_type in description_types:
+            description = cls.parse_profile_information(node, description_type)
+            if not description:
+                continue
+            clean_description = strip_tags(description)
+            descriptions.append(clean_description)
+        return "\n\n".join(descriptions)
 
     @classmethod
     def get_isni(cls, node):
@@ -81,7 +111,7 @@ HanzePersonsExtractProcessor.OBJECTIVE = {
     "phone": lambda node: None,
     "skills": lambda node: [],
     "themes": lambda node: [],
-    "description": lambda node: None,
+    "description": HanzePersonsExtractProcessor.get_description,
     "parties": lambda node: [],
     "photo_url": HanzePersonsExtractProcessor.get_photo_url,
     "isni": HanzePersonsExtractProcessor.get_isni,
