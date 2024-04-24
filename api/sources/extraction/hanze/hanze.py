@@ -20,6 +20,8 @@ class HanzePersonsExtractProcessor(SingleResponseExtractProcessor, PureAPIMixin)
             _, profile_information_type = os.path.split(profile_information_uri)
             if profile_information_type == info_type:
                 texts = profile_information.get("value")
+                if texts is None:
+                    continue
                 return texts.get("nl_NL", next(iter(texts.values())))
 
     @classmethod
