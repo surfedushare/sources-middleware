@@ -2,7 +2,7 @@ from sentry_sdk import capture_message
 
 from django.conf import settings
 from django.shortcuts import get_object_or_404, Http404
-from django.http import StreamingHttpResponse
+from django.http import StreamingHttpResponse, HttpResponse
 from rest_framework import views
 from rest_framework.status import HTTP_422_UNPROCESSABLE_ENTITY, HTTP_200_OK
 from rest_framework.response import Response
@@ -45,7 +45,7 @@ class ProxyFiles(views.APIView):
         source_proxy = SourceFileProxy(**settings.SOURCES[source.slug])
         return source, source_proxy, file_path
 
-    def get(self, request, *args, **kwargs):
+    def fetch_source_response(self, request, *args, **kwargs):
         source, source_proxy, file_path = self.validate_request(request, kwargs)
         # See if requested entity can be processed
         if not source.is_allowed("files") or not source_proxy.is_implemented("files"):
@@ -53,14 +53,33 @@ class ProxyFiles(views.APIView):
         # Return paginated results by parsing the cursor
         source_response = source_proxy.fetch("files", path=file_path)
         if not source_response.status_code == HTTP_200_OK:
-            message = f"Source responded with {source_response.status_code}: {source_response.reason}"
+            message = f"Source fetch responded with {source_response.status_code}: {source_response.reason}"
             capture_message(message, level="warning")
-            return Response(
-                data={"detail": message},
-                status=source_response.status_code
-            )
+            return Response(data={"detail": message}, status=source_response.status_code), source_response.status_code
+        return source_response, 0
+
+    def get(self, request, *args, **kwargs):
+        source_response, error_code = self.fetch_source_response(request, *args, **kwargs)
+        if error_code:
+            return source_response
         return StreamingHttpResponse(
             source_response.raw,
+            content_type=source_response.headers.get('content-type'),
+            status=source_response.status_code,
+            reason=source_response.reason
+        )
+
+    def head(self, request, *args, **kwargs):
+        """
+        HEAD requests are made by the harvester.
+        However Pure doesn't support HEAD request.
+        This method emulates a HEAD request by ignoring the response body.
+        """
+        source_response, error_code = self.fetch_source_response(request, *args, **kwargs)
+        if error_code:
+            return source_response
+        return HttpResponse(
+            "",
             content_type=source_response.headers.get('content-type'),
             status=source_response.status_code,
             reason=source_response.reason

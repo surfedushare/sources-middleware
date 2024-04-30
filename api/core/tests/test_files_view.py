@@ -27,6 +27,12 @@ class TestProxyFilesView(TestCase):
             "Expected to proxy rest_framework/js/default.js which contains jQuery for the rest_framework HTML pages"
         )
 
+    def test_head_file(self):
+        response = self.client.head("/api/v1/files/mock/js/default.js")
+        self.assertEqual(response.status_code, 200)
+        self.assertFalse(response.streaming)
+        self.assertEqual(response.content, b"")
+
     def test_get_relative_file(self):
         response = self.client.get("/api/v1/files/mock/../accessing/private/file.pem")
         self.assertEqual(response.status_code, 400)
