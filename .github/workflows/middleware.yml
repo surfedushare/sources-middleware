@@ -51,5 +51,6 @@ jobs:
         run: |
           cd api
           python manage.py runserver 8080 &
+          cd ..
           sleep 120
-          python manage.py test
+          invoke test.run
