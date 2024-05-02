@@ -5,3 +5,4 @@ from sources.extraction.buas import BuasPersonExtractProcessor, BuasProjectExtra
 from sources.extraction.sharekit import SharekitPersonExtractProcessor
 from sources.extraction.sia import SiaProjectExtractProcessor
 from sources.extraction.hanze import HanzeProjectExtractProcessor, HanzePersonsExtractProcessor
+from sources.extraction.hu import HUPersonExtractProcessor, HUProjectExtractProcessor

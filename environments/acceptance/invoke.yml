@@ -19,6 +19,8 @@ sources:
     base_url: "https://api.acc.surfsharekit.nl"
   hanze:
     base_url: "https://apimanagement.hanze.nl"
+  hu:
+    base_url: "https://acceptatie.hu.nl"
 
 postgres:
   host: "surfpol-edushare.cikhmbah79es.eu-central-1.rds.amazonaws.com"

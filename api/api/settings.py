@@ -417,7 +417,30 @@ SOURCES = {
                 "size": 100
             })
         }
-    }
+    },
+    "hu": {
+        "base": {
+            "url": environment.sources.hu.base_url,
+            "headers": {},
+            "parameters": {}
+        },
+        "endpoints": {
+            "persons": {
+                "url": "/api/publinova/persons",
+                "extractor": "HUPersonExtractProcessor"
+            },
+            "projects": {
+                "url": "/api/publinova/projects",
+                "extractor": "HUProjectExtractProcessor"
+            }
+        },
+        "auth": {
+            "type": AuthenticationTypes.API_KEY_HEADER,
+            "header": "apiKey",
+            "token": environment.secrets.hu.api_key,
+        },
+        "pagination": {}
+    },
 }
 # Add the mock to SOURCES
 SOURCES.update({

@@ -60,5 +60,8 @@ AWS_SECRET_CONFIGURATIONS = {
     "sia": {
         "api_key": "arn:aws:secretsmanager:eu-central-1:{account}:secret:credentials/sia",
         "contact_email": "arn:aws:secretsmanager:eu-central-1:{account}:secret:credentials/sia"
-    }
+    },
+    "hu": {
+        "api_key": "arn:aws:secretsmanager:eu-central-1:{account}:secret:credentials/hu",
+    },
 }
