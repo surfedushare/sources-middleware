@@ -23,6 +23,7 @@ class TestSourceProxy(TestCase):
     }
     auth = {
         "type": AuthenticationTypes.API_KEY_HEADER,
+        "header": "api-key",
         "token": "access"
     }
     pagination = {

@@ -266,6 +266,7 @@ SOURCES = {
         },
         "auth": {
             "type": AuthenticationTypes.API_KEY_HEADER,
+            "header": "api-key",
             "token": environment.secrets.hva.api_key
         },
         "pagination": {
@@ -318,6 +319,7 @@ SOURCES = {
         },
         "auth": {
             "type": AuthenticationTypes.API_KEY_HEADER,
+            "header": "api-key",
             "token": environment.secrets.buas.api_key
         },
         "pagination": {

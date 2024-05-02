@@ -50,7 +50,7 @@ class SourceProxy(object):
     def _apply_request_authentication(self, request):
         if self.auth["type"] == AuthenticationTypes.API_KEY_HEADER:
             request.headers.update({
-                "api-key": self.auth["token"]
+                self.auth["header"]: self.auth["token"]
             })
         elif self.auth["type"] == AuthenticationTypes.BEARER_TOKEN_HEADER:
             request.headers.update({
