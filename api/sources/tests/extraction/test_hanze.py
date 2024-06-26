@@ -139,3 +139,10 @@ class TestPersonsExtraction(ExtractorTestCase):
     def test_get_photo_url(self):
         self.assertEqual(self.results[0]["photo_url"], None)
         self.assertEqual(self.results[1]["photo_url"], "https://testurl/api/.jpeg")
+
+    def test_get_skill(self):
+        self.assertEqual(self.results[0]["skills"], [])
+        self.assertEqual(self.results[1]["skills"], [
+            "intercultural communication",
+            "Intercultural Competence Development"
+        ])

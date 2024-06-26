@@ -29,6 +29,15 @@ class HanzePersonsExtractProcessor(SingleResponseExtractProcessor, PureAPIMixin)
         return f"{node['name']['firstName']} {node['name']['lastName']}"
 
     @classmethod
+    def get_skills(cls, node):
+        skills = []
+        for groups in node.get("keywordGroups", []):
+            for container in groups.get("keywordContainers", []):
+                for keyword_object in container.get("freeKeywords", []):
+                    skills += keyword_object.get("freeKeywords", [])
+        return skills
+
+    @classmethod
     def get_description(cls, node):
         description_types = [
             "personal_profile",
@@ -111,7 +120,7 @@ HanzePersonsExtractProcessor.OBJECTIVE = {
     "title": lambda node: None,
     "email": "$.user.email",
     "phone": lambda node: None,
-    "skills": lambda node: [],
+    "skills": HanzePersonsExtractProcessor.get_skills,
     "themes": lambda node: [],
     "description": HanzePersonsExtractProcessor.get_description,
     "parties": lambda node: [],
