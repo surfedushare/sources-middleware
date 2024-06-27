@@ -106,6 +106,10 @@ class TestPersonsExtraction(ExtractorTestCase):
 
     def test_get_description(self):
         self.assertEqual(self.results[0]["description"], "Personal profile", "Plain strings should be the description")
+        self.assertTrue(
+            self.results[1]["description"].endswith("\nMaster of Science"),
+            "Expected academic qualifications to be added at end of description as list with single newlines"
+        )
         self.assertIsNone(self.results[2]["description"], "Expected None if there is no description data")
         self.assertTrue(
             self.results[9]["description"].startswith(
@@ -139,3 +143,10 @@ class TestPersonsExtraction(ExtractorTestCase):
     def test_get_photo_url(self):
         self.assertEqual(self.results[0]["photo_url"], None)
         self.assertEqual(self.results[1]["photo_url"], "https://testurl/api/.jpeg")
+
+    def test_get_skill(self):
+        self.assertEqual(self.results[0]["skills"], [])
+        self.assertEqual(self.results[1]["skills"], [
+            "intercultural communication",
+            "Intercultural Competence Development"
+        ])

@@ -7,8 +7,7 @@ from core.models import Source
 class TestProxyFilesView(TestCase):
 
     @classmethod
-    def setUpClass(cls):
-        super().setUpClass()
+    def setUpTestData(cls):
         Source.objects.create(name="Mock", slug="mock", proxy_files=True, entities={
             entity: {
                 "is_available": True,

@@ -29,6 +29,15 @@ class HanzePersonsExtractProcessor(SingleResponseExtractProcessor, PureAPIMixin)
         return f"{node['name']['firstName']} {node['name']['lastName']}"
 
     @classmethod
+    def get_skills(cls, node):
+        skills = []
+        for groups in node.get("keywordGroups", []):
+            for container in groups.get("keywordContainers", []):
+                for keyword_object in container.get("freeKeywords", []):
+                    skills += keyword_object.get("freeKeywords", [])
+        return skills
+
+    @classmethod
     def get_description(cls, node):
         description_types = [
             "personal_profile",
@@ -45,6 +54,19 @@ class HanzePersonsExtractProcessor(SingleResponseExtractProcessor, PureAPIMixin)
                 continue
             clean_description = strip_tags(description)
             descriptions.append(clean_description)
+        # Add academic qualifications as a list of titles
+        academic_qualifications = []
+        for qualification in node.get("academicQualifications", []):
+            if "qualification" not in qualification:
+                continue
+            texts = qualification["qualification"].get("term")
+            if not texts:
+                continue
+            academic_qualification = texts.get("nl_NL", next(iter(texts.values())))
+            academic_qualifications.append(academic_qualification)
+        if academic_qualifications:
+            descriptions.append("\n".join(academic_qualifications))
+        # Merge profile information with academic qualifications
         return "\n\n".join(descriptions) if descriptions else None
 
     @classmethod
@@ -111,7 +133,7 @@ HanzePersonsExtractProcessor.OBJECTIVE = {
     "title": lambda node: None,
     "email": "$.user.email",
     "phone": lambda node: None,
-    "skills": lambda node: [],
+    "skills": HanzePersonsExtractProcessor.get_skills,
     "themes": lambda node: [],
     "description": HanzePersonsExtractProcessor.get_description,
     "parties": lambda node: [],
