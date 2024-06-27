@@ -8,8 +8,7 @@ from core.models import Source
 class TestEntitiesView(TestCase):
 
     @classmethod
-    def setUpClass(cls):
-        super().setUpClass()
+    def setUpTestData(cls):
         Source.objects.create(name="Mock", slug="mock", entities={
             entity: {
                 "is_available": True,
