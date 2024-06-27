@@ -390,7 +390,16 @@ SOURCES = {
             "headers": {
                 "accept": "application/json"
             },
-            "parameters": {}
+            "parameters": {},
+            "resources": {
+                "persons": {
+                    "user": {
+                        "url": "/nppo/users",
+                        "resource_id": "$.user.uuid",
+                        "results_path": "$.items",
+                    }
+                }
+            }
         },
         "endpoints": {
             "projects": {
