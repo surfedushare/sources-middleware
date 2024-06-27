@@ -54,6 +54,19 @@ class HanzePersonsExtractProcessor(SingleResponseExtractProcessor, PureAPIMixin)
                 continue
             clean_description = strip_tags(description)
             descriptions.append(clean_description)
+        # Add academic qualifications as a list of titles
+        academic_qualifications = []
+        for qualification in node.get("academicQualifications", []):
+            if "qualification" not in qualification:
+                continue
+            texts = qualification["qualification"].get("term")
+            if not texts:
+                continue
+            academic_qualification = texts.get("nl_NL", next(iter(texts.values())))
+            academic_qualifications.append(academic_qualification)
+        if academic_qualifications:
+            descriptions.append("\n".join(academic_qualifications))
+        # Merge profile information with academic qualifications
         return "\n\n".join(descriptions) if descriptions else None
 
     @classmethod

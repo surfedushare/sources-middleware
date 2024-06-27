@@ -106,6 +106,10 @@ class TestPersonsExtraction(ExtractorTestCase):
 
     def test_get_description(self):
         self.assertEqual(self.results[0]["description"], "Personal profile", "Plain strings should be the description")
+        self.assertTrue(
+            self.results[1]["description"].endswith("\nMaster of Science"),
+            "Expected academic qualifications to be added at end of description as list with single newlines"
+        )
         self.assertIsNone(self.results[2]["description"], "Expected None if there is no description data")
         self.assertTrue(
             self.results[9]["description"].startswith(
