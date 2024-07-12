@@ -21,6 +21,9 @@ class TestPersonsExtraction(ExtractorTestCase):
     def test_get_themes(self):
         self.assertEqual(self.results[0]["themes"], ["Taal, Cultuur en Kunsten", "Techniek"])
 
+    def test_get_orcid(self):
+        self.assertEqual(self.results[0]["orcid"], "0000-0000-0000-0001")
+
 
 class TestProjectsExtraction(ExtractorTestCase):
 

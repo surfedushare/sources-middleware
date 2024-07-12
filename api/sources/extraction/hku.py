@@ -35,6 +35,10 @@ class HkuPersonExtractProcessor(SingleResponseExtractProcessor, SinglePageAPIMix
         return cls.build_person_id(identifier)
 
     @classmethod
+    def get_orcid(cls, node):
+        return node["ORCID"] or None
+
+    @classmethod
     def get_name(cls, node):
         names = [node["first_name"], node["prefix"], node["last_name"]]
         return " ".join([name for name in names if name])
@@ -67,7 +71,7 @@ HkuPersonExtractProcessor.OBJECTIVE = {
     "photo_url": "$.photo_url.transcoded",
     "isni": lambda node: None,
     "dai": lambda node: None,
-    "orcid": lambda node: None,
+    "orcid": HkuPersonExtractProcessor.get_orcid,
     "is_employed": lambda node: None,
     "job_title": lambda node: None,
     "research_themes": lambda node: [],
