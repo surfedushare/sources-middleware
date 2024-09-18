@@ -22,13 +22,13 @@ HUPersonExtractProcessor.OBJECTIVE = {
     "themes": "$.themes",
     "description": "$.description",
     "parties": "$.parties",
-    "photo_url": "$.photo_url",
     "isni": "$.isni",
     "dai": "$.dai",
     "orcid": "$.orcid",
     "is_employed": "$.is_employed",
     "job_title": "$.job_title",
     "research_themes": "$.research_themes",
+    "photo_url": "$.photo_url",
 }
 
 

@@ -165,4 +165,5 @@ BuasProjectExtractProcessor.OBJECTIVE = {
     "parties": BuasProjectExtractProcessor.get_parties,
     "products": BuasProjectExtractProcessor.get_products,
     "research_themes": lambda node: [],
+    "photo_url": lambda node: None,
 }

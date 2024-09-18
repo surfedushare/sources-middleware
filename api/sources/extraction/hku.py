@@ -222,4 +222,5 @@ HkuProjectExtractProcessor.OBJECTIVE = {
     "parties": HkuProjectExtractProcessor.get_parties,
     "products": HkuProjectExtractProcessor.get_products,
     "research_themes": lambda node: [],
+    "photo_url": lambda node: None,
 }

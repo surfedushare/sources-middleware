@@ -60,11 +60,11 @@ HvaPersonExtractProcessor.OBJECTIVE = {
     "themes": lambda node: [],
     "description": lambda node: None,
     "parties": lambda node: [],
-    "photo_url": lambda node: None,
     "isni": HvaPersonExtractProcessor.get_isni,
     "dai": lambda node: None,
     "orcid": "$.orcid",
     "is_employed": HvaPersonExtractProcessor.get_is_employed,
     "job_title": HvaPersonExtractProcessor.get_job_title,
     "research_themes": lambda node: [],
+    "photo_url": lambda node: None,
 }
