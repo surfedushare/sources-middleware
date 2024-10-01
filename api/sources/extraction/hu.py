@@ -60,5 +60,6 @@ HUProjectExtractProcessor.OBJECTIVE = {
     "keywords": "$.keywords",
     "parties": "$.parties",
     "products": "$.products",
-    "research_themes": "$.research_themes"
+    "research_themes": "$.research_themes",
+    "photo_url": "$.photo_url",
 }

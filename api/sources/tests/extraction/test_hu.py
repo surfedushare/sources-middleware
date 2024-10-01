@@ -55,3 +55,10 @@ class TestProjectsExtraction(ExtractorTestCase):
 
     def test_get_ended_at(self):
         self.assertEqual(self.results[0]["ended_at"], "2020-12-22")
+
+    def test_get_photo_url(self):
+        self.assertEqual(
+            self.results[0]["photo_url"],
+            "https://acceptatie.hu.nl/-/media/hu/afbeeldingen/onderzoek/projecten/360-graden-newsroom.ashx"
+        )
+        self.assertIsNone(self.results[1]["photo_url"])
