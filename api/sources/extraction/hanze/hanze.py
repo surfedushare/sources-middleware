@@ -157,8 +157,8 @@ class HanzeProjectExtractProcessor(SingleResponseExtractProcessor, PureAPIMixin)
         if not period:
             return "unknown"
         today = now()
-        ended_at = date_parser(period["endDate"]).replace(tzinfo=UTC) if period["endDate"] else None
-        started_at = date_parser(period["startDate"]).replace(tzinfo=UTC) if period["startDate"] else None
+        ended_at = date_parser(period["endDate"]).replace(tzinfo=UTC) if period.get("endDate") else None
+        started_at = date_parser(period["startDate"]).replace(tzinfo=UTC) if period.get("startDate") else None
         if started_at and started_at > today:
             return "preparing"
         elif ended_at and ended_at > today or not ended_at and started_at:
