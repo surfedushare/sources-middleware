@@ -1,11 +1,12 @@
 import os
-from datetime import datetime
+from datetime import datetime, UTC
 from dateutil.parser import parse as date_parser
 from hashlib import sha1
 
 from django.conf import settings
 from django.urls import reverse
 from django.utils.html import strip_tags
+from django.utils.timezone import now
 
 from sources.extraction.base import SingleResponseExtractProcessor
 from sources.extraction.hanze.research_themes import FOCUS_AREA_TO_RESEARCH_THEME
@@ -152,9 +153,20 @@ class HanzeProjectExtractProcessor(SingleResponseExtractProcessor, PureAPIMixin)
 
     @classmethod
     def get_status(cls, node):
-        today = datetime.today()
-        end_date = node.get("period", {}).get("endDate")
-        return "ongoing" if not end_date or today <= date_parser(end_date) else "finished"
+        period = node.get("period")
+        if not period:
+            return "unknown"
+        today = now()
+        ended_at = date_parser(period["endDate"]).replace(tzinfo=UTC) if period["endDate"] else None
+        started_at = date_parser(period["startDate"]).replace(tzinfo=UTC) if period["startDate"] else None
+        if started_at and started_at > today:
+            return "preparing"
+        elif ended_at and ended_at > today or not ended_at and started_at:
+            return "ongoing"
+        elif ended_at and ended_at <= today:
+            return "finished"
+        else:
+            return "unknown"
 
     @classmethod
     def get_title(cls, node):

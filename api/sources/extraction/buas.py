@@ -113,6 +113,8 @@ class BuasProjectExtractProcessor(SingleResponseExtractProcessor, PureAPIMixin):
                 return "finished"
             case "RUNNING":
                 return "ongoing"
+            case "NOT_STARTED":
+                return "preparing"
             case _:
                 return "unknown"
 

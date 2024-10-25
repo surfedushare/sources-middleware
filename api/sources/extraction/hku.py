@@ -143,6 +143,8 @@ class HkuProjectExtractProcessor(SingleResponseExtractProcessor, SinglePageAPIMi
                 return "finished"
             case "in uitvoering":
                 return "ongoing"
+            case "in voorbereiding":
+                return "preparing"
             case _:
                 return "unknown"
 

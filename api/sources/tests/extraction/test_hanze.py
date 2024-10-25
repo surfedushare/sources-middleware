@@ -1,3 +1,7 @@
+from datetime import datetime, timedelta
+
+from django.utils.timezone import now
+
 from sources.tests.extraction.base import ExtractorTestCase
 
 
@@ -17,7 +21,46 @@ class TestProjectsExtraction(ExtractorTestCase):
 
     def test_get_status(self):
         self.assertEqual(self.results[0]["status"], "finished")
-        self.assertEqual(self.results[4]["status"], "ongoing")
+        self.assertEqual(self.results[4]["status"], "unknown")
+
+    def test_raw_get_status(self):
+        today = now()
+        yesterday = today - timedelta(days=1)
+        tomorrow = today + timedelta(days=1)
+
+        def build_test_node(start: datetime | None, end: datetime | None):
+            return {
+                "period": {
+                    "startDate": start.strftime("%Y-%m-%d") if start else None,
+                    "endDate": end.strftime("%Y-%m-%d") if end else None,
+                }
+            }
+
+        # Preparing status
+        preparing = build_test_node(tomorrow, tomorrow)
+        self.assertEqual(self.extractor.get_status(preparing), "preparing")
+        preparing_no_end = build_test_node(tomorrow, None)
+        self.assertEqual(self.extractor.get_status(preparing_no_end), "preparing")
+        preparing_invalid = build_test_node(tomorrow, yesterday)
+        self.assertEqual(self.extractor.get_status(preparing_invalid), "preparing")
+
+        # Ongoing status
+        ongoing = build_test_node(yesterday, tomorrow)
+        self.assertEqual(self.extractor.get_status(ongoing), "ongoing")
+        ongoing_no_end = build_test_node(yesterday, None)
+        self.assertEqual(self.extractor.get_status(ongoing_no_end), "ongoing")
+        ongoing_no_start = build_test_node(None, tomorrow)
+        self.assertEqual(self.extractor.get_status(ongoing_no_start), "ongoing")
+
+        # Finished status
+        finished = build_test_node(yesterday, yesterday)
+        self.assertEqual(self.extractor.get_status(finished), "finished")
+        finished_no_start = build_test_node(None, yesterday)
+        self.assertEqual(self.extractor.get_status(finished_no_start), "finished")
+
+        # Unknown status
+        unknown = build_test_node(None, None)
+        self.assertEqual(self.extractor.get_status(unknown), "unknown")
 
     def test_get_title(self):
         self.assertEqual(self.results[0]["title"], "Ontwerpend onderzoek, coproductie in context van krimp\t")

@@ -67,6 +67,7 @@ class TestProjectsExtraction(ExtractorTestCase):
 
     def test_get_status(self):
         self.assertEqual(self.results[0]["status"], "finished")
+        self.assertEqual(self.results[1]["status"], "preparing")
         self.assertEqual(self.results[31]["status"], "ongoing")
 
     def test_get_parties(self):
