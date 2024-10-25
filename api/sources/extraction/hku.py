@@ -205,6 +205,12 @@ class HkuProjectExtractProcessor(SingleResponseExtractProcessor, SinglePageAPIMi
         keywords = node.get("tags").get("value", [])
         return keywords if isinstance(keywords, list) else [keywords]
 
+    @classmethod
+    def get_photo_url(cls, node):
+        photo_url = node.get("header_image", None)
+        photo_url = photo_url or None  # might be an empty object for some reason
+        return photo_url
+
 
 HkuProjectExtractProcessor.OBJECTIVE = {
     "external_id": HkuProjectExtractProcessor.get_external_id,
@@ -222,5 +228,5 @@ HkuProjectExtractProcessor.OBJECTIVE = {
     "parties": HkuProjectExtractProcessor.get_parties,
     "products": HkuProjectExtractProcessor.get_products,
     "research_themes": lambda node: [],
-    "photo_url": lambda node: None,
+    "photo_url": HkuProjectExtractProcessor.get_photo_url,
 }

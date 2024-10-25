@@ -117,3 +117,7 @@ class TestProjectsExtraction(ExtractorTestCase):
             "design thinking",
             "technologie"
         ])
+
+    def test_photo_url(self):
+        self.assertEqual(self.results[0]["photo_url"], "https://octo.hku.nl/octo/repository/getfile?id=S24ERl0W1dk")
+        self.assertIsNone(self.results[1]["photo_url"])
