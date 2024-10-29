@@ -64,11 +64,11 @@ class TestProjectsExtraction(ExtractorTestCase):
 
         # Preparing status
         preparing = build_test_node(tomorrow, tomorrow)
-        self.assertEqual(self.extractor.get_status(preparing), "preparing")
+        self.assertEqual(self.extractor.get_status(preparing), "to be started")
         preparing_no_end = build_test_node(tomorrow, None)
-        self.assertEqual(self.extractor.get_status(preparing_no_end), "preparing")
+        self.assertEqual(self.extractor.get_status(preparing_no_end), "to be started")
         preparing_invalid = build_test_node(tomorrow, yesterday)
-        self.assertEqual(self.extractor.get_status(preparing_invalid), "preparing")
+        self.assertEqual(self.extractor.get_status(preparing_invalid), "to be started")
 
         # Ongoing status
         ongoing = build_test_node(yesterday, tomorrow)

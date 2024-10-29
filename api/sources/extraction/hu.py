@@ -40,7 +40,7 @@ class HUProjectExtractProcessor(SingleResponseExtractProcessor, SinglePageAPIMix
         ended_at = parse_date(node["ended_at"]) if node.get("ended_at") else None
         started_at = parse_date(node["started_at"]) if node.get("started_at") else None
         if started_at and started_at > today:
-            return "preparing"
+            return "to be started"
         elif ended_at and ended_at > today or not ended_at and started_at:
             return "ongoing"
         elif ended_at and ended_at <= today:
