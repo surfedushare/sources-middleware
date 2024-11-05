@@ -1,6 +1,7 @@
 import os
 from datetime import datetime
 from dateutil.parser import parse as date_parser
+from hashlib import sha1
 
 from django.utils.html import strip_tags
 
@@ -112,6 +113,8 @@ class BuasProjectExtractProcessor(SingleResponseExtractProcessor, PureAPIMixin):
                 return "finished"
             case "RUNNING":
                 return "ongoing"
+            case "NOT_STARTED":
+                return "to be started"
             case _:
                 return "unknown"
 
@@ -130,16 +133,26 @@ class BuasProjectExtractProcessor(SingleResponseExtractProcessor, PureAPIMixin):
     def get_persons(cls, node):
         persons = []
         for participant in node.get("participants", []):
-            if "person" in participant:
-                person = participant["person"]
-            elif "externalPerson" in participant:
-                person = participant["externalPerson"]
-            else:
-                continue
+            name = participant.get('name', {})
+            match name:
+                case {"firstName": first_name}:
+                    full_name = f"{first_name} {name['lastName']}"
+                case {"lastName": last_name}:
+                    full_name = last_name
+                case _:
+                    # Contributors with the type: ExternalContributorAssociation sometimes
+                    # do not yield any name or other identity information.
+                    # We skip the (useless) data silently
+                    continue
+            is_external = "externalPerson" in participant
+            person_data = participant.get("person", {}) if not is_external else participant.get("externalPerson", {})
             persons.append({
-                "external_id": person["uuid"],
+                "name": full_name,
                 "email": None,
-                "name": f"{participant['name']['firstName']} {participant['name']['lastName']}"
+                "external_id": person_data.get("uuid",
+                                               f"buas:person:"
+                                               f"{sha1(full_name.encode('utf-8')).hexdigest()}"),
+
             })
         return persons
 

@@ -36,13 +36,17 @@ class HUProjectExtractProcessor(SingleResponseExtractProcessor, SinglePageAPIMix
 
     @classmethod
     def get_status(cls, node):
-        if not node["started_at"]:
-            return "unknown"
         today = datetime.today()
-        ended_at = parse_date(node["ended_at"])
-        if not ended_at:
+        ended_at = parse_date(node["ended_at"]) if node.get("ended_at") else None
+        started_at = parse_date(node["started_at"]) if node.get("started_at") else None
+        if started_at and started_at > today:
+            return "to be started"
+        elif ended_at and ended_at > today or not ended_at and started_at:
             return "ongoing"
-        return "ongoing" if ended_at > today else "finished"
+        elif ended_at and ended_at <= today:
+            return "finished"
+        else:
+            return "unknown"
 
 
 HUProjectExtractProcessor.OBJECTIVE = {

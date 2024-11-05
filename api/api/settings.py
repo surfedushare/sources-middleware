@@ -358,7 +358,7 @@ SOURCES = {
     },
     "sia": {
         "base": {
-            "url": "https://api.nwosia.nl",
+            "url": " https://api.gaustat.nl",
             "headers": {},
             "parameters": {},
             "identifier_list": {
