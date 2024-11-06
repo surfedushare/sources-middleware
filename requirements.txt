@@ -9,7 +9,7 @@ ipdb==0.13.13
 wheel==0.43.0
 pytest==8.2.2
 pytest-django==4.8.0
-pytest-xdist==3.5.0
+pytest-xdist==3.6.1
 devtools==0.12.2
 
 -r api/requirements.txt
