@@ -23,6 +23,6 @@ invoke==2.2.0
 sentry-sdk==1.29.2
 
 # AWS
-awscli==1.35.20
+awscli==1.36.4
 boto3==1.35.54
 requests-aws4auth==1.2.3
