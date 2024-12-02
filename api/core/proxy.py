@@ -1,3 +1,4 @@
+from sentry_sdk import capture_message
 from requests import Session, Request, Response
 from copy import copy
 import json
@@ -152,7 +153,12 @@ class SourceIdentifierListProxy(SourceProxy):
             request = self.build_detail_request(entity, identifier)
             prepared_request = request.prepare()  # NB: cookies or other state is not supported
             response = session.send(prepared_request)
-            results.append(response.json())
+            if response.status_code in [200, 403]:
+                results.append(response.json())
+            else:
+                message = f"Source fetch responded with {response.status_code}: {response.reason}"
+                capture_message(message, level="warning")
+                continue
         data["results"] = results
         io_response = Response()
         io_response.status_code = 200
