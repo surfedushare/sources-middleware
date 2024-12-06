@@ -64,6 +64,16 @@ class TestProjectsExtraction(ExtractorTestCase):
 
     def test_get_title(self):
         self.assertEqual(self.results[0]["title"], "Ontwerpend onderzoek, coproductie in context van krimp\t")
+        self.assertEqual(
+            self.results[1]["title"],
+            "Ph.D -project 'The Impact of the Hospital Environment: "
+            "Understanding the Experience of the Patient Journey'",
+            "Expected English title when Dutch title is missing"
+        )
+        self.assertEqual(
+            self.results[2]["title"], "Water Co-Governance for Sustainable Ecosystems (Nederlands)",
+            "Expected Dutch title to get preference over English title"
+        )
 
     def test_get_description(self):
         self.assertTrue(
@@ -75,7 +85,7 @@ class TestProjectsExtraction(ExtractorTestCase):
             "Expected description to contain project description when keyfindings are present"
         )
         self.assertTrue(
-            self.results[1]["description"].startswith("Patiënten zijn vaak zenuwachtig"),
+            self.results[1]["description"].startswith("Patients very fear. Much sad."),
             "Expected description to start with project description when layman description and keyfindings are missing"
         )
         self.assertNotIn(
@@ -85,6 +95,10 @@ class TestProjectsExtraction(ExtractorTestCase):
         self.assertIsNone(
             self.results[6]["description"],
             "Expected description to be None when no descriptions are present"
+        )
+        self.assertEqual(
+            self.results[2]["description"], "De natuurlijke omgeving is afhankelijk van water",
+            "Expected Dutch description to get preference over English"
         )
 
     def test_get_keywords(self):
@@ -158,16 +172,23 @@ class TestPersonsExtraction(ExtractorTestCase):
             "Expected academic qualifications to be added at end of description as list with single newlines"
         )
         self.assertIsNone(self.results[2]["description"], "Expected None if there is no description data")
-        self.assertTrue(
-            self.results[9]["description"].startswith(
-                "Musicians' biographical learning processes, lifelong and lifewide learning\n\n"
-            ),
+        self.assertIn(
+            "innovative music practices\n\n", self.results[9]["description"],
             "Expected multiple sections to be joined by two newlines"
         )
         self.assertEqual(
-            len(self.results[9]["description"]), 9970,
+            len(self.results[9]["description"]), 10075,
             "Expected description concatenations to be long potentially"
         )
+        expected_description_fragments = [
+            "Musicians' biographical learning processes, lifelong and lifewide learning",
+            "Biographical research into professional musicians, ethnographic research into innovative music practices"
+        ]
+        for description_fragment in expected_description_fragments:
+            self.assertIn(
+                description_fragment, self.results[9]["description"],
+                "Expected descriptions with the same type to be joined together in final descrption"
+            )
 
     def test_get_isni(self):
         self.assertIsNone(
@@ -197,3 +218,7 @@ class TestPersonsExtraction(ExtractorTestCase):
             "intercultural communication",
             "Intercultural Competence Development"
         ])
+
+    def test_phone(self):
+        self.assertIsNone(self.results[0]["phone"])
+        self.assertEqual(self.results[2]["phone"], "+312012345678")
