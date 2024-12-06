@@ -64,6 +64,16 @@ class TestProjectsExtraction(ExtractorTestCase):
 
     def test_get_title(self):
         self.assertEqual(self.results[0]["title"], "Ontwerpend onderzoek, coproductie in context van krimp\t")
+        self.assertEqual(
+            self.results[1]["title"],
+            "Ph.D -project 'The Impact of the Hospital Environment: "
+            "Understanding the Experience of the Patient Journey'",
+            "Expected English title when Dutch title is missing"
+        )
+        self.assertEqual(
+            self.results[2]["title"], "Water Co-Governance for Sustainable Ecosystems (Nederlands)",
+            "Expected Dutch title to get preference over English title"
+        )
 
     def test_get_description(self):
         self.assertTrue(
@@ -75,7 +85,7 @@ class TestProjectsExtraction(ExtractorTestCase):
             "Expected description to contain project description when keyfindings are present"
         )
         self.assertTrue(
-            self.results[1]["description"].startswith("Patiënten zijn vaak zenuwachtig"),
+            self.results[1]["description"].startswith("Patients very fear. Much sad."),
             "Expected description to start with project description when layman description and keyfindings are missing"
         )
         self.assertNotIn(
@@ -85,6 +95,10 @@ class TestProjectsExtraction(ExtractorTestCase):
         self.assertIsNone(
             self.results[6]["description"],
             "Expected description to be None when no descriptions are present"
+        )
+        self.assertEqual(
+            self.results[2]["description"], "De natuurlijke omgeving is afhankelijk van water",
+            "Expected Dutch description to get preference over English"
         )
 
     def test_get_keywords(self):

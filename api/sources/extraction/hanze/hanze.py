@@ -187,21 +187,17 @@ class HanzeProjectExtractProcessor(SingleResponseExtractProcessor, PureAPIMixin)
 
     @classmethod
     def get_title(cls, node):
-        title = node["title"]
-        return list(title.values())[0]
+        return node["title"].get("nl_NL", next(iter(node["title"].values())))
 
     @classmethod
     def get_description(cls, node):
         # Gather all possible descriptions
-        language_code = None
         descriptions = {}
         for description in node["descriptions"]:
             if "value" not in description:
                 continue
-            if language_code is None:
-                language_code = list(description["value"].keys())[0]
             description_type = os.path.split(description["type"]["uri"])[1]
-            description_text = description["value"].get(language_code, None)
+            description_text = description["value"].get("nl_NL", next(iter(description["value"].values())))
             if description_text:
                 descriptions[description_type] = description_text
         # Concatenate different descriptions to be a singular text
