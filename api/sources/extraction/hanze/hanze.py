@@ -16,6 +16,17 @@ from sources.extraction.pure import PureAPIMixin
 class HanzePersonsExtractProcessor(SingleResponseExtractProcessor, PureAPIMixin):
 
     @classmethod
+    def get_valid_staff_organization_association(cls, node):
+        today = datetime.today()
+        for association in node.get("staffOrganizationAssociations", []):
+            end_date = association.get("period", None).get("endDate", None)
+            if not end_date or date_parser(end_date, ignoretz=True) > today:
+                break
+        else:
+            return
+        return association
+
+    @classmethod
     def parse_profile_information(cls, node, info_type):
         for profile_information in node.get("profileInformation", []):
             profile_information_uri = profile_information.get("type").get("uri")
@@ -112,17 +123,23 @@ class HanzePersonsExtractProcessor(SingleResponseExtractProcessor, PureAPIMixin)
 
     @classmethod
     def get_job_title(cls, node):
-        today = datetime.today()
-        for association in node.get("staffOrganizationAssociations", []):
-            end_date = association.get("period", None).get("endDate", None)
-            if not end_date or date_parser(end_date, ignoretz=True) > today:
-                break
-        else:
+        association = cls.get_valid_staff_organization_association(node)
+        if not association:
             return
         job_title_object = association.get("jobTitle", None)
         if not job_title_object:
             return
         return next(iter(job_title_object["term"].values()), None)
+
+    @classmethod
+    def get_phone(cls, node):
+        association = cls.get_valid_staff_organization_association(node)
+        if not association:
+            return
+        phone_numbers = association.get("phoneNumbers", [])
+        if not phone_numbers:
+            return
+        return phone_numbers[0]["value"]
 
 
 HanzePersonsExtractProcessor.OBJECTIVE = {
@@ -134,7 +151,7 @@ HanzePersonsExtractProcessor.OBJECTIVE = {
     "initials": lambda node: None,
     "title": lambda node: None,
     "email": "$.user.email",
-    "phone": lambda node: None,
+    "phone": HanzePersonsExtractProcessor.get_phone,
     "skills": HanzePersonsExtractProcessor.get_skills,
     "themes": lambda node: [],
     "description": HanzePersonsExtractProcessor.get_description,

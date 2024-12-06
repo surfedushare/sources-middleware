@@ -197,3 +197,7 @@ class TestPersonsExtraction(ExtractorTestCase):
             "intercultural communication",
             "Intercultural Competence Development"
         ])
+
+    def test_phone(self):
+        self.assertIsNone(self.results[0]["phone"])
+        self.assertEqual(self.results[2]["phone"], "+312012345678")
