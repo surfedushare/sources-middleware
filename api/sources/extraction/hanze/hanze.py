@@ -16,15 +16,28 @@ from sources.extraction.pure import PureAPIMixin
 class HanzePersonsExtractProcessor(SingleResponseExtractProcessor, PureAPIMixin):
 
     @classmethod
+    def get_valid_staff_organization_association(cls, node):
+        today = datetime.today()
+        for association in node.get("staffOrganizationAssociations", []):
+            end_date = association.get("period", None).get("endDate", None)
+            if not end_date or date_parser(end_date, ignoretz=True) > today:
+                break
+        else:
+            return
+        return association
+
+    @classmethod
     def parse_profile_information(cls, node, info_type):
+        texts = []
         for profile_information in node.get("profileInformation", []):
             profile_information_uri = profile_information.get("type").get("uri")
             _, profile_information_type = os.path.split(profile_information_uri)
             if profile_information_type == info_type:
-                texts = profile_information.get("value")
-                if texts is None:
+                text = profile_information.get("value")
+                if text is None:
                     continue
-                return texts.get("nl_NL", next(iter(texts.values())))
+                texts.append(text.get("nl_NL", next(iter(text.values()))))
+        return texts
 
     @classmethod
     def get_name(cls, node):
@@ -49,13 +62,16 @@ class HanzePersonsExtractProcessor(SingleResponseExtractProcessor, PureAPIMixin)
             "professionalinformation",
             "intellectualproperty",
         ]
-        descriptions = []
+        profile_descriptions = []
         for description_type in description_types:
-            description = cls.parse_profile_information(node, description_type)
-            if not description:
+            descriptions = []
+            raw_descriptions = cls.parse_profile_information(node, description_type)
+            if not raw_descriptions:
                 continue
-            clean_description = strip_tags(description)
-            descriptions.append(clean_description)
+            for description in raw_descriptions:
+                clean_description = strip_tags(description)
+                descriptions.append(clean_description)
+            profile_descriptions.append("\n".join(descriptions))
         # Add academic qualifications as a list of titles
         academic_qualifications = []
         for qualification in node.get("academicQualifications", []):
@@ -67,9 +83,9 @@ class HanzePersonsExtractProcessor(SingleResponseExtractProcessor, PureAPIMixin)
             academic_qualification = texts.get("nl_NL", next(iter(texts.values())))
             academic_qualifications.append(academic_qualification)
         if academic_qualifications:
-            descriptions.append("\n".join(academic_qualifications))
+            profile_descriptions.append("\n".join(academic_qualifications))
         # Merge profile information with academic qualifications
-        return "\n\n".join(descriptions) if descriptions else None
+        return "\n\n".join(profile_descriptions) if profile_descriptions else None
 
     @classmethod
     def get_isni(cls, node):
@@ -112,17 +128,23 @@ class HanzePersonsExtractProcessor(SingleResponseExtractProcessor, PureAPIMixin)
 
     @classmethod
     def get_job_title(cls, node):
-        today = datetime.today()
-        for association in node.get("staffOrganizationAssociations", []):
-            end_date = association.get("period", None).get("endDate", None)
-            if not end_date or date_parser(end_date, ignoretz=True) > today:
-                break
-        else:
+        association = cls.get_valid_staff_organization_association(node)
+        if not association:
             return
         job_title_object = association.get("jobTitle", None)
         if not job_title_object:
             return
         return next(iter(job_title_object["term"].values()), None)
+
+    @classmethod
+    def get_phone(cls, node):
+        association = cls.get_valid_staff_organization_association(node)
+        if not association:
+            return
+        phone_numbers = association.get("phoneNumbers", [])
+        if not phone_numbers:
+            return
+        return phone_numbers[0]["value"]
 
 
 HanzePersonsExtractProcessor.OBJECTIVE = {
@@ -134,7 +156,7 @@ HanzePersonsExtractProcessor.OBJECTIVE = {
     "initials": lambda node: None,
     "title": lambda node: None,
     "email": "$.user.email",
-    "phone": lambda node: None,
+    "phone": HanzePersonsExtractProcessor.get_phone,
     "skills": HanzePersonsExtractProcessor.get_skills,
     "themes": lambda node: [],
     "description": HanzePersonsExtractProcessor.get_description,
@@ -170,21 +192,17 @@ class HanzeProjectExtractProcessor(SingleResponseExtractProcessor, PureAPIMixin)
 
     @classmethod
     def get_title(cls, node):
-        title = node["title"]
-        return list(title.values())[0]
+        return node["title"].get("nl_NL", next(iter(node["title"].values())))
 
     @classmethod
     def get_description(cls, node):
         # Gather all possible descriptions
-        language_code = None
         descriptions = {}
         for description in node["descriptions"]:
             if "value" not in description:
                 continue
-            if language_code is None:
-                language_code = list(description["value"].keys())[0]
             description_type = os.path.split(description["type"]["uri"])[1]
-            description_text = description["value"].get(language_code, None)
+            description_text = description["value"].get("nl_NL", next(iter(description["value"].values())))
             if description_text:
                 descriptions[description_type] = description_text
         # Concatenate different descriptions to be a singular text
