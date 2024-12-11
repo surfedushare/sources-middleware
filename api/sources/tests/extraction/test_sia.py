@@ -62,3 +62,6 @@ class TestProjectsExtraction(ExtractorTestCase):
             ]
         )
         self.assertEqual(self.results[1]["parties"], [], "Expected deleted project to have no parties")
+
+    def test_get_sia_project_reference(self):
+        self.assertEqual(self.results[0]["sia_project_reference"], "2014-01-15M")

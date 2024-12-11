@@ -79,4 +79,5 @@ SiaProjectExtractProcessor.OBJECTIVE = {
     "products": lambda node: [],
     "research_themes": "$.themas",
     "photo_url": lambda node: None,
+    "sia_project_reference": "$.dossiernummer",
 }

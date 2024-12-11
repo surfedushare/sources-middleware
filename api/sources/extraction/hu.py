@@ -66,4 +66,5 @@ HUProjectExtractProcessor.OBJECTIVE = {
     "products": "$.products",
     "research_themes": "$.research_themes",
     "photo_url": "$.photo_url",
+    "sia_project_reference": None,
 }

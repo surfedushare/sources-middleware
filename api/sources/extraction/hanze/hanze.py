@@ -297,4 +297,5 @@ HanzeProjectExtractProcessor.OBJECTIVE = {
     "products": HanzeProjectExtractProcessor.get_products,
     "research_themes": HanzeProjectExtractProcessor.get_research_themes,
     "photo_url": lambda node: None,
+    "sia_project_reference": None,
 }

@@ -231,4 +231,5 @@ HkuProjectExtractProcessor.OBJECTIVE = {
     "products": HkuProjectExtractProcessor.get_products,
     "research_themes": lambda node: [],
     "photo_url": HkuProjectExtractProcessor.get_photo_url,
+    "sia_project_reference": None,
 }
