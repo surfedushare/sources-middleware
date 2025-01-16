@@ -4,7 +4,7 @@ from django.conf import settings
 from django.shortcuts import get_object_or_404, Http404
 from django.urls import reverse
 from rest_framework import views
-from rest_framework.status import HTTP_422_UNPROCESSABLE_ENTITY, HTTP_200_OK, HTTP_417_EXPECTATION_FAILED
+from rest_framework.status import HTTP_422_UNPROCESSABLE_ENTITY, HTTP_200_OK, HTTP_400_BAD_REQUEST
 from rest_framework.response import Response
 
 from api.schema import MiddlewareAPISchema
@@ -68,11 +68,11 @@ class ListEntities(views.APIView):
         # Return paginated results by parsing the cursor
         source_response = source_proxy.fetch(entity, cursor)
         if not source_response.status_code == HTTP_200_OK:
-            message = f"Source responded with {source_response.status_code}: {source_response.reason}"
+            message = f"Source responded with M {source_response.status_code}: {source_response.reason}"
             capture_message(message, level="warning")
             return Response(
                 data={"detail": message},
-                status=HTTP_417_EXPECTATION_FAILED
+                status=HTTP_400_BAD_REQUEST
             )
         source_extractor = source_proxy.build_extractor(entity, source_response)
         source_data = source_extractor.data
