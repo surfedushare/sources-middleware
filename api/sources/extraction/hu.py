@@ -58,6 +58,8 @@ HUProjectExtractProcessor.OBJECTIVE = {
     "coordinates": "$.coordinates",
     "goal": "$.goal",
     "description": "$.description",
+    "approach": "$.approach",
+    "results": "$.results",
     "contacts": "$.contacts",
     "owners": "$.contacts",
     "persons": "$.persons",

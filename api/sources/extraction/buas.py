@@ -171,6 +171,8 @@ BuasProjectExtractProcessor.OBJECTIVE = {
     "coordinates": lambda node: [],
     "goal": lambda node: None,
     "description": "$.descriptions.0.value.text.0.value",
+    "approach": lambda node: None,
+    "results": lambda node: None,
     "contacts": BuasProjectExtractProcessor.get_owners,
     "owners": BuasProjectExtractProcessor.get_owners,
     "persons": BuasProjectExtractProcessor.get_persons,

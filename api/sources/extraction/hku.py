@@ -223,6 +223,8 @@ HkuProjectExtractProcessor.OBJECTIVE = {
     "coordinates": HkuProjectExtractProcessor.get_coordinates,
     "goal": "$.goal",
     "description": "$.description",
+    "approach": lambda node: None,
+    "results": lambda node: None,
     "contacts": HkuProjectExtractProcessor.get_contacts,
     "owners": HkuProjectExtractProcessor.get_owners,
     "persons": HkuProjectExtractProcessor.get_persons,

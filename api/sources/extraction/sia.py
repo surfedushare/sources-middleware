@@ -71,6 +71,8 @@ SiaProjectExtractProcessor.OBJECTIVE = {
     "coordinates": lambda node: [],
     "goal": "$.eindrapportage",
     "description": "$.samenvatting",
+    "approach": lambda node: None,
+    "results": lambda node: None,
     "contacts": SiaProjectExtractProcessor.get_owner_and_contact,
     "owners": SiaProjectExtractProcessor.get_owner_and_contact,
     "persons": lambda node: [],

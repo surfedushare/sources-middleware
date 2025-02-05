@@ -289,6 +289,8 @@ HanzeProjectExtractProcessor.OBJECTIVE = {
     "coordinates": lambda node: [],
     "goal": lambda node: None,
     "description": HanzeProjectExtractProcessor.get_description,
+    "approach": lambda node: None,
+    "results": lambda node: None,
     "contacts": HanzeProjectExtractProcessor.get_owners,
     "owners": HanzeProjectExtractProcessor.get_owners,
     "persons": HanzeProjectExtractProcessor.get_persons,
