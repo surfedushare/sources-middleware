@@ -20,7 +20,7 @@ sources:
   hanze:
     base_url: "https://apimanagement.hanze.nl"
   hu:
-    base_url: "https://acc.hu.cd.sitecore.otahu.nl"
+    base_url: "https://hu.nl"
 
 postgres:
   host: "surfpol-edushare.cikhmbah79es.eu-central-1.rds.amazonaws.com"
